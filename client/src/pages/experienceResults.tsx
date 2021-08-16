@@ -1,21 +1,41 @@
-import ExperienceContainer from '../components/experience'
-import { ExperienceInterface } from '../types/types'
+import Experience from '../components/experience'
+import { useState, useEffect } from 'react'
+import queryString from 'query-string'
+import axios from 'axios'
 
-const mockData: ExperienceInterface = {
-  id: '23123213',
-  title: 'Bungee jumping',
-  description:
-    'jumping off stuff with a rope adn trying not to fall to the ground',
-  image: 'img.jpeg',
-  location: 'barcelona',
-}
+function ExperienceResults(): any {
+  const [experiences, setExperiences] = useState([])
 
-function experienceResults(): any {
+  useEffect(() => {
+    ;(async () => {
+      const options: any = {
+        headers: { 'Content-Type': 'application/json' },
+        method: 'post',
+      }
+      const searchloc = queryString.parse(window.location.search)
+      console.log(searchloc)
+      try {
+        const res = await axios.post(
+          'http://localhost:4001/search-results',
+          searchloc,
+          options,
+        )
+        console.log('SEARCH RESULTS ===>', res.data)
+        setExperiences(res.data)
+      } catch (err) {
+        console.log(err)
+      }
+    })()
+    // eslint-disable-next-line
+  }, [window.location.search])
+
   return (
     <div>
-      <ExperienceContainer experience={mockData}></ExperienceContainer>
+      {experiences.map((x, i) => (
+        <Experience key={i} experience={x} />
+      ))}
     </div>
   )
 }
 
-export default experienceResults
+export default ExperienceResults

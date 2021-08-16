@@ -1,24 +1,22 @@
-import React from 'react'
-import logo from './logo.svg'
+import ExperienceResults from './pages/experienceResults'
 import './App.css'
+import { Experience } from './types/types'
 
-function App() {
+const mockData: Experience = {
+  id: '23123213',
+  title: 'Bungee jumping',
+  description: 'jumping off stuff with a rope',
+  image: 'img.jpeg',
+  location: 'barcelona',
+}
+
+function App(): any {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ExperienceResults
+        experience={mockData}
+        banana={'rama'}
+      ></ExperienceResults>
     </div>
   )
 }

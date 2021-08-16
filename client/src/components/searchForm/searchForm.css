@@ -1,0 +1,23 @@
+.search-form {
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 40vh;
+  width: 100%;
+}
+
+.search-term {
+  background-color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.2em;
+  height: 20px;
+  outline: none;
+  padding: 0.5em 1em;
+  width: 40vw;
+}
+
+::placeholder {
+  color: grey;
+}

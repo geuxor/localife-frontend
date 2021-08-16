@@ -1,5 +1,6 @@
 import ExperienceResults from './pages/experienceResults'
 import './App.css'
+import NavBar from './components/NavBar/NavBar'
 
 function App() {
   return (

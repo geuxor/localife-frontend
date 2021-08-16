@@ -1,0 +1,26 @@
+.experience-container {
+  display: flex;
+  border-radius: 10px;
+  border: 1.5px solid black;
+  width: 50%;
+  height: 100px;
+}
+
+.experience-container2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10em;
+}
+
+.experience-image {
+  background-color: red;
+}
+
+.experience-title {
+  background-color: green;
+}
+
+.experience-description {
+  background-color: blue;
+}

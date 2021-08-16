@@ -1,10 +1,13 @@
 import React from 'react'
 import logo from './logo.svg'
 import './App.css'
+//REMOVE THIS AND OTHER SEARCH FORM CODE BEFORE SAVING
+import SearchForm from './components/searchForm/searchForm'
 
 function App() {
   return (
     <div className="App">
+      <SearchForm />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>

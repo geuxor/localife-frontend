@@ -32,7 +32,7 @@ export default function Map() {
 
     Geocode.setLocationType('APPROXIMATE')
 
-    Geocode.fromAddress('France').then(
+    Geocode.fromAddress('Madrid').then(
       (response) => {
         console.log(response)
         const { lat, lng } = response.results[0].geometry.location

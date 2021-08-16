@@ -1,10 +1,10 @@
 import Experience from '../components/experience'
+import { Props } from '../types/types'
 
-function experienceContainer({ props }: any) {
-  console.log(props)
+function experienceContainer(props: Props): any {
   return (
     <div>
-      <Experience experience={props.experience}></Experience>
+      <Experience experience={props}></Experience>
     </div>
   )
 }

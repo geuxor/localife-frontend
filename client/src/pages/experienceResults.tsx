@@ -1,14 +1,19 @@
 import ExperienceContainer from '../components/experience'
-import { Experience } from '../types/types'
-interface ExperienceResultsProps {
-  experience: Experience
-  banana: String
+import { ExperienceInterface } from '../types/types'
+
+const mockData: ExperienceInterface = {
+  id: '23123213',
+  title: 'Bungee jumping',
+  description:
+    'jumping off stuff with a rope adn trying not to fall to the ground',
+  image: 'img.jpeg',
+  location: 'barcelona',
 }
 
-function experienceResults(props: ExperienceResultsProps): any {
+function experienceResults(): any {
   return (
     <div>
-      <ExperienceContainer experience={props.experience}></ExperienceContainer>
+      <ExperienceContainer experience={mockData}></ExperienceContainer>
     </div>
   )
 }

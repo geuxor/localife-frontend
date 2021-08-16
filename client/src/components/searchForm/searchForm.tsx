@@ -1,24 +1,19 @@
-// import React from 'react'
+import { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import './searchForm.css'
 
 export default function SearchForm() {
+  const history = useHistory()
+  const [location, setLocation] = useState('')
+
   function handleSubmit(e: any) {
-    if (e.key === 'Enter') {
-      // e.preventDefault()
-      console.log(e.target.value)
+    if (e.key === 'Enter' && e) {
+      e.preventDefault()
+      console.log('LOCATION =', location)
+      history.push(`/search-results?location="${location}"`)
+      setLocation('')
+      e.target.value = ''
     }
-    // e.preventDefault()
-    // try {
-    //   if (e.key === 'Enter') {
-    //     if (!e) {
-    //       return
-    //     } else {
-    //       console.log('hello')
-    //     }
-    //   }
-    // } catch (e) {
-    //   console.log(e)
-    // }
   }
 
   return (
@@ -27,7 +22,9 @@ export default function SearchForm() {
         <input
           autoFocus
           className="search-term"
-          // onChange={(e) => console.log(e.target.value)}
+          onChange={(e) => {
+            setLocation(e.target.value)
+          }}
           placeholder=" I want to go to..."
           type="text"
         />

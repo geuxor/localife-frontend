@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   position: absolute;
-  top: 50px;
+  top: 40vh;
   width: 100%;
 }
 
@@ -15,7 +15,7 @@
   height: 20px;
   outline: none;
   padding: 0.5em 1em;
-  width: 50vw;
+  width: 40vw;
 }
 
 ::placeholder {

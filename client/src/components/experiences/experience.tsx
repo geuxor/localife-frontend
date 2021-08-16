@@ -1,4 +1,4 @@
-import { Props } from '../types/types'
+import { Props } from '../../types/types'
 import './experience.css'
 
 function experience(props: Props): any {

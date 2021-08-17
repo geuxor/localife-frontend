@@ -1,5 +1,12 @@
 import SearchForm from '../../components/searchForm/searchForm'
+import './landingPage.css'
 
 export default function LandingPage() {
-  return <SearchForm />
+  return (
+    <>
+      <div className="background-image">
+        <SearchForm />
+      </div>
+    </>
+  )
 }

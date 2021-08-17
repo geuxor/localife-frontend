@@ -10,7 +10,7 @@ export default function SearchForm() {
     if (e.key === 'Enter' && e) {
       e.preventDefault()
       console.log('LOCATION =', location)
-      history.push(`/search-results?location="${location}"`)
+      history.push(`/search-results?location=${location}`)
       setLocation('')
       e.target.value = ''
     }

@@ -1,16 +1,17 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import './NavBar.css'
+import {RootState} from '../../redux/reducers/reducers'
 
 function NavBar() {
   const [currentUser, setCurrentUser] = useState(false)
   const [showLogin, setShowLogin] = useState(false)
   const [showRegister, setShowRegister] = useState(false)
 
-  const store = useSelector((state) => state)
+  const state = useSelector((state: RootState) => state)
 
-  console.log(store)
-  
+  console.log(state.isLoggedIn)
+
   const dispatch = useDispatch()
 
   return (

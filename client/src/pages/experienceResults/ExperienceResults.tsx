@@ -1,9 +1,9 @@
 // import Experience from '../components/experiences/experience'
 import { useState, useEffect } from 'react'
 import queryString from 'query-string'
-import ExperiencesApi from '../apiServices/experiencesApi'
+import ExperiencesApi from '../../apiServices/experiencesApi'
 import './ExperienceResults.css'
-import Card from '../components/Design/Card.component'
+import Card from '../../components/design/Card.component'
 
 function ExperienceResults(): any {
   const [experiences, setExperiences] = useState([])
@@ -15,12 +15,15 @@ function ExperienceResults(): any {
     console.log('searchLocation:', searchQuery)
     ;(async () => {
       try {
-        const searchResults = await ExperiencesApi.searchExperiencesApi(searchQuery)
-        if (searchResults === []) throw new Error(`...nothing found in ${searchQuery.location}`)
+        const searchResults = await ExperiencesApi.searchExperiencesApi(
+          searchQuery,
+        )
+        if (searchResults === [])
+          throw new Error(`...nothing found in ${searchQuery.location}`)
         console.log('SEARCH RESULTS ===>', searchResults)
         setExperiences(searchResults)
-        console.log(experiences.length);
-        
+        console.log(experiences.length)
+
         setLoading(false)
       } catch (err) {
         console.log(err)

@@ -9,12 +9,12 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-        <BrowserRouter>
-          <LandingPage />
-          <Switch>
-            <Route exact path="/search-result" component={ExperienceResults} />
-          </Switch>
-        </BrowserRouter>
+      <BrowserRouter>
+        <LandingPage />
+        <Switch>
+          <Route exact path="/search-results" component={ExperienceResults} />
+        </Switch>
+      </BrowserRouter>
     </div>
   )
 }

@@ -1,11 +1,19 @@
 import React, { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import './NavBar.css'
 import Registration from '../registration/registration'
+import {RootState} from '../../redux/reducers/reducers'
 
 function NavBar() {
   const [currentUser, setCurrentUser] = useState(false)
   const [showLogin, setShowLogin] = useState(false)
   const [showRegister, setShowRegister] = useState(false)
+
+  const state = useSelector((state: RootState) => state)
+
+  console.log(state.isLoggedIn)
+
+  const dispatch = useDispatch()
 
   return (
     <header className="header">

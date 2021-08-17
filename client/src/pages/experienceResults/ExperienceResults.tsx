@@ -1,9 +1,10 @@
 // import Experience from '../components/experiences/experience'
 import { useState, useEffect } from 'react'
 import queryString from 'query-string'
-import ExperiencesApi from '../apiServices/experiencesApi'
+import ExperiencesApi from '../../apiServices/experiencesApi'
 import './ExperienceResults.css'
-import Card from '../components/Design/Card.component'
+import Card from '../../components/design/Card.component'
+import Experience from '../../components/experiences/experience'
 
 function ExperienceResults(): any {
   const [experiences, setExperiences] = useState([])
@@ -15,12 +16,15 @@ function ExperienceResults(): any {
     console.log('searchLocation:', searchQuery)
     ;(async () => {
       try {
-        const searchResults = await ExperiencesApi.searchExperiencesApi(searchQuery)
-        if (searchResults === []) throw new Error(`...nothing found in ${searchQuery.location}`)
+        const searchResults = await ExperiencesApi.searchExperiencesApi(
+          searchQuery,
+        )
+        if (searchResults === [])
+          throw new Error(`...nothing found in ${searchQuery.location}`)
         console.log('SEARCH RESULTS ===>', searchResults)
         setExperiences(searchResults)
-        console.log(experiences.length);
-        
+        console.log(experiences.length)
+
         setLoading(false)
       } catch (err) {
         console.log(err)
@@ -34,7 +38,7 @@ function ExperienceResults(): any {
     <div className="d-flex row pt-5">
       {!loading ? (
         experiences.length !== 0 ? (
-          experiences.map((xp, i) => <Card key={i} experience={xp} />)
+          experiences.map((xp, i) => <Experience key={i} experience={xp} />)
         ) : (
           <div className="pt-5">nothing found...</div>
         )

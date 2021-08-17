@@ -1,18 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
 .registerContainer {
   align-items: center;
-  bottom: 0;
   border-radius: 10px;
   background-color: white;
   display: flex;
   flex-direction: column;
   height: 280px;
   justify-content: space-between;
-  left: 0;
   margin: auto;
   padding: 20px;
   position: absolute;
-  right: 0;
-  top: 0;
   width: 350px;
   z-index: 1;
 }
@@ -25,4 +23,43 @@
 .failure {
   color: red;
   font-size: 12px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  height: 240px;
+  justify-content: space-around;
+  width: 350px;
+}
+
+input,
+textarea {
+  border: none;
+  border-bottom: 1px solid grey;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9em;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: darkgray;
+  font-family: Arial, Helvetica, sans-serif;
+  /* font-size: 1.2em; */
+}
+
+.register-button {
+  background-color: grey;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-family: Staatliches;
+  font-size: 1.25em;
+  padding: 8px;
 }

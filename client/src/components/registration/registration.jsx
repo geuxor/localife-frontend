@@ -34,8 +34,8 @@ export default function Registration() {
       <form onSubmit={handleSubmit}>
         <input type="text" placeholder="First Name" ref={firstNameRef} />
         <input type="text" placeholder="Last Name" ref={lastNameRef} />
-        <input type="email" placeholder="email" ref={emailRef} />
-        <input type="password" placeholder="password" ref={passwordRef} />
+        <input type="email" placeholder="Email" ref={emailRef} />
+        <input type="password" placeholder="Password" ref={passwordRef} />
         <button className="register-button">Register</button>
         {success && (
           <span className="success">

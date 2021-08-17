@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './NavBar.css'
+import Registration from '../registration/registration'
 
 function NavBar() {
   const [currentUser, setCurrentUser] = useState(false)
@@ -41,6 +42,7 @@ function NavBar() {
             {' '}
             <li
               onClick={() => {
+                setShowRegister(true)
                 console.log('register')
               }}
             >
@@ -65,6 +67,7 @@ function NavBar() {
           <a href="#contact">Contact</a>
         </li> */}
       </ul>
+      {showRegister && <Registration />}
     </header>
   )
 }

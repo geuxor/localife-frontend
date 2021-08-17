@@ -1,0 +1,23 @@
+/* Generals resets and unimportant stuff */
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.xp-image {
+  width: 276px;
+  height: 200px;
+  border-radius: 20px;
+  
+}
+.card-product {
+  border-radius: 20px;
+  border: 1px solid grey;
+  margin-top: 28px;
+
+}
+
+.image_overlay {
+  box-shadow: 10px 10px 15px rgba(0, 71, 151, 0.589);
+  border-radius: 10px;
+}

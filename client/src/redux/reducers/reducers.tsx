@@ -2,7 +2,7 @@
 import { SET_USER, SET_LOGIN } from '../actions/actions'
 
 const initialState = {
-  isLoggedin: false,
+  isLoggedIn: false,
   user: {
     firstName: '',
     secondName: '',
@@ -20,9 +20,11 @@ export const reducer = (state = initialState, action) => {
     case SET_LOGIN:
       return {
         ...state,
-        isLoggedin: !state.isLoggedin,
+        isLoggedIn: !state.isLoggedIn,
       }
     default:
       return state
   }
 }
+
+export type RootState = ReturnType<typeof reducer>

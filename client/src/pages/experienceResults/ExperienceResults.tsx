@@ -1,10 +1,10 @@
-// import Experience from '../components/experiences/experience'
 import { useState, useEffect } from 'react'
 import queryString from 'query-string'
 import ExperiencesApi from '../../apiServices/experiencesApi'
 import './ExperienceResults.css'
 import Card from '../../components/design/Card.component'
-import Experience from '../../components/experiences/experience'
+// import Experience from '../../components/experiences/experience'
+import NavBar from '../../components/navBar/NavBar'
 
 function ExperienceResults(): any {
   const [experiences, setExperiences] = useState([])
@@ -35,16 +35,19 @@ function ExperienceResults(): any {
   }, [window.location.search])
 
   return (
-    <div className="d-flex row pt-5">
-      {!loading ? (
-        experiences.length !== 0 ? (
-          experiences.map((xp, i) => <Card key={i} experience={xp} />)
+    <div>
+      <NavBar />
+      <div className="expResults-container">
+        {!loading ? (
+          experiences.length !== 0 ? (
+            experiences.map((xp, i) => <Card key={i} experience={xp} />)
+          ) : (
+            <div className="pt-5">nothing found...</div>
+          )
         ) : (
-          <div className="pt-5">nothing found...</div>
-        )
-      ) : (
-        <div>Loading patiently...</div>
-      )}
+          <div>Loading patiently...</div>
+        )}
+      </div>
     </div>
   )
 }

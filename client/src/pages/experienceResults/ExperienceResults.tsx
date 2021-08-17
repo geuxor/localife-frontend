@@ -4,6 +4,7 @@ import queryString from 'query-string'
 import ExperiencesApi from '../../apiServices/experiencesApi'
 import './ExperienceResults.css'
 import Card from '../../components/design/Card.component'
+import Experience from '../../components/experiences/experience'
 
 function ExperienceResults(): any {
   const [experiences, setExperiences] = useState([])
@@ -37,7 +38,7 @@ function ExperienceResults(): any {
     <div className="d-flex row pt-5">
       {!loading ? (
         experiences.length !== 0 ? (
-          experiences.map((xp, i) => <Card key={i} experience={xp} />)
+          experiences.map((xp, i) => <Experience key={i} experience={xp} />)
         ) : (
           <div className="pt-5">nothing found...</div>
         )

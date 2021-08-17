@@ -1,14 +1,15 @@
 import './App.css'
-<<<<<<< HEAD
-=======
-// import ExperienceResults from './pages/experienceResults/ExperienceResults'
-import './App.css'
-// import LandingPage from './pages/landingPage/landingPage'
-// import { BrowserRouter, Switch, Route } from 'react-router-dom'
->>>>>>> 1c80f678e593df08abef1a1341a4531d92d37d86
+import { BrowserRouter as Router } from 'react-router-dom'
+import Routes from './routes/routes'
 
 function App() {
-  return <div className="App"></div>
+  return (
+    <div className="App">
+      <Router>
+        <Routes />
+      </Router>
+    </div>
+  )
 }
 
 export default App

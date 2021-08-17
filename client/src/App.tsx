@@ -1,3 +1,5 @@
+import LandingPage from './pages/landingPage/landingPage'
+import './App.css'
 import ExperienceResults from './pages/ExperienceResults'
 import './App.css'
 import NavBar from './components/NavBar/NavBar'
@@ -7,11 +9,12 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-        <BrowserRouter>
-          <Switch>
-            <Route exact path="/search-result" component={ExperienceResults} />
-          </Switch>
-        </BrowserRouter>
+      <BrowserRouter>
+        <LandingPage />
+        <Switch>
+          <Route exact path="/search-results" component={ExperienceResults} />
+        </Switch>
+      </BrowserRouter>
     </div>
   )
 }

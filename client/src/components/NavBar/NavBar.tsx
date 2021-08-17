@@ -4,7 +4,7 @@ import './NavBar.css'
 function NavBar() {
   return (
     <header className="header">
-      <a href="" className="logo">
+      <a href="a" className="logo">
         CSS Nav
       </a>
       <input className="menu-btn" type="checkbox" id="menu-btn" />

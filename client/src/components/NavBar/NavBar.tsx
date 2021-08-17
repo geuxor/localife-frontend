@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import './NavBar.css'
+import Registration from '../registration/registration'
 import {RootState} from '../../redux/reducers/reducers'
 
 function NavBar() {
@@ -49,6 +50,7 @@ function NavBar() {
             {' '}
             <li
               onClick={() => {
+                setShowRegister(true)
                 console.log('register')
               }}
             >
@@ -73,6 +75,7 @@ function NavBar() {
           <a href="#contact">Contact</a>
         </li> */}
       </ul>
+      {showRegister && <Registration />}
     </header>
   )
 }

@@ -38,12 +38,12 @@ function ExperienceResults(): any {
     <div className="d-flex row pt-5">
       {!loading ? (
         experiences.length !== 0 ? (
-          experiences.map((xp, i) => <Experience key={i} experience={xp} />)
+          experiences.map((xp, i) => <Card key={i} experience={xp} />)
         ) : (
           <div className="pt-5">nothing found...</div>
         )
       ) : (
-        <div>Loading paciently...</div>
+        <div>Loading patiently...</div>
       )}
     </div>
   )

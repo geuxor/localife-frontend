@@ -12,7 +12,7 @@ function App() {
         <BrowserRouter>
           <LandingPage />
           <Switch>
-            <Route exact path="/search-result" component={ExperienceResults} />
+            <Route exact path="/search-results" component={ExperienceResults} />
           </Switch>
         </BrowserRouter>
     </div>

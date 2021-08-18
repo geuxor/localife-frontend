@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import './NavBar.css'
+import './navBar.css'
 import Registration from '../registration/registration'
 import { RootState } from '../../redux/reducers/reducers'
 import LogIn from '../LogIn/LogIn'

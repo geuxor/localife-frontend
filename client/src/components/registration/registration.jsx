@@ -1,8 +1,10 @@
 import axios from 'axios'
 import { useState, useRef } from 'react'
 import './registration.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
-export default function Registration() {
+export default function Registration({ setShowRegister }) {
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState(false)
   const firstNameRef = useRef()
@@ -31,7 +33,12 @@ export default function Registration() {
 
   return (
     <div className="register-container">
-      <form onSubmit={handleSubmit}>
+      <form className="register" onSubmit={handleSubmit}>
+        <FontAwesomeIcon
+          className="icon"
+          icon={faTimes}
+          onClick={() => setShowRegister(false)}
+        />
         <input type="text" placeholder="First Name" ref={firstNameRef} />
         <input type="text" placeholder="Last Name" ref={lastNameRef} />
         <input type="email" placeholder="Email" ref={emailRef} />

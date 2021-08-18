@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import './NavBar.css'
 import Registration from '../registration/registration'
-import {RootState} from '../../redux/reducers/reducers'
+import { RootState } from '../../redux/reducers/reducers'
 
 function NavBar() {
   const [currentUser, setCurrentUser] = useState(false)
@@ -75,7 +75,7 @@ function NavBar() {
           <a href="#contact">Contact</a>
         </li> */}
       </ul>
-      {showRegister && <Registration />}
+      {showRegister && <Registration setShowRegister={setShowRegister} />}
     </header>
   )
 }

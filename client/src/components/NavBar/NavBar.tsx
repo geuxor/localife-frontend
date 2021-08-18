@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import './NavBar.css'
 import Registration from '../registration/registration'
 import { RootState } from '../../redux/reducers/reducers'
+import LogIn from '../LogIn/LogIn’
+import { SET_USER, SET_LOGIN } from '../../redux/actions/actions'
 
 function NavBar() {
   const [currentUser, setCurrentUser] = useState(false)
@@ -58,23 +60,17 @@ function NavBar() {
             </li>
             <li
               onClick={() => {
+                setShowLogIn(true)
                 setCurrentUser(!currentUser)
-                console.log('log in')
               }}
             >
               <a href="#login">Log in</a>
             </li>
           </ul>
         )}
-
-        {/* <li
-          onClick={() => {
-            console.log('contact')
-          }}
-        >
-          <a href="#contact">Contact</a>
-        </li> */}
+        
       </ul>
+      {showLogIn && <LogIn logInUser={logInUser} setShowLogIn={setShowLogIn} />}
       {showRegister && <Registration setShowRegister={setShowRegister} />}
     </header>
   )

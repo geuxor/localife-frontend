@@ -3,6 +3,7 @@ import './experience.css'
 import { useHistory } from 'react-router'
 
 function Experience(props: Props): any {
+  console.log('exp-page', props)
   const history = useHistory()
   const handleClick = () =>
     history.push(`/result-details/${props.experience.id}`)

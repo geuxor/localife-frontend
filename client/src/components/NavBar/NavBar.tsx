@@ -17,6 +17,7 @@ function NavBar() {
 
   const dispatch = useDispatch()
 
+
   return (
     <header className="header">
       <a href="" className="logo">
@@ -68,7 +69,7 @@ function NavBar() {
             </li>
           </ul>
         )}
-        
+
       </ul>
       {showLogIn && <LogIn logInUser={logInUser} setShowLogIn={setShowLogIn} />}
       {showRegister && <Registration setShowRegister={setShowRegister} />}

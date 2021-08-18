@@ -1,12 +1,11 @@
 import axios from 'axios'
-import { useState, useRef } from 'react'
+import { toast } from 'react-toastify'
+import { useRef } from 'react'
 import './registration.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
 export default function Registration({ setShowRegister, setShowLogIn }) {
-  const [success, setSuccess] = useState(false)
-  const [error, setError] = useState(false)
   const firstNameRef = useRef()
   const lastNameRef = useRef()
   const emailRef = useRef()
@@ -22,14 +21,13 @@ export default function Registration({ setShowRegister, setShowLogIn }) {
     }
     try {
       await axios.post('http://localhost:4001/register', newUser)
-      setError(false)
-      setSuccess(true)
       setShowRegister(false)
       setShowLogIn(true)
-    } catch (e) {
-      console.log(e)
-      setError(true)
-      setSuccess(false)
+      toast.success('You have been succesfully registered!')
+    } catch (err) {
+      console.log(err)
+      if (err.response && err.response.status >= 400)
+        toast.error('Something went wrong!', err.response.data)
     }
   }
 
@@ -46,12 +44,6 @@ export default function Registration({ setShowRegister, setShowLogIn }) {
         <input type="email" placeholder="Email" ref={emailRef} />
         <input type="password" placeholder="Password" ref={passwordRef} />
         <button className="register-button">Register</button>
-        {success && (
-          <span className="success">
-            User successfully created, you may log in!
-          </span>
-        )}
-        {error && <span className="failure">Something went wrong!</span>}
       </form>
     </div>
   )

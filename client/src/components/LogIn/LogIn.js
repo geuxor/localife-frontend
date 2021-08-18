@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { toast } from "react-toastify";
 import './LogIn.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 export default function LogIn({ setShowLogIn }) {
-  const [success, setSuccess] = useState(false)
-  const [error, setError] = useState(false)
   const emailRef = useRef()
   const passwordRef = useRef()
   async function handleSubmit(e) {
@@ -16,12 +15,15 @@ export default function LogIn({ setShowLogIn }) {
     }
     try {
       const res = await axios.post('http://localhost:4001/login', user)
-      setError(false)
-      setSuccess(true)
-    } catch (e) {
-      console.log(e)
-      setError(true)
-      setSuccess(false)
+      console.log('Response from Server:', res)
+      //save res to redux = { email: user.email, firstname: user.firstname, lastname: user.lastname, createdAt: user.createdAt}
+      toast.success("Welcome! You are succesfully logged in!");
+      setShowLogIn(false)
+    } catch (err) {
+      console.log(err)
+      if (err.response && err.response.status >= 400)
+        toast.error("Something went wrong!", err.response.data);
+
     }
   }
   return (
@@ -35,12 +37,6 @@ export default function LogIn({ setShowLogIn }) {
         <input type="email" placeholder="Email" ref={emailRef} />
         <input type="password" placeholder="Password" ref={passwordRef} />
         <button className="register-button">Login</button>
-        {success && (
-          <span className="success">
-            User successfully created, you may log in!
-          </span>
-        )}
-        {error && <span className="failure">Something went wrong!</span>}
       </form>
     </div>
   )

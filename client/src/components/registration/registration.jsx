@@ -1,21 +1,27 @@
-import React, { useState, useEffect, useRef } from 'react'
-import './LogIn.css'
+import axios from 'axios'
+import { useState, useRef } from 'react'
+import './registration.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
-import axios from 'axios'
-export default function LogIn({ setShowLogIn }) {
+
+export default function Registration({ setShowRegister }) {
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState(false)
+  const firstNameRef = useRef()
+  const lastNameRef = useRef()
   const emailRef = useRef()
   const passwordRef = useRef()
-  async function handleSubmit(e) {
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    const user = {
+    const newUser = {
+      firstname: firstNameRef.current.value,
+      lastname: lastNameRef.current.value,
       email: emailRef.current.value,
       password: passwordRef.current.value,
     }
     try {
-      const res = await axios.post('http://localhost:4001/login', user)
+      await axios.post('http://localhost:4001/register', newUser)
       setError(false)
       setSuccess(true)
     } catch (e) {
@@ -24,14 +30,17 @@ export default function LogIn({ setShowLogIn }) {
       setSuccess(false)
     }
   }
+
   return (
     <div className="register-container">
       <form className="register" onSubmit={handleSubmit}>
         <FontAwesomeIcon
           className="icon"
           icon={faTimes}
-          onClick={() => setShowLogIn(false)}
+          onClick={() => setShowRegister(false)}
         />
+        <input type="text" placeholder="First Name" ref={firstNameRef} />
+        <input type="text" placeholder="Last Name" ref={lastNameRef} />
         <input type="email" placeholder="Email" ref={emailRef} />
         <input type="password" placeholder="Password" ref={passwordRef} />
         <button className="register-button">Register</button>

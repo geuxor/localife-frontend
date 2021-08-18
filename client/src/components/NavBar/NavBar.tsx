@@ -13,7 +13,7 @@ function NavBar() {
 
   const state = useSelector((state: RootState) => state)
 
-  console.log(state.isLoggedIn)
+  console.log(state.user)
 
   const dispatch = useDispatch()
 
@@ -39,13 +39,14 @@ function NavBar() {
 
         {/* {'REGISTER'} */}
 
-        {currentUser ? (
+        {state.user.email ? (
           <li
             onClick={() => {
+              setCurrentUser(!currentUser)
               console.log('log out')
             }}
           >
-            <a href="log out">Log out</a>
+            <a href="#logout">Log out</a>
           </li>
         ) : (
           <ul>

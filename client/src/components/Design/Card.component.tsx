@@ -6,13 +6,6 @@ function Card({ experience }) {
   console.log(experience)
   const [overlay, setOverlay] = useState('card-product')
 
-  const handleMouseEnter = () => {
-    setOverlay('card-product image_overlay')
-  }
-  const handleMouseLeave = () => {
-    setOverlay('card-product')
-  }
-
   return (
     <>
       <div className="card">

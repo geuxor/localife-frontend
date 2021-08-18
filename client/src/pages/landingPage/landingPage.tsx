@@ -6,7 +6,6 @@ export default function LandingPage() {
   return (
     <>
       <div className="background-image">
-        <Navbar />
         <SearchForm />
       </div>
     </>

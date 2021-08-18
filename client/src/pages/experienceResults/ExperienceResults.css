@@ -1,7 +1,7 @@
-.expResults-container {
+.exp-container {
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
-  background-color: blue;
   margin-top: 70px;
-  width: 50vh;
+  width: 80vh;
 }

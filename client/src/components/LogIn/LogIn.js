@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { toast } from "react-toastify";
 import './LogIn.css'
+import apiAuth from '../../apiServices/auth'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
-import axios from 'axios'
+
 export default function LogIn({ setShowLogIn }) {
   const emailRef = useRef()
   const passwordRef = useRef()
@@ -14,7 +15,7 @@ export default function LogIn({ setShowLogIn }) {
       password: passwordRef.current.value,
     }
     try {
-      const res = await axios.post('http://localhost:4001/login', user)
+      const res = await apiAuth.loginUser(user)
       console.log('Response from Server:', res)
       //save res to redux = { email: user.email, firstname: user.firstname, lastname: user.lastname, createdAt: user.createdAt}
       toast.success("Welcome! You are succesfully logged in!");

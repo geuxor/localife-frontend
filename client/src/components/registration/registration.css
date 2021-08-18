@@ -15,6 +15,17 @@
   z-index: 1;
 }
 
+.icon {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.register {
+  box-shadow: 5px 8px 15px slategray;
+}
+
 .success {
   color: green;
   font-size: 12px;
@@ -26,11 +37,17 @@
 }
 
 form {
+  background-color: white;
+  border-radius: 25px;
   display: flex;
   flex-direction: column;
   height: 240px;
   justify-content: space-around;
-  width: 350px;
+  width: 42vw;
+  padding: 30px;
+  position: absolute;
+  top: 30vh;
+  right: 30vw;
 }
 
 input,
@@ -54,7 +71,7 @@ textarea::placeholder {
 }
 
 .register-button {
-  background-color: grey;
+  background-color: darkorange;
   border: none;
   border-radius: 5px;
   color: white;

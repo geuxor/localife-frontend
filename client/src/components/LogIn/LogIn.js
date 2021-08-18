@@ -1,23 +1,51 @@
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
+import './LogIn.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import axios from 'axios'
 
-export default function LogIn() {
+export default function LogIn({ logInUser, setShowLogIn }) {
+  const [success, setSuccess] = useState(false)
+  const [error, setError] = useState(false)
+
+  const emailRef = useRef()
+  const passwordRef = useRef()
+
+  async function handleSubmit(e) {
+    e.preventDefault()
+    const user = {
+      email: emailRef.current.value,
+      password: passwordRef.current.value,
+    }
+    try {
+      const res = await axios.post('http://localhost:4001/login', user)
+      setError(false)
+      setSuccess(true)
+    } catch (e) {
+      console.log(e)
+      setError(true)
+      setSuccess(false)
+    }
+  }
+
   return (
-    <form onSumbit={submitHandler}>
-      <div className="form-inner">
-        <h2>LOGIN</h2>
-        <div className="form-group">
-          <label htmlFor="name">Name:</label>
-          <input type="text" name="name" id="name" />
-        </div>
-        <div className="form-group">
-          <label className="email">Email:</label>
-          <input type="email" name="email" id="email" />
-        </div>
-        <div className="form-group">
-          <label className="password">Password:</label>
-          <input type="password" name="password" id="password" />
-        </div>
-      </div>
-    </form>
+    <div className="register-container">
+      <form className="register" onSubmit={handleSubmit}>
+        <FontAwesomeIcon
+          className="icon"
+          icon={faTimes}
+          onClick={() => setShowLogIn(false)}
+        />
+        <input type="email" placeholder="Email" ref={emailRef} />
+        <input type="password" placeholder="Password" ref={passwordRef} />
+        <button className="register-button">Register</button>
+        {success && (
+          <span className="success">
+            User successfully created, you may log in!
+          </span>
+        )}
+        {error && <span className="failure">Something went wrong!</span>}
+      </form>
+    </div>
   )
 }

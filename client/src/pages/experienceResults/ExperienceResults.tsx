@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import queryString from 'query-string'
 import ExperiencesApi from '../../apiServices/experiencesApi'
 import './ExperienceResults.css'
-import Card from '../../components/design/Card.component'
+import Card from '../../components/Design/Card.component'
 import Experience from '../../components/experiences/experience'
 
 function ExperienceResults(): any {

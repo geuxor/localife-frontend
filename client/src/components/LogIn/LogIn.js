@@ -34,7 +34,7 @@ export default function LogIn({ setShowLogIn }) {
         />
         <input type="email" placeholder="Email" ref={emailRef} />
         <input type="password" placeholder="Password" ref={passwordRef} />
-        <button className="register-button">Register</button>
+        <button className="register-button">Login</button>
         {success && (
           <span className="success">
             User successfully created, you may log in!

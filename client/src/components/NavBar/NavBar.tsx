@@ -70,7 +70,12 @@ function NavBar() {
         )}
       </ul>
       {showLogIn && <LogIn setShowLogIn={setShowLogIn} />}
-      {showRegister && <Registration setShowRegister={setShowRegister} />}
+      {showRegister && (
+        <Registration
+          setShowRegister={setShowRegister}
+          setShowLogIn={setShowLogIn}
+        />
+      )}
     </header>
   )
 }

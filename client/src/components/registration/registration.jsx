@@ -4,7 +4,7 @@ import './registration.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
-export default function Registration({ setShowRegister }) {
+export default function Registration({ setShowRegister, setShowLogIn }) {
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState(false)
   const firstNameRef = useRef()
@@ -24,6 +24,8 @@ export default function Registration({ setShowRegister }) {
       await axios.post('http://localhost:4001/register', newUser)
       setError(false)
       setSuccess(true)
+      setShowRegister(false)
+      setShowLogIn(true)
     } catch (e) {
       console.log(e)
       setError(true)

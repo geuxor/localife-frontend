@@ -16,7 +16,7 @@ export default function LogIn({ setShowLogIn }) {
     try {
       const res = await axios.post('http://localhost:4001/login', user)
       console.log('Response from Server:', res)
-      //save res to redux = { email: , firstname: , lastname: , createdAt: , avatar:}
+      //save res to redux => user: { email: , firstname: , lastname: , createdAt: , avatar:}
       toast.success("Welcome! You are succesfully logged in!");
       setShowLogIn(false)
     } catch (err) {

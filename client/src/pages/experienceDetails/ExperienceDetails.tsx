@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { filterExpById } from '../../helpers/helperFunctions'
 import { ExperienceInterface } from '../../types/types'
+import DatePicker from '../../components/datePicker/DatePicker'
 
 function ExperienceDetails(props) {
   const [experience, setExperience] = useState<ExperienceInterface>()
@@ -36,21 +37,9 @@ function ExperienceDetails(props) {
           <div className="details-decription">{experience?.description}</div>
         </div>
         <div className="description-details-container">
-          <div>Booking Box</div>
+          <DatePicker />
         </div>
       </div>
-      {/* <div>sdsd</div>
-      <div>pppp</div>
-      <div className="details-container2">
-        <div className="details-title">{experience?.title}</div>
-        <img
-          src={experience?.image}
-          alt="experience details"
-          className="details-img"
-        />
-        <div>{experience?.description}</div>
-        <div>{experience?.location}</div>
-      </div> */}
     </div>
   )
 }

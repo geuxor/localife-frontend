@@ -1,7 +1,13 @@
 import { Props } from '../../types/types'
 import './experience.css'
+import { useHistory } from 'react-router'
 
-function experience(props: Props): any {
+function Experience(props: Props): any {
+  console.log('exp-page', props)
+  const history = useHistory()
+  const handleClick = () =>
+    history.push(`/result-details/${props.experience.id}`)
+
   return (
     <div className="exp-container2">
       <img
@@ -20,11 +26,17 @@ function experience(props: Props): any {
           <b>
             <span className="exp-price">Eur. {props.experience.price}.00</span>
           </b>
-          <button className="exp-buy-button">Buy Now</button>
+          <button
+            className="exp-buy-button"
+            type="button"
+            onClick={handleClick}
+          >
+            More Info
+          </button>
         </div>
       </div>
     </div>
   )
 }
 
-export default experience
+export default Experience

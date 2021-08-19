@@ -1,5 +1,6 @@
 export const SET_USER = 'SET_USER'
 export const SET_LOGIN = 'SET_LOGIN'
+export const SET_LOGOUT = 'SET_LOGOUT'
 
 //HELPER FUNCTIONS
 export function setUser(user) {
@@ -14,5 +15,11 @@ export function setLogIn() {
     type: {
       type: SET_LOGIN,
     },
+  }
+}
+
+export function setLogout() {
+  return {
+    type: SET_LOGOUT,
   }
 }

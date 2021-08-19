@@ -1,22 +1,23 @@
 import React, { useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import './NavBar.css'
 import Registration from '../registration/registration'
 import { RootState } from '../../redux/reducers/reducers'
 import LogIn from '../LogIn/LogIn'
 import { setLogIn } from '../../redux/actions/actions'
+import { Link } from 'react-router-dom'
 
 function NavBar() {
   const [showLogIn, setShowLogIn] = useState(false)
   const [showRegister, setShowRegister] = useState(false)
 
   const state = useSelector((state: RootState) => state)
-
   const dispatch = useDispatch()
-
+  console.log(state.isLoggedIn)
+  
   return (
     <header className="header">
-      <a href="" className="logo">
+      <a href="/" className="logo">
         Localife
       </a>
       <input className="menu-btn" type="checkbox" id="menu-btn" />
@@ -34,6 +35,7 @@ function NavBar() {
           <a href="#work">About</a>
         </li>
 
+
         {/* {'REGISTER'} */}
 
         {state.user.email ? (
@@ -43,6 +45,9 @@ function NavBar() {
             }}
           >
             <a href="#logout">Log out</a>
+        {currentUser ? (
+          <li>
+            <a href="/logout">Logout</a>
           </li>
         ) : (
           <ul>

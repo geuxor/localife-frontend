@@ -1,5 +1,5 @@
 //ACTIONS
-import { SET_USER, SET_LOGIN } from '../actions/actions'
+import { SET_USER, SET_LOGIN, SET_LOGOUT } from '../actions/actions'
 
 const initialState = {
   isLoggedIn: false,
@@ -24,6 +24,8 @@ export const reducer = (state = initialState, action) => {
         ...state,
         isLoggedIn: !state.isLoggedIn,
       }
+    case SET_LOGOUT:
+      return initialState
     default:
       return state
   }

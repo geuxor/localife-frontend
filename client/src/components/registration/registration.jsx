@@ -1,6 +1,6 @@
-import axios from 'axios'
 import { toast } from 'react-toastify'
 import { useRef } from 'react'
+import apiAuth from '../../apiServices/auth'
 import './registration.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
@@ -20,10 +20,13 @@ export default function Registration({ setShowRegister, setShowLogIn }) {
       password: passwordRef.current.value,
     }
     try {
-      await axios.post('http://localhost:4001/register', newUser)
-      setShowRegister(false)
-      setShowLogIn(true)
-      toast.success('You have been succesfully registered!')
+      const res = await apiAuth.registerUser(newUser)
+      console.log('Response from backend:', res.data)
+      if (res.data === 'ok') {
+        setShowRegister(false)
+        setShowLogIn(true)
+        toast.success('You have been succesfully registered!')
+      }
     } catch (err) {
       console.log(err)
       if (err.response && err.response.status >= 400)

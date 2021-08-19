@@ -1,5 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
 .map {
   position: absolute;
   right: 0;
   top: 50px;
+}
+
+.popup {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  justify-content: space-around;
+  width: 290px;
+}
+
+label {
+  border-bottom: 1px solid coral;
+  color: darkorange;
+  font-size: 1em;
+  font-family: Staatliches;
+  width: max-content;
+}
+
+h4,
+p {
+  margin: 5px 0;
 }

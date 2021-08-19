@@ -3,10 +3,12 @@ import queryString from 'query-string'
 import ExperiencesApi from '../../apiServices/experiencesApi'
 import './ExperienceResults.css'
 import Experience from '../../components/experiences/experience'
+import Map from '../../components/Map/Map'
 
 function ExperienceResults(): any {
   const [experiences, setExperiences] = useState([])
   const [loading, setLoading] = useState(false)
+  console.log(experiences)
 
   useEffect(() => {
     setLoading(true)
@@ -33,19 +35,24 @@ function ExperienceResults(): any {
   }, [window.location.search])
 
   return (
-    <div className="exp-container">
-      <h1>Experiences in Barcelona</h1>
-      <h4>Aug 21st to 28th</h4>
-      {!loading ? (
-        experiences.length !== 0 ? (
-          experiences.map((xp, i) => <Experience key={i} experience={xp} />)
+    <>
+      <div className="exp-container">
+        <h1>Experiences in Barcelona</h1>
+        <h4>Aug 21st to 28th</h4>
+        {!loading ? (
+          experiences.length !== 0 ? (
+            experiences.map((xp, i) => <Experience key={i} experience={xp} />)
+          ) : (
+            <div className="pt-5">nothing found...</div>
+          )
         ) : (
-          <div className="pt-5">nothing found...</div>
-        )
-      ) : (
-        <div>Loading patiently...</div>
-      )}
-    </div>
+          <div>Loading patiently...</div>
+        )}
+      </div>
+      <div className="map-container">
+        <Map />
+      </div>
+    </>
   )
 }
 

@@ -10,6 +10,8 @@ function ExperienceDetails(props) {
   const { id }: { id: string } = useParams()
   const numId = parseInt(id)
 
+  //you delete this
+
   useEffect(() => {
     fetch('http://localhost:4001/experiences')
       .then((response) => response.json())

@@ -56,13 +56,17 @@ export default function Map() {
     })
   }, [location])
 
+  let search = useLocation().search
+  let locationSearch = new URLSearchParams(search).get('location')
+
+  console.log(locationSearch)
+
   useEffect(() => {
     Geocode.setApiKey(process.env.REACT_APP_GEOGOOGLE)
 
     Geocode.setLocationType('APPROXIMATE')
 
-    let search = useLocation().search
-    let locationSearch = new URLSearchParams(search).get('location')
+    
 
     Geocode.fromAddress(locationSearch).then(
       (response) => {

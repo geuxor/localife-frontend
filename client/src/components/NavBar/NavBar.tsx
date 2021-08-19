@@ -5,6 +5,7 @@ import Registration from '../registration/registration'
 import { RootState } from '../../redux/reducers/reducers'
 import LogIn from '../LogIn/LogIn'
 import { setLogIn } from '../../redux/actions/actions'
+import { Link, NavLink } from 'react-router-dom'
 
 function NavBar() {
   const [showLogIn, setShowLogIn] = useState(false)

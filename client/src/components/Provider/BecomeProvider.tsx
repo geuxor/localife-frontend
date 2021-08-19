@@ -1,25 +1,22 @@
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import apiStripe from '../../apiServices/stripe'
+import apiStripe from '../../apiServices/stripeApi'
 import { toast } from 'react-toastify'
-import SpinIcon from '../Design/Spin.component'
+import SpinIcon from '../../components/Design/Spin.component'
+import { RootState } from '../../redux/reducers/reducers'
 
 function BecomeProvider(props) {
   const dispatch = useDispatch()
   const [loading, setLoading] = useState(false)
-  const state = useSelector((state: RootState) => state)
-  console.log(state)
+  const store = useSelector((state: RootState) => state)
 
   useEffect(() => {
     ;(async () => {
       try {
         setLoading(true)
-        console.log(
-          'BecomeProvider: checking stripe conx for',
-          store.isLoggedIn,
-        )
-        let res = await apiStripe.stripeCheckAccount(store)
+        console.log('BecomeProvider: checking stripe conx for', store.user)
+        let res = await apiStripe.stripeCheckAccount(store.user)
         console.log('BecomeProvider: res from stripeCheckAccount', res.data)
         dispatch({
           type: 'LOGGED_IN_USER',
@@ -46,8 +43,11 @@ function BecomeProvider(props) {
     setLoading(true)
     try {
       // get stripe onboarding link
-      console.log('BecomeProvider: gettin stripe onboarding link for ', store)
-      let res = await apiStripe.stripeConnectAccount(store)
+      console.log(
+        'BecomeProvider: gettin stripe onboarding link for ',
+        store.user,
+      )
+      let res = await apiStripe.stripeConnectAccount(store.user)
       console.log('BecomeProvider: res from stripeConnectAccount', res.data)
       window.location.href = res.data
     } catch (err) {
@@ -119,7 +119,7 @@ function BecomeProvider(props) {
 
   return (
     <>
-      <div className="container mt-5 pt-5">
+      <div className="container">
         {loading ? (
           <SpinIcon
             message={'just a few seconds to check your stripe account...'}

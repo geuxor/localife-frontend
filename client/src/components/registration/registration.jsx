@@ -1,12 +1,11 @@
-import axios from 'axios'
-import { useState, useRef } from 'react'
+import { toast } from 'react-toastify'
+import { useRef } from 'react'
+import apiAuth from '../../apiServices/auth'
 import './registration.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
-export default function Registration({ setShowRegister }) {
-  const [success, setSuccess] = useState(false)
-  const [error, setError] = useState(false)
+export default function Registration({ setShowRegister, setShowLogIn }) {
   const firstNameRef = useRef()
   const lastNameRef = useRef()
   const emailRef = useRef()
@@ -21,13 +20,19 @@ export default function Registration({ setShowRegister }) {
       password: passwordRef.current.value,
     }
     try {
-      await axios.post('http://localhost:4001/register', newUser)
-      setError(false)
-      setSuccess(true)
-    } catch (e) {
-      console.log(e)
-      setError(true)
-      setSuccess(false)
+      const res = await apiAuth.registerUser(newUser)
+      console.log('Response from backend:', res.data)
+      if (res.data === 'ok') {
+        setShowRegister(false)
+        setShowLogIn(true)
+        toast.success('You have been succesfully registered!')
+      } else {
+        toast.error(res.data)
+      }
+    } catch (err) {
+      console.log(err)
+      if (err.response && err.response.status >= 400)
+        toast.error('Something went wrong!', err.response.data)
     }
   }
 
@@ -44,12 +49,6 @@ export default function Registration({ setShowRegister }) {
         <input type="email" placeholder="Email" ref={emailRef} />
         <input type="password" placeholder="Password" ref={passwordRef} />
         <button className="register-button">Register</button>
-        {success && (
-          <span className="success">
-            User successfully created, you may log in!
-          </span>
-        )}
-        {error && <span className="failure">Something went wrong!</span>}
       </form>
     </div>
   )

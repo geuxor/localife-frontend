@@ -4,26 +4,24 @@ import './navBar.css'
 import Registration from '../registration/registration'
 import { RootState } from '../../redux/reducers/reducers'
 import LogIn from '../LogIn/LogIn'
-import { SET_USER, SET_LOGIN } from '../../redux/actions/actions'
+import { setLogIn } from '../../redux/actions/actions'
 
 function NavBar() {
-  const [currentUser, setCurrentUser] = useState(false)
   const [showLogIn, setShowLogIn] = useState(false)
   const [showRegister, setShowRegister] = useState(false)
-
   const state = useSelector((state: RootState) => state)
-
   const dispatch = useDispatch()
 
   return (
     <header className="header">
-      <a href="" className="logo">
+      <a href="/" className="logo">
         Localife
       </a>
       <input className="menu-btn" type="checkbox" id="menu-btn" />
       <label className="menu-icon" htmlFor="menu-btn">
         <span className="navicon"></span>
       </label>
+
       <ul className="menu">
         {/* {'about'} */}
 
@@ -36,22 +34,20 @@ function NavBar() {
         </li>
 
         {/* {'REGISTER'} */}
-
-        {currentUser ? (
+        {state.user.email ? (
           <li
             onClick={() => {
-              console.log('log out')
+              dispatch(setLogIn())
             }}
           >
-            <a href="log out">Log out</a>
+            <a href="#logout">Log out</a>
           </li>
         ) : (
           <ul>
-            {' '}
             <li
               onClick={() => {
                 setShowRegister(true)
-                console.log('register')
+                setShowLogIn(false)
               }}
             >
               <a href="#register">Register</a>
@@ -59,7 +55,8 @@ function NavBar() {
             <li
               onClick={() => {
                 setShowLogIn(true)
-                setCurrentUser(!currentUser)
+                setShowRegister(false)
+                dispatch(setLogIn())
               }}
             >
               <a href="#login">Log in</a>
@@ -67,8 +64,14 @@ function NavBar() {
           </ul>
         )}
       </ul>
+
       {showLogIn && <LogIn setShowLogIn={setShowLogIn} />}
-      {showRegister && <Registration setShowRegister={setShowRegister} />}
+      {showRegister && (
+        <Registration
+          setShowRegister={setShowRegister}
+          setShowLogIn={setShowLogIn}
+        />
+      )}
     </header>
   )
 }

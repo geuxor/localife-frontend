@@ -4,18 +4,20 @@ import { SET_USER, SET_LOGIN } from '../actions/actions'
 const initialState = {
   isLoggedIn: false,
   user: {
-    firstName: '',
-    secondName: '',
+    firstname: '',
+    lastname: '',
     email: '',
   },
 }
 
 export const reducer = (state = initialState, action) => {
+  console.log(action.payload)
   switch (action.type) {
     case SET_USER:
+      console.log(state)
       return {
         ...state,
-        user: {},
+        user: action.payload,
       }
     case SET_LOGIN:
       return {

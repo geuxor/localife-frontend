@@ -4,16 +4,13 @@ import './NavBar.css'
 import Registration from '../registration/registration'
 import { RootState } from '../../redux/reducers/reducers'
 import LogIn from '../LogIn/LogIn'
-import { SET_USER, SET_LOGIN } from '../../redux/actions/actions'
+import { setLogIn } from '../../redux/actions/actions'
 
 function NavBar() {
-  const [currentUser, setCurrentUser] = useState(false)
   const [showLogIn, setShowLogIn] = useState(false)
   const [showRegister, setShowRegister] = useState(false)
 
   const state = useSelector((state: RootState) => state)
-
-  console.log(state.user)
 
   const dispatch = useDispatch()
 
@@ -42,8 +39,7 @@ function NavBar() {
         {state.user.email ? (
           <li
             onClick={() => {
-              setCurrentUser(!currentUser)
-              console.log('log out')
+              dispatch(setLogIn())
             }}
           >
             <a href="#logout">Log out</a>
@@ -62,7 +58,7 @@ function NavBar() {
             <li
               onClick={() => {
                 setShowLogIn(true)
-                setCurrentUser(!currentUser)
+                dispatch(setLogIn())
               }}
             >
               <a href="#login">Log in</a>

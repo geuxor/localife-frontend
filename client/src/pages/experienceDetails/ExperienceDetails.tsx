@@ -20,13 +20,20 @@ function ExperienceDetails(props) {
   return (
     <div className="details-container">
       <div className="title-img-details-container">
-        <div>title</div>
-        <div>images</div>
+        <h1 className="details-title">{experience?.title}</h1>
+        <img src={experience?.image} alt="experience" className="details-img" />
       </div>
       <div className="details-container2">
         <div className="provider-details-container">
-          <div>Provider</div>
-          <div>Description</div>
+          <div>
+            <h4>An evening merging on the terminal</h4>
+            <h6>hosted by Maria</h6>
+            <div>
+              "I have been merging all my life and I want to share my passion
+              with you"
+            </div>
+          </div>
+          <div className="details-decription">{experience?.description}</div>
         </div>
         <div className="description-details-container">
           <div>Booking Box</div>

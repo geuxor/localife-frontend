@@ -58,6 +58,7 @@ export default function Map() {
 
   let search = useLocation().search
   let locationSearch = new URLSearchParams(search).get('location')
+  const filteredPins = pins.filter((pin) => pin.location === locationSearch)
 
   console.log(locationSearch)
 
@@ -65,8 +66,6 @@ export default function Map() {
     Geocode.setApiKey(process.env.REACT_APP_GEOGOOGLE)
 
     Geocode.setLocationType('APPROXIMATE')
-
-    
 
     Geocode.fromAddress(locationSearch).then(
       (response) => {
@@ -92,7 +91,7 @@ export default function Map() {
           mapStyle="mapbox://styles/sebastiangreen/ckrnp8ur54xux17mswwup4dhk"
         >
           {/*MAP THROUGH PINS*/}
-          {pins.map((pin) => (
+          {filteredPins.map((pin) => (
             <>
               {/*SETS LOCATION ON MAP*/}
               <Marker

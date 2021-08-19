@@ -26,6 +26,8 @@ export default function Registration({ setShowRegister, setShowLogIn }) {
         setShowRegister(false)
         setShowLogIn(true)
         toast.success('You have been succesfully registered!')
+      } else {
+        toast.error(res.data)
       }
     } catch (err) {
       console.log(err)

@@ -11,6 +11,7 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import { setUser } from '../../redux/actions/actions'
 import { RootState } from '../../redux/reducers/reducers'
+import { get_cookie } from '../../utils/cookieHandler'
 
 export default function LogIn({ setShowLogIn }) {
   const state = useSelector((state: RootState) => state)
@@ -18,12 +19,14 @@ export default function LogIn({ setShowLogIn }) {
   const dispatch = useDispatch()
   const emailRef = useRef()
   const passwordRef = useRef()
+
   async function handleSubmit(e) {
     e.preventDefault()
     const user = {
       email: emailRef.current.value,
       password: passwordRef.current.value,
     }
+    console.log(user);
     try {
       const res = await apiAuth.loginUser(user)
       console.log('Response from Server:', res)
@@ -41,6 +44,14 @@ export default function LogIn({ setShowLogIn }) {
       toast.success('Welcome! You are succesfully logged in!')
       setShowLogIn(false)
       dispatch(setUser(userRedux))
+      console.log('Response from Server:', res.data)
+      if (res.data && res.data.email === user.email) {
+        //save res to redux => user: { email: , firstname: , lastname: , createdAt: , avatar:}
+        toast.success("Welcome! You are succesfully logged in!");
+        setShowLogIn(false)
+        const mycookie = get_cookie()
+        console.log("Login: new cookie found:", mycookie);
+      }
     } catch (err) {
       console.log(err)
       if (err.response && err.response.status >= 400)

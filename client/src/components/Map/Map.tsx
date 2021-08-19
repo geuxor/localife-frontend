@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './Map.css'
 import ReactMapGL from 'react-map-gl'
 import Geocode from 'react-geocode'
+import {useParams} from 'react-router-dom'
 
 export default function Map() {
   const [location, setLocation] = useState({
@@ -28,11 +29,13 @@ export default function Map() {
   }, [location])
 
   useEffect(() => {
+    let locationSearch = useParams()
+        
     Geocode.setApiKey(process.env.REACT_APP_GEOGOOGLE)
 
     Geocode.setLocationType('APPROXIMATE')
 
-    Geocode.fromAddress('Madrid').then(
+    Geocode.fromAddress(locationSearch.id).then(
       (response) => {
         console.log(response)
         const { lat, lng } = response.results[0].geometry.location

@@ -1,20 +1,17 @@
-
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
-import { useRef } from 'react'
-import { toast } from "react-toastify";
 import './LogIn.css'
 import apiAuth from '../../apiServices/auth'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
-import axios from 'axios'
 import { setUser } from '../../redux/actions/actions'
 import { RootState } from '../../redux/reducers/reducers'
 import { get_cookie } from '../../utils/cookieHandler'
 
 export default function LogIn({ setShowLogIn }) {
   const state = useSelector((state: RootState) => state)
+  console.log(state)
 
   const dispatch = useDispatch()
   const emailRef = useRef()
@@ -26,7 +23,7 @@ export default function LogIn({ setShowLogIn }) {
       email: emailRef.current.value,
       password: passwordRef.current.value,
     }
-    console.log(user);
+    console.log(user)
     try {
       const res = await apiAuth.loginUser(user)
       console.log('Response from Server:', res)
@@ -47,10 +44,10 @@ export default function LogIn({ setShowLogIn }) {
       console.log('Response from Server:', res.data)
       if (res.data && res.data.email === user.email) {
         //save res to redux => user: { email: , firstname: , lastname: , createdAt: , avatar:}
-        toast.success("Welcome! You are succesfully logged in!");
+        toast.success('Welcome! You are succesfully logged in!')
         setShowLogIn(false)
         const mycookie = get_cookie()
-        console.log("Login: new cookie found:", mycookie);
+        console.log('Login: new cookie found:', mycookie)
       }
     } catch (err) {
       console.log(err)

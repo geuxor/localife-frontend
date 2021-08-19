@@ -1,6 +1,5 @@
 import { Props } from '../../types/types'
 import './experience.css'
-import moment from 'moment'
 
 function experience(props: Props): any {
   return (

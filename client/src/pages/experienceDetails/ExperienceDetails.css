@@ -1,3 +1,41 @@
 .details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 70px;
+  background-color: burlywood;
+  height: 100vh;
+  margin: 4rem;
+}
+
+.details-container2 {
+  display: flex;
+  flex-direction: row;
+  background-color: lightgreen;
+  width: 100%;
+  height: 40vh;
+}
+
+.title-img-details-container {
+  background-color: cadetblue;
+  width: 100%;
+  height: 15rem;
+}
+
+.provider-details-container {
+  background-color: lightyellow;
+  width: 50%;
+  height: 15rem;
+}
+
+.description-details-container {
+  background-color: lightcoral;
+  width: 50%;
+  height: 15rem;
+}
+
+.details-img {
+  width: 276px;
+  height: 180px;
+  border-radius: 20px;
 }

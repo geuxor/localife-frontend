@@ -19,7 +19,31 @@ function ExperienceDetails(props) {
 
   return (
     <div className="details-container">
-      <div>sdfsdfsdfd</div>
+      <div className="title-img-details-container">
+        <div>title</div>
+        <div>images</div>
+      </div>
+      <div className="details-container2">
+        <div className="provider-details-container">
+          <div>Provider</div>
+          <div>Description</div>
+        </div>
+        <div className="description-details-container">
+          <div>Booking Box</div>
+        </div>
+      </div>
+      {/* <div>sdsd</div>
+      <div>pppp</div>
+      <div className="details-container2">
+        <div className="details-title">{experience?.title}</div>
+        <img
+          src={experience?.image}
+          alt="experience details"
+          className="details-img"
+        />
+        <div>{experience?.description}</div>
+        <div>{experience?.location}</div>
+      </div> */}
     </div>
   )
 }

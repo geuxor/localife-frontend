@@ -13,8 +13,6 @@ function NavBar() {
 
   const state = useSelector((state: RootState) => state)
 
-  console.log(state.isLoggedIn)
-
   const dispatch = useDispatch()
 
   return (

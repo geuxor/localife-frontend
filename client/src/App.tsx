@@ -1,15 +1,21 @@
 import './App.css'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Routes from './routes/routes'
 import NavBar from './components/navBar/NavBar'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import Menu from './components/Menu/Navbar'
+import LandingPage from './pages/landingPage/landingPage'
+import ExperienceResults from './pages/experienceResults/ExperienceResults'
+import LogOut from './components/Logout/Logout'
+import BecomeProvider from './components/Provider/BecomeProvider'
+import StripeSuccess from './Stripe/StripeSuccess.component'
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <NavBar />
+        <Menu />
         <ToastContainer
           position="bottom-center"
           autoClose={5000}

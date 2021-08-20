@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import './navBar.css'
+import './NavBar.css'
 import Registration from '../registration/registration'
 import { RootState } from '../../redux/reducers/reducers'
 import LogIn from '../LogIn/LogIn'
 import { setLogIn } from '../../redux/actions/actions'
+import { Public } from '@material-ui/icons'
 
 function NavBar() {
   const [showLogIn, setShowLogIn] = useState(false)
@@ -16,6 +17,7 @@ function NavBar() {
     <header className="header">
       <a href="/" className="logo">
         Localife
+        <Public />
       </a>
       <input className="menu-btn" type="checkbox" id="menu-btn" />
       <label className="menu-icon" htmlFor="menu-btn">
@@ -23,8 +25,6 @@ function NavBar() {
       </label>
 
       <ul className="menu">
-        {/* {'about'} */}
-
         <li
           onClick={() => {
             console.log('about')
@@ -33,15 +33,16 @@ function NavBar() {
           <a href="#work">About</a>
         </li>
 
-        {/* {'REGISTER'} */}
         {state.user.email ? (
-          <li
-            onClick={() => {
-              dispatch(setLogIn())
-            }}
-          >
-            <a href="#logout">Log out</a>
-          </li>
+          <>
+            <li
+              onClick={() => {
+                dispatch(setLogIn())
+              }}
+            >
+              <a href="#logout">Logout</a>
+            </li>
+          </>
         ) : (
           <ul>
             <li

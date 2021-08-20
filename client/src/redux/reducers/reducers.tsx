@@ -1,5 +1,5 @@
 //ACTIONS
-import { SET_USER, SET_LOGIN, SET_LOGOUT } from '../actions/actions'
+import { SET_USER, SET_LOGIN, SET_LOGOUT, SET_STRIPE } from '../actions/actions'
 
 const initialState = {
   isLoggedIn: false,
@@ -11,7 +11,7 @@ const initialState = {
 }
 
 export const reducer = (state = initialState, action) => {
-  console.log(action.payload)
+  console.log('action.payload', action.payload)
   switch (action.type) {
     case SET_USER:
       console.log(state)
@@ -22,10 +22,15 @@ export const reducer = (state = initialState, action) => {
     case SET_LOGIN:
       return {
         ...state,
-        isLoggedIn: !state.isLoggedIn,
+        isLoggedIn: action.payload,
       }
     case SET_LOGOUT:
       return initialState
+    case SET_STRIPE:
+      return {
+        ...state,
+        stripe: action.payload,
+      }
     default:
       return state
   }

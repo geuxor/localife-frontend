@@ -37,7 +37,7 @@ function ExperienceDetails(props) {
           <div className="details-decription">{experience?.description}</div>
         </div>
         <div className="description-details-container">
-          <DatePicker />
+          {/* <DatePicker /> */}
         </div>
       </div>
     </div>

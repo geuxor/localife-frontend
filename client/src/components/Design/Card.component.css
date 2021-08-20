@@ -1,0 +1,33 @@
+/* * {
+  margin: 0px;
+  padding: 0px;
+} */
+
+.card {
+  display: flex;
+  flex-direction: row;
+  width: 40rem;
+}
+
+.card-body {
+  display: flex;
+  width: 40rem;
+  justify-content: space-between;
+}
+
+.xp-image {
+  width: 276px;
+  height: 200px;
+  border-radius: 20px;
+  justify-content: center;
+  background-color: greenyellow;
+}
+.card-product {
+  border-radius: 20px;
+  border: 1px solid grey;
+}
+
+/* .image_overlay {
+  box-shadow: 10px 10px 15px rgba(0, 71, 151, 0.589);
+  border-radius: 10px;
+} */

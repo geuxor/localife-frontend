@@ -1,0 +1,71 @@
+.registerContainer {
+  align-items: center;
+  border-radius: 10px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  height: 280px;
+  justify-content: space-between;
+  margin: auto;
+  padding: 20px;
+  position: absolute;
+  width: 350px;
+  z-index: 1;
+}
+.register {
+  box-shadow: 5px 8px 15px slategray;
+}
+.success {
+  color: green;
+  font-size: 12px;
+}
+.failure {
+  color: red;
+  font-size: 12px;
+}
+.register {
+  background-color: white;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  height: 240px;
+  justify-content: space-around;
+  width: 42vw;
+  padding: 30px;
+  position: absolute;
+  top: 30vh;
+  right: 30vw;
+}
+input,
+textarea {
+  border: none;
+  border-bottom: 1px solid grey;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9em;
+}
+input:focus,
+textarea:focus {
+  outline: none;
+}
+input::placeholder,
+textarea::placeholder {
+  color: darkgray;
+  font-family: Arial, Helvetica, sans-serif;
+  /* font-size: 1.2em; */
+}
+.register-button {
+  background-color: darkorange;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-family: Staatliches;
+  font-size: 1.25em;
+  padding: 8px;
+}
+.icon {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  cursor: pointer;
+}

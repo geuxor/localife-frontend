@@ -1,0 +1,60 @@
+.exp-container2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 1em;
+  border-top: 1px solid rgb(207, 201, 201);
+  border-right: none;
+}
+
+.exp-container3 {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1em;
+}
+
+.exp-container4 {
+  display: flex;
+  flex-direction: column;
+}
+
+.exp-container5 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 2rem;
+}
+
+.experience-image {
+  width: 276px;
+  height: 180px;
+  border-radius: 20px;
+}
+
+.exp-buy-button {
+  width: 15vh;
+  background-color: darkorange;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.25em;
+  padding: 8px;
+}
+
+.experience-title {
+  width: fit-content;
+  font-size: 1.3em;
+  font-weight: 600;
+  border-bottom: 0.5px solid rgb(208, 209, 208);
+  margin-bottom: 1rem;
+}
+
+.experience-description {
+  font-size: 0.9rem;
+}
+
+.fas {
+  margin-right: 3px;
+}

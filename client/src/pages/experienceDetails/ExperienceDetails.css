@@ -33,14 +33,19 @@
   height: 15rem;
 }
 
-.description-details-container {
-  background-color: lightcoral;
-  width: 50%;
-  height: 15rem;
-}
-
 .details-img {
   width: 276px;
   height: 180px;
   border-radius: 20px;
+}
+
+.details-datepicker-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 22%;
+  height: 12rem;
 }

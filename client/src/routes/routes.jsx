@@ -1,15 +1,16 @@
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import history from './history'
+import { Switch, Route } from 'react-router-dom'
 import LandingPage from '../pages/landingPage/landingPage'
 import ExperienceResults from '../pages/experienceResults/ExperienceResults'
 import LogOut from '../components/Logout/Logout'
 import BecomeProvider from '../components/Provider/BecomeProvider'
 import StripeSuccess from '../Stripe/StripeSuccess.component'
+import ExperienceDetails from '../pages/experienceDetails/ExperienceDetails'
 
 function Routes() {
   return (
     <div>
       <Switch>
+        <Route path="/result-details/:id" exact component={ExperienceDetails} />
         <Route path="/stripe/success" exact component={StripeSuccess} />
         <Route path="/become-provider" exact component={BecomeProvider} />
         <Route path="/logout" exact component={LogOut} />

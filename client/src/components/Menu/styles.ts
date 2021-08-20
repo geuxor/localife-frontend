@@ -7,6 +7,7 @@ interface INav {
 }
 
 export const StyledBurger = styled.div<INav>`
+  overflow: hidden;
   width: 2rem;
   height: 2rem;
   position: fixed;

@@ -31,11 +31,11 @@
   flex-direction: column;
   height: 240px;
   justify-content: space-around;
-  width: 42vw;
+  width: 44vw;
   padding: 30px;
   position: absolute;
-  top: 30vh;
-  right: 30vw;
+  top: 40vh;
+  right: 28vw;
 }
 input,
 textarea {

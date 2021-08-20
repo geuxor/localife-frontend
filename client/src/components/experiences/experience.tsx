@@ -24,7 +24,10 @@ function Experience(props: Props): any {
         </div>
         <div className="exp-container5">
           <b>
-            <span className="exp-price">Eur. {props.experience.price}.00</span>
+            <div className="exp-price">
+              <i class="fas fa-euro-sign"></i>
+              {props.experience.price}.00
+            </div>
           </b>
           <button
             className="exp-buy-button"

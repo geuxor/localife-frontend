@@ -3,14 +3,17 @@ import queryString from 'query-string'
 import ExperiencesApi from '../../apiServices/experiencesApi'
 import './ExperienceResults.css'
 import Experience from '../../components/experiences/experience'
+import Map from '../../components/Map/Map'
+import Spinner from '../../components/Spinner/Spinner'
 
-function ExperienceResults(): any {
+function ExperienceResults() {
   const [experiences, setExperiences] = useState([])
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
+  console.log(experiences)
+
+  const searchQuery = queryString.parse(window.location.search)
 
   useEffect(() => {
-    setLoading(true)
-    const searchQuery = queryString.parse(window.location.search)
     console.log('searchLocation:', searchQuery)
     ;(async () => {
       try {
@@ -21,7 +24,6 @@ function ExperienceResults(): any {
           throw new Error(`...nothing found in ${searchQuery.location}`)
         console.log('SEARCH RESULTS ===>', searchResults)
         setExperiences(searchResults)
-        console.log(experiences.length)
 
         setLoading(false)
       } catch (err) {
@@ -33,19 +35,30 @@ function ExperienceResults(): any {
   }, [window.location.search])
 
   return (
-    <div className="exp-container">
-      <h1>Experiences in Barcelona</h1>
-      <h4>Aug 21st to 28th</h4>
-      {!loading ? (
-        experiences.length !== 0 ? (
-          experiences.map((xp, i) => <Experience key={i} experience={xp} />)
+    <>
+      <div className="exp-container">
+        <div className="results-info">
+          <h2>Experiences in {searchQuery.location}</h2>
+          <h4>Aug 21st to 28th</h4>
+        </div>
+        {loading ? (
+          <Spinner />
+        ) : experiences.length ? (
+          <>
+          <div className='exp-list'>
+            {experiences.map((xp, i) => (
+              <Experience key={i} experience={xp} />
+            ))}
+            </div>
+            <div className="map-container">
+              <Map />
+            </div>
+          </>
         ) : (
-          <div className="pt-5">nothing found...</div>
-        )
-      ) : (
-        <div>Loading patiently...</div>
-      )}
-    </div>
+          <div>No experiences found</div>
+        )}
+      </div>
+    </>
   )
 }
 

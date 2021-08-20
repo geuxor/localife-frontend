@@ -21,7 +21,7 @@ export default function Map() {
     height: '80vh',
     latitude: location.latitude,
     longitude: location.longitude,
-    zoom: 5,
+    zoom: 6,
   })
 
   // GRAB ALL PINS

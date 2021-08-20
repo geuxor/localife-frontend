@@ -1,6 +1,11 @@
 import axios from 'axios'
 const ExperiencesApi: any = {}
 
+const options: any = {
+  headers: { 'Content-Type': 'application/json' },
+  method: 'post',
+}
+
 ExperiencesApi.searchExperiencesApi = async (searchLocation) => {
   const options: any = {
     headers: { 'Content-Type': 'application/json' },
@@ -17,6 +22,12 @@ ExperiencesApi.searchExperiencesApi = async (searchLocation) => {
   } catch (err) {
     console.log(err)
   }
+}
+
+ExperiencesApi.viewExperience = async (experienceId) => {
+  return await axios.get(
+    `${process.env.REACT_APP_API}/experience/${experienceId}`,
+  )
 }
 
 export default ExperiencesApi

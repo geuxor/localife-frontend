@@ -5,6 +5,7 @@ import LogOut from '../components/Logout/Logout'
 import BecomeProvider from '../components/Provider/BecomeProvider'
 import StripeSuccess from '../Stripe/StripeSuccess.component'
 import ExperienceDetails from '../pages/experienceDetails/ExperienceDetails'
+import StripeRedirect from '../Stripe/StripeRedirect.component'
 
 function Routes() {
   return (
@@ -12,6 +13,7 @@ function Routes() {
       <Switch>
         <Route path="/result-details/:id" exact component={ExperienceDetails} />
         <Route path="/stripe/success" exact component={StripeSuccess} />
+        <Route path="/stripe/redirect" exact component={StripeRedirect} />
         <Route path="/become-provider" exact component={BecomeProvider} />
         <Route path="/logout" exact component={LogOut} />
         <Route path="/search-results" exact component={ExperienceResults} />

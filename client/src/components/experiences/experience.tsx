@@ -9,8 +9,8 @@ function Experience(props: Props): any {
   const handleClick = () =>
     history.push(`/result-details/${props.experience.id}`)
 
-  const handleClick2 = () =>
-    history.push(`/result-details/${props.experience.id}`)
+  // const handleClick2 = () =>
+  //   history.push(`/result-details/${props.experience.id}`)
 
   return (
     <div className="exp-container2">
@@ -29,7 +29,7 @@ function Experience(props: Props): any {
         <div className="exp-container5">
           <b>
             <div className="exp-price">
-              <i class="fas fa-euro-sign"></i>
+              <i className="fas fa-euro-sign"></i>
               {props.experience.price}.00
             </div>
           </b>
@@ -41,7 +41,7 @@ function Experience(props: Props): any {
             >
               More Info
             </button>
-            <i class="fas fa-heart"></i>
+            <i className="fas fa-heart"></i>
           </div>
         </div>
       </div>

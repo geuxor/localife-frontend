@@ -25,8 +25,6 @@ function NavBar() {
       </label>
 
       <ul className="menu">
-        {/* {'about'} */}
-
         <li
           onClick={() => {
             console.log('about')
@@ -35,15 +33,16 @@ function NavBar() {
           <a href="#work">About</a>
         </li>
 
-        {/* {'REGISTER'} */}
         {state.user.email ? (
-          <li
-            onClick={() => {
-              dispatch(setLogIn())
-            }}
-          >
-            <a href="#logout">Log out</a>
-          </li>
+          <>
+            <li
+              onClick={() => {
+                dispatch(setLogIn())
+              }}
+            >
+              <a href="#logout">Logout</a>
+            </li>
+          </>
         ) : (
           <ul>
             <li

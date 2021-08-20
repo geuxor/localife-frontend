@@ -1,14 +1,11 @@
 import { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { RootState } from '../../redux/reducers/reducers'
 import * as S from './styles'
 import { NavLink } from 'react-router-dom'
-import { setLogIn } from '../../redux/actions/actions'
 import LogIn from '../LogIn/LogIn'
 import Registration from '../registration/registration'
-import { useHistory } from 'react-router-dom'
 
-import LogOut from '../Logout/Logout'
 type Props = {
   open: boolean
 }
@@ -17,8 +14,6 @@ function RightNav(props: Props) {
   const [showLogIn, setShowLogIn] = useState(false)
   const [showRegister, setShowRegister] = useState(false)
   const state = useSelector((state: RootState) => state)
-  const history = useHistory()
-  const dispatch = useDispatch()
 
   function resetClickHandler() {
     setShowLogIn(false)

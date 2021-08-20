@@ -3,14 +3,14 @@
 .map {
   position: absolute;
   right: 0;
-  top: 50px;
+  top: 183px;
 }
 
 .popup {
   background-color: white;
   display: flex;
   flex-direction: column;
-  height: 200px;
+  height: 260px;
   justify-content: space-around;
   width: 290px;
 }

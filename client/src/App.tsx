@@ -1,7 +1,7 @@
 import './App.css'
 import { BrowserRouter as Router } from 'react-router-dom'
 import Routes from './routes/routes'
-import NavBar from './components/NavBar/NavBar'
+import NavBar from './components/navBar/NavBar'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 

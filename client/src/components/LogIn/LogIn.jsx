@@ -9,6 +9,7 @@ import { setUser, setLogIn } from '../../redux/actions/actions'
 import { get_cookie } from '../../utils/cookieHandler'
 
 export default function LogIn({ setShowLogIn }) {
+  console.log('entering LogIN Modal')
   const state = useSelector((state) => state)
   console.log(state)
 

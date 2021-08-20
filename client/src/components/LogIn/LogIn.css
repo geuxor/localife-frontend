@@ -14,6 +14,7 @@
 }
 .register {
   box-shadow: 5px 8px 15px slategray;
+  z-index: 100;
 }
 .success {
   color: green;

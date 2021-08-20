@@ -37,20 +37,22 @@ function ExperienceResults() {
   return (
     <>
       <div className="exp-container">
-        <h2>Experiences in {searchQuery.location}</h2>
-        <h4>Aug 21st to 28th</h4>
+        <div className="results-info">
+          <h2>Experiences in {searchQuery.location}</h2>
+          <h4>Aug 21st to 28th</h4>
+        </div>
         {loading ? (
           <Spinner />
         ) : experiences.length ? (
           <>
+          <div className='exp-list'>
             {experiences.map((xp, i) => (
               <Experience key={i} experience={xp} />
             ))}
-            (
+            </div>
             <div className="map-container">
               <Map />
             </div>
-            ))
           </>
         ) : (
           <div>No experiences found</div>

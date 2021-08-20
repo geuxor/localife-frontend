@@ -6,7 +6,6 @@
   position: absolute;
   top: 40vh;
   width: 100%;
-  z-index: 1;
 }
 
 .search-term {
@@ -23,4 +22,12 @@
 
 ::placeholder {
   color: grey;
+}
+
+.suggestions {
+  position: absolute;
+  top: 58vh;
+  left: 35vw;
+  width: 30vw;
+  z-index: 1;
 }

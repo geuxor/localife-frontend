@@ -5,37 +5,67 @@ import PlacesAutocomplete, { geocodeByAddress } from 'react-places-autocomplete'
 
 export default function SearchForm() {
   const history = useHistory()
-  const [location, setLocation] = useState('')
+  const [location, setLocation] = useState([])
+  const [selectedSuggestion, setSelectedSuggestion] = useState([])
 
-  async function handleSubmit(e: any) {
-    if (e.key === 'Enter' && e) {
-      e.preventDefault()
-      const results = await geocodeByAddress(location)
-      console.log(results)
-      history.push(`/search-results?location=${location}`)
-      setLocation('')
-      e.target.value = ''
-    }
+  // function handleChange(location) {
+  //   setLocation(location)
+  // }
+
+  function handleSubmit(location) {
+    // if (e.key === 'Enter' && e) {
+    //   e.preventDefault(
+    const matchedSuggestion = selectedSuggestion.find((suggestion) => {
+      return suggestion.description === location
+    })
+    const { formattedSuggestion } = matchedSuggestion
+    history.push(
+      `/search-results?city=${formattedSuggestion.mainText}?country=${formattedSuggestion.secondaryText}`,
+    )
+    // e.target.value = ''
   }
 
   return (
-    <div>
+    <div className="container-places">
       <PlacesAutocomplete
+        onError={(e) => {
+          console.log('error', e)
+        }}
         value={location}
         onChange={setLocation}
         onSelect={handleSubmit}
       >
-        <form onKeyDown={handleSubmit} className="search-form">
-          <input
-            autoFocus
-            className="search-term"
-            onChange={(e) => {
-              setLocation(e.target.value)
-            }}
-            placeholder=" I want to go to..."
-            type="text"
-          />
-        </form>
+        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => {
+          setSelectedSuggestion(suggestions)
+          return (
+            <div>
+              <form className="search-form">
+                <input
+                  {...getInputProps({
+                    placeholder: 'Type address',
+                    className: 'search-term',
+                    type: 'text',
+                  })}
+                />
+              </form>
+              <div className="suggestions">
+                {loading ? <div>...loading</div> : null}
+                {suggestions.map((suggestion) => {
+                  console.log('SUGGESTION', suggestion)
+                  const style = {
+                    backgroundColor: suggestion.active ? '#41b6e6' : '#fff',
+                  }
+
+                  return (
+                    <div {...getSuggestionItemProps(suggestion, { style })}>
+                      {suggestion.description}
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          )
+        }}
       </PlacesAutocomplete>
     </div>
   )

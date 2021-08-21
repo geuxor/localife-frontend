@@ -18,10 +18,8 @@ function ExperienceDetails(props) {
   const [loading, setLoading] = useState(true)
   const { id }: { id: string } = useParams()
   const numId = parseInt(id)
-  // const [sessionId, setSessionId] = useState('')
   const authed = useSelector((state: RootState) => state.isLoggedIn)
   const [showLogIn, setShowLogIn] = useState(false)
-  // const [dbres, setDbres] = useState('')
   console.log(authed)
 
   useEffect(() => {
@@ -55,10 +53,6 @@ function ExperienceDetails(props) {
     } else {
       handleBook(e)
     }
-
-    //     setShowLogIn={setShowLogIn}
-    //   />
-    // )}
   }
   const handleBook = async (e) => {
     let sessionId: string
@@ -66,22 +60,17 @@ function ExperienceDetails(props) {
     try {
       console.log('ViewExperience: Booking:', experience)
       const res = await apiStripe.getSessionId(experience)
-      //how to show error??? following console log is not showing
       console.log('ViewExperience: Stripe SessionID res:', res)
-      // setDbres(res)
       if (!res.data) throw new Error(res)
       sessionId = res.data.sessionId
       console.log('ViewExperience: ready handle booking:', sessionId)
       const stripe: any = await loadStripe(
         process.env.REACT_APP_STRIPE_PUBLISH_KEY!,
       )
-      //why is checkout not finding session Id??? should i do this in the backend ?  or create the session in useEffect
-
       const checkout = stripe.redirectToCheckout({ sessionId: sessionId })
       toast.success('ViewExperience: its all good man!', checkout)
 
       setLoading(false)
-      // console.log(dbres)
     } catch (err) {
       setLoading(false)
       if (err.response && err.response.status >= 400) {
@@ -101,37 +90,32 @@ function ExperienceDetails(props) {
       ) : experience ? (
         <>
           <div className="title-img-details-container">
-            <h1 className="details-title">{experience?.title}</h1>
             <img
               src={experience?.image}
               alt="experience"
               className="details-img"
             />
           </div>
+          <h1 className="details-title">{experience?.title}</h1>
           <div className="details-container2">
             <div className="provider-details-container">
               <div>
-                <h4>{experience?.title}</h4>
-                <h6>hosted by Maria</h6>
-                <div>
-                  "I have been merging all my life and I want to share my
-                  passion with you"
+                <h6>hosted by </h6>
+                <div className="details-decription">
+                  {experience.description}
                 </div>
-              </div>
-              <div className="details-decription">
-                {experience?.description}
+                <button
+                  onClick={handleClick}
+                  className="btn btn-block btn-lg btn-primary"
+                  disabled={loading}
+                >
+                  {authed ? 'Book now' : loading ? 'loading...' : 'Login'}
+                </button>
               </div>
             </div>
             <div className="description-details-container">
               {/* <DatePicker /> */}
             </div>
-            <button
-              onClick={handleClick}
-              className="btn btn-block btn-lg btn-primary"
-              disabled={loading}
-            >
-              {authed ? 'Book now' : loading ? 'loading...' : 'Login'}
-            </button>
           </div>
         </>
       ) : (

@@ -89,6 +89,7 @@ function ExperienceDetails(props) {
         toast.error(err.response.data)
       } else {
         console.log(err)
+        toast.error(err)
       }
     }
   }

@@ -14,7 +14,7 @@ function ExperienceResults() {
   const searchQuery = queryString.parse(window.location.search)
 
   useEffect(() => {
-    console.log('searchLocation:', searchQuery)
+    // console.log('searchLocation:', searchQuery)
     ;(async () => {
       try {
         const searchResults = await ExperiencesApi.searchExperiencesApi(
@@ -22,7 +22,7 @@ function ExperienceResults() {
         )
         if (searchResults === [])
           throw new Error(`...nothing found in ${searchQuery.location}`)
-        console.log('SEARCH RESULTS ===>', searchResults)
+        // console.log('SEARCH RESULTS ===>', searchResults)
         setExperiences(searchResults)
 
         setLoading(false)
@@ -45,10 +45,10 @@ function ExperienceResults() {
           <Spinner />
         ) : experiences.length ? (
           <>
-          <div className='exp-list'>
-            {experiences.map((xp, i) => (
-              <Experience key={i} experience={xp} />
-            ))}
+            <div className="exp-list">
+              {experiences.map((xp, i) => (
+                <Experience key={i} experience={xp} />
+              ))}
             </div>
             <div className="map-container">
               <Map />

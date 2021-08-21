@@ -22,15 +22,13 @@ function RightNav(props: Props) {
   function clickLoginHandler() {
     setShowLogIn(true)
     setShowRegister(false)
-    console.log('xx')
-    console.log('showLogIn', showLogIn, 'showRegister', showRegister)
   }
   function clickRegHandler() {
     setShowLogIn(false)
     setShowRegister(true)
-    console.log('xx')
-    console.log('showLogIn', showLogIn, 'showRegister', showRegister)
   }
+
+  const currentURL = window.location
 
   //why page doesn't change when clicking logout??? or others
   return (
@@ -90,7 +88,7 @@ function RightNav(props: Props) {
         ) : (
           <>
             <NavLink
-              to="/#register"
+              to={currentURL}
               onClick={() => clickRegHandler()}
               activeStyle={{
                 fontWeight: showRegister ? 'bold' : 'normal',
@@ -102,7 +100,7 @@ function RightNav(props: Props) {
 
             <NavLink
               onClick={() => clickLoginHandler()}
-              to="/#login"
+              to={currentURL}
               className=""
               activeStyle={{
                 fontWeight: showLogIn ? 'bold' : 'normal',

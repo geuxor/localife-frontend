@@ -9,9 +9,9 @@ import { setUser, setLogIn } from '../../redux/actions/actions'
 import { get_cookie } from '../../utils/cookieHandler'
 
 export default function LogIn({ setShowLogIn }) {
-  console.log('entering LogIN Modal')
+  // console.log('entering LogIN Modal')
   const state = useSelector((state) => state)
-  console.log(state)
+  // console.log(state)
 
   const dispatch = useDispatch()
   const emailRef = useRef()
@@ -23,10 +23,10 @@ export default function LogIn({ setShowLogIn }) {
       email: emailRef.current.value,
       password: passwordRef.current.value,
     }
-    console.log(user)
+    // console.log(user)
     try {
       const res = await apiAuth.loginUser(user)
-      console.log('Response from Server:', res.data)
+      // console.log('Response from Server:', res.data)
       if (res.data && res.data.email === user.email) {
         const { email, firstname, lastname, createdAt, avatar } = res.data
 

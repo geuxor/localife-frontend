@@ -1,0 +1,37 @@
+.dropdown {
+  background-color: white;
+  border-radius: 50%;
+}
+
+#dropdown-basic-button {
+  background-color: darkorange;
+  color: white;
+  border-color: lightgray;
+  user-select: none;
+  width: 12em;
+}
+
+.dropdown-adults {
+  font-size: small;
+  margin-left: 0.5em;
+  width: 12rem;
+}
+
+.dropdown-children {
+  font-size: small;
+  margin-top: 2em;
+  margin-left: 0.5em;
+  width: 12rem;
+}
+
+.dropdown-adults-inline {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.dropdown-children-inline {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}

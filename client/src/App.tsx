@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import { BrowserRouter as Router } from 'react-router-dom'
 import Routes from './routes/routes'
+
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import Menu from './components/Menu/Navbar'

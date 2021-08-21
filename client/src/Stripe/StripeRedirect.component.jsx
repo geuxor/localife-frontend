@@ -1,24 +1,24 @@
 import { useEffect } from 'react'
-import DesignSpin from '../Design/Spin.component'
+import Spinner from '../components/Spinner/Spinner'
 import { toast } from 'react-toastify'
-import { get_cookie } from '../../utils/cookieHandler'
+import { get_cookie } from '../utils/cookieHandler'
 import { useHistory } from 'react-router-dom'
 
-const StripeCallback = () => {
-  console.log('StripeCallback: onboarding completed')
+const StripeRedirect = () => {
+  console.log('StripeRedirect: onboarding completed')
   const history = useHistory()
 
   useEffect(() => {
     ;(async () => {
       try {
-        console.log('StripeCallback: fetching profile')
+        console.log('StripeRedirect: fetching profile')
         const sid = get_cookie()
-        console.log('StripeCallback: read the cookie:', sid)
+        console.log('StripeRedirect: read the cookie:', sid)
         if (sid) {
           history.push('/dashboard')
         }
       } catch (err) {
-        console.log('StripeCallback:', err)
+        console.log('StripeRedirect:', err)
         if (err.response && err.response.status >= 400)
           toast.error(err.response.data)
       }
@@ -28,9 +28,9 @@ const StripeCallback = () => {
 
   //call stripe.js and then backend
   // const res = await apiStripe.getAccountStatus(auth.token);
-  // console.log("USER ACCOUNT STATUS ON STRIPE CALLBACK", res);
+  // console.log("USER ACCOUNT STATUS ON STRIPE Redirect", res);
 
-  return <DesignSpin message={'Checking if Stripe is ready...'} />
+  return <Spinner message={'Checking if Stripe is ready...'} />
 }
 
-export default StripeCallback
+export default StripeRedirect

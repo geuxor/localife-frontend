@@ -21,7 +21,7 @@ export default function Map() {
     height: '80vh',
     latitude: location.latitude,
     longitude: location.longitude,
-    zoom: 6,
+    zoom: 7,
   })
 
   // GRAB ALL PINS
@@ -29,7 +29,7 @@ export default function Map() {
     try {
       const res = await axios.get('http://localhost:4001/experiences')
       setPins(res.data)
-      console.log(pins)
+      // console.log(pins)
     } catch (e) {
       console.log(e)
     }
@@ -60,7 +60,7 @@ export default function Map() {
   let locationSearch = new URLSearchParams(search).get('location')
   const filteredPins = pins.filter((pin) => pin.location === locationSearch)
 
-  console.log(locationSearch)
+  // console.log(locationSearch)
 
   useEffect(() => {
     Geocode.setApiKey(process.env.REACT_APP_GEOGOOGLE)
@@ -79,6 +79,7 @@ export default function Map() {
         console.error(error)
       },
     )
+    // eslint-disable-next-line
   }, [])
 
   return (
@@ -88,7 +89,7 @@ export default function Map() {
           {...viewport}
           mapboxApiAccessToken={process.env.REACT_APP_MAPBOX}
           onViewportChange={(nextViewport) => setViewport(nextViewport)}
-          mapStyle="mapbox://styles/sebastiangreen/ckrnp8ur54xux17mswwup4dhk"
+          mapStyle="mapbox://styles/sebastiangreen/ckslt5mlr24ir17mwb1f33uog"
         >
           {/*MAP THROUGH PINS*/}
           {filteredPins.map((pin) => (

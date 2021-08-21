@@ -1,3 +1,6 @@
+.details-title {
+  align-self: start;
+}
 .details-container {
   display: flex;
   flex-direction: column;

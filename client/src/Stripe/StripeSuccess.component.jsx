@@ -4,9 +4,9 @@ import { LoadingOutlined } from '@ant-design/icons'
 
 const StripeSuccess = ({ match, history }) => {
   useEffect(() => {
-    //   fetch prod id from match.params.experienceId
-    console.log('StripeSuccess: ', match.path)
-    const okres = true
+    //   fetch xp id from match.params.experienceId
+    console.log('StripeSuccess: ', match.params.id)
+    const okres = false
     // apiStripe
     // .stripeSuccessRequest({experienceId: match.params.experienceId})
     // .then((res) => {
@@ -15,14 +15,15 @@ const StripeSuccess = ({ match, history }) => {
       // console.log("StripeSuccess: res.data.success : stripe success response", res.data);
       toast.success('Your purchase has been successfull!')
       setTimeout(() => {
-        history.push('/dashboard')
+        history.push('/bookings')
       }, 2000)
     } else {
-      // console.log("stripe payment failure", res.data);
-      toast.error('Your purchase was declined - Please retry!')
+      toast.error(
+        'Your purchase was declined - You will be reported to authorities!',
+      )
       setTimeout(() => {
-        history.push('/')
-        // history.push("/stripe/failure");
+        //redirect to experience details page
+        history.push(`/result-details/${match.params.id}`)
       }, 3000)
     }
     // });

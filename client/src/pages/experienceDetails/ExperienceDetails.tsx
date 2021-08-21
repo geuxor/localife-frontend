@@ -51,6 +51,7 @@ function ExperienceDetails(props) {
 
   const handleClick = async (e) => {
     if (!authed) {
+      toast.info('Please login before booking')
       setShowLogIn(true)
     } else {
       handleBook(e)
@@ -111,7 +112,7 @@ function ExperienceDetails(props) {
                   className="btn btn-block btn-lg btn-primary"
                   disabled={loading}
                 >
-                  {authed ? 'Book now' : loading ? 'loading...' : 'Login'}
+                  {loading ? 'loading...' : 'Book now'}
                 </button>
               </div>
             </div>

@@ -21,7 +21,7 @@ export default function Map() {
     height: '80vh',
     latitude: location.latitude,
     longitude: location.longitude,
-    zoom: 6,
+    zoom: 7,
   })
 
   // GRAB ALL PINS
@@ -89,7 +89,7 @@ export default function Map() {
           {...viewport}
           mapboxApiAccessToken={process.env.REACT_APP_MAPBOX}
           onViewportChange={(nextViewport) => setViewport(nextViewport)}
-          mapStyle="mapbox://styles/sebastiangreen/ckrnp8ur54xux17mswwup4dhk"
+          mapStyle="mapbox://styles/sebastiangreen/ckslt5mlr24ir17mwb1f33uog"
         >
           {/*MAP THROUGH PINS*/}
           {filteredPins.map((pin) => (

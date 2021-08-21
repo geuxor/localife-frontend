@@ -12,7 +12,7 @@ ExperiencesApi.searchExperiencesApi = async (searchLocation) => {
       searchLocation,
       options,
     )
-    console.log('API response ===>', res.data)
+    // console.log('API response ===>', res.data)
     return res.data
   } catch (err) {
     console.log(err)

@@ -57,8 +57,9 @@ export default function Map() {
   }, [location])
 
   let search = useLocation().search
-  let locationSearch = new URLSearchParams(search).get('location')
-  const filteredPins = pins.filter((pin) => pin.location === locationSearch)
+  let searchCity = new URLSearchParams(search).get('city')
+  let searchCountry = new URLSearchParams(search).get('country')
+  const filteredPins = pins.filter((pin) => pin.location === searchCity)
 
   // console.log(locationSearch)
 
@@ -67,7 +68,7 @@ export default function Map() {
 
     Geocode.setLocationType('APPROXIMATE')
 
-    Geocode.fromAddress(locationSearch).then(
+    Geocode.fromAddress(`${searchCity}, ${searchCountry}`).then(
       (response) => {
         const { lat, lng } = response.results[0].geometry.location
         setLocation({

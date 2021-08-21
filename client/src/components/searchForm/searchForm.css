@@ -6,9 +6,7 @@
   position: absolute;
   top: 40vh;
   width: 100%;
-  z-index: 1;
 }
-
 .search-term {
   background-color: white;
   border: none;
@@ -20,7 +18,13 @@
   padding: 0.5em 1em;
   width: 40vw;
 }
-
 ::placeholder {
   color: grey;
+}
+.suggestions {
+  position: absolute;
+  top: 58vh;
+  left: 35vw;
+  width: 30vw;
+  z-index: 1;
 }

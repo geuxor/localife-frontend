@@ -66,6 +66,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-places-autocomplete": "^7.2.8",
     "eslint-config-prettier": "^8.3.0"
   }
 }

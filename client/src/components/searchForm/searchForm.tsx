@@ -20,7 +20,7 @@ export default function SearchForm() {
     })
     const { formattedSuggestion } = matchedSuggestion
     history.push(
-      `/search-results?city=${formattedSuggestion.mainText}?country=${formattedSuggestion.secondaryText}`,
+      `/search-results?city=${formattedSuggestion.mainText}&country=${formattedSuggestion.secondaryText}`,
     )
     // e.target.value = ''
   }

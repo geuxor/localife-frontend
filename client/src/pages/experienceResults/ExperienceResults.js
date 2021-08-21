@@ -9,12 +9,11 @@ import Spinner from '../../components/Spinner/Spinner'
 function ExperienceResults() {
   const [experiences, setExperiences] = useState([])
   const [loading, setLoading] = useState(true)
-  console.log(experiences)
 
   const searchQuery = queryString.parse(window.location.search)
 
   useEffect(() => {
-    console.log('searchLocation:', searchQuery)
+    
     ;(async () => {
       try {
         const searchResults = await ExperiencesApi.searchExperiencesApi(

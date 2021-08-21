@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom'
 import { filterExpById } from '../../helpers/helperFunctions'
 import { ExperienceInterface } from '../../types/types'
 import DatePicker from '../../components/datePicker/DatePicker'
+import Guests from '../../components/guests/guests'
+import Counter from '../../components/counter/counter'
 
 function ExperienceDetails(props) {
   const [experience, setExperience] = useState<ExperienceInterface>()
@@ -27,10 +29,10 @@ function ExperienceDetails(props) {
       <div className="details-container2">
         <div className="provider-details-container">
           <div>
-          <h4>An evening eating calcots with a Catalan</h4>
+            <h4>An evening eating calcots with a Catalan</h4>
             <h6>hosted by Maria</h6>
             <div>
-            "I have been eating calcots all my life and I want to share my
+              "I have been eating calcots all my life and I want to share my
               passion for local food and cooking with you"
             </div>
           </div>
@@ -41,6 +43,10 @@ function ExperienceDetails(props) {
           <div className="details-datepicker">
             <DatePicker />
           </div>
+          <div>
+            <Guests />
+          </div>
+        </div>
       </div>
     </div>
   )

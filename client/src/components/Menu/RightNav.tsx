@@ -102,7 +102,7 @@ function RightNav(props: Props) {
 
             <NavLink
               onClick={() => clickLoginHandler()}
-              to="/#login"
+              to=""
               className=""
               activeStyle={{
                 fontWeight: showLogIn ? 'bold' : 'normal',

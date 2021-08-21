@@ -18,10 +18,10 @@ function ExperienceDetails(props) {
   const [loading, setLoading] = useState(true)
   const { id }: { id: string } = useParams()
   const numId = parseInt(id)
-  const [sessionId, setSessionId] = useState('')
+  // const [sessionId, setSessionId] = useState('')
   const authed = useSelector((state: RootState) => state.isLoggedIn)
   const [showLogIn, setShowLogIn] = useState(false)
-  const [dbres, setDbres] = useState('')
+  // const [dbres, setDbres] = useState('')
   console.log(authed)
 
   useEffect(() => {
@@ -61,26 +61,27 @@ function ExperienceDetails(props) {
     // )}
   }
   const handleBook = async (e) => {
+    let sessionId: string
     e.preventDefault()
     try {
       console.log('ViewExperience: Booking:', experience)
       const res = await apiStripe.getSessionId(experience)
       //how to show error??? following console log is not showing
       console.log('ViewExperience: Stripe SessionID res:', res)
-      setDbres(res)
+      // setDbres(res)
       if (!res.data) throw new Error(res)
-      setSessionId(res.data.sessionId)
+      sessionId = res.data.sessionId
       console.log('ViewExperience: ready handle booking:', sessionId)
       const stripe: any = await loadStripe(
         process.env.REACT_APP_STRIPE_PUBLISH_KEY!,
       )
       //why is checkout not finding session Id??? should i do this in the backend ?  or create the session in useEffect
-      setTimeout(() => {
-        const checkout = stripe.redirectToCheckout({ sessionId: sessionId })
-        toast.success('ViewExperience: its all good man!', checkout)
-      }, 5000)
+
+      const checkout = stripe.redirectToCheckout({ sessionId: sessionId })
+      toast.success('ViewExperience: its all good man!', checkout)
+
       setLoading(false)
-      console.log(dbres)
+      // console.log(dbres)
     } catch (err) {
       setLoading(false)
       if (err.response && err.response.status >= 400) {

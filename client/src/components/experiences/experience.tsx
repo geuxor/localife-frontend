@@ -9,8 +9,8 @@ function Experience(props: Props): any {
   const handleClick = () =>
     history.push(`/result-details/${props.experience.id}`)
 
-  const handleClick2 = () =>
-    history.push(`/result-details/${props.experience.id}`)
+  // const handleClick2 = () =>
+  //   history.push(`/result-details/${props.experience.id}`)
 
   return (
     <div className="exp-container2">

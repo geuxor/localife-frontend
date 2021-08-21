@@ -79,6 +79,7 @@ export default function Map() {
         console.error(error)
       },
     )
+    // eslint-disable-next-line
   }, [])
 
   return (

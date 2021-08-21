@@ -7,6 +7,7 @@ interface INav {
 }
 
 export const StyledBurger = styled.div<INav>`
+  overflow: hidden;
   width: 2rem;
   height: 2rem;
   position: fixed;
@@ -51,6 +52,7 @@ export const Nav = styled.nav`
   background-color: #fdfdfdfa;
   align-items: center;
   position: relative;
+  box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
 
   @media (max-width: 678px) {
     width: 100vw;
@@ -75,6 +77,7 @@ export const Ul = styled.ul<INav>`
   position: absolute;
   width: 90%;
   top: 0;
+  right: 20px;
   justify-content: flex-end;
   margin-top: 8px;
   align-items: center;

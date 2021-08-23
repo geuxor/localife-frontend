@@ -10,8 +10,7 @@ import { useLocation } from 'react-router-dom'
 function ExperienceResults() {
   const [experiences, setExperiences] = useState([])
   const [loading, setLoading] = useState(true)
-
-  // const searchQuery = queryString.parse(window.location.search)
+  
   let search = useLocation().search
   let searchCity = new URLSearchParams(search).get('city')
   let searchCountry = new URLSearchParams(search).get('country')

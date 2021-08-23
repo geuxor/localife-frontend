@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom'
 import { filterExpById } from '../../helpers/helperFunctions'
 import { ExperienceInterface } from '../../types/types'
 import DatePicker from '../../components/datePicker/DatePicker'
+import Guests from '../../components/guests/guests'
+import Counter from '../../components/counter/counter'
 import { useSelector } from 'react-redux'
 import ExperiencesApi from '../../apiServices/experiencesApi'
 import apiStripe from '../../apiServices/stripeApi'
@@ -18,10 +20,8 @@ function ExperienceDetails(props) {
   const [loading, setLoading] = useState(true)
   const { id }: { id: string } = useParams()
   const numId = parseInt(id)
-  // const [sessionId, setSessionId] = useState('')
   const authed = useSelector((state: RootState) => state.isLoggedIn)
   const [showLogIn, setShowLogIn] = useState(false)
-  // const [dbres, setDbres] = useState('')
   console.log(authed)
 
   useEffect(() => {
@@ -49,16 +49,19 @@ function ExperienceDetails(props) {
     // eslint-disable-next-line
   }, [])
 
+  useEffect(() => {
+    if (experience) {
+      document.body.style.overflow = 'auto'
+    }
+  })
+
   const handleClick = async (e) => {
     if (!authed) {
+      toast.info('Please login before booking')
       setShowLogIn(true)
     } else {
       handleBook(e)
     }
-
-    //     setShowLogIn={setShowLogIn}
-    //   />
-    // )}
   }
   const handleBook = async (e) => {
     let sessionId: string
@@ -66,22 +69,17 @@ function ExperienceDetails(props) {
     try {
       console.log('ViewExperience: Booking:', experience)
       const res = await apiStripe.getSessionId(experience)
-      //how to show error??? following console log is not showing
       console.log('ViewExperience: Stripe SessionID res:', res)
-      // setDbres(res)
       if (!res.data) throw new Error(res)
       sessionId = res.data.sessionId
       console.log('ViewExperience: ready handle booking:', sessionId)
       const stripe: any = await loadStripe(
         process.env.REACT_APP_STRIPE_PUBLISH_KEY!,
       )
-      //why is checkout not finding session Id??? should i do this in the backend ?  or create the session in useEffect
-
       const checkout = stripe.redirectToCheckout({ sessionId: sessionId })
       toast.success('ViewExperience: its all good man!', checkout)
 
       setLoading(false)
-      // console.log(dbres)
     } catch (err) {
       setLoading(false)
       if (err.response && err.response.status >= 400) {
@@ -89,6 +87,7 @@ function ExperienceDetails(props) {
         toast.error(err.response.data)
       } else {
         console.log(err)
+        toast.error(err)
       }
     }
   }
@@ -98,41 +97,48 @@ function ExperienceDetails(props) {
       {loading ? (
         <Spinner />
       ) : experience ? (
-        <>
+        <div>
           <div className="title-img-details-container">
-            <h1 className="details-title">{experience?.title}</h1>
             <img
               src={experience?.image}
               alt="experience"
               className="details-img"
             />
           </div>
+          <h1 className="details-title">{experience?.title}</h1>
           <div className="details-container2">
             <div className="provider-details-container">
               <div>
-                <h4>{experience?.title}</h4>
-                <h6>hosted by Maria</h6>
-                <div>
-                  "I have been merging all my life and I want to share my
-                  passion with you"
+                <h6>hosted by </h6>
+                <div className="details-decription">
+                  {experience.description}
                 </div>
               </div>
-              <div className="details-decription">
-                {experience?.description}
+            </div>
+            <div className="details-datepicker-container">
+              <div className="booking-cont-date">
+                <h6>Booking Form:</h6>
+                <DatePicker />
+              </div>
+              <div className="booking-cont-guests">
+                <Guests />
+              </div>
+              <div className="booking-cont-booknow">
+                <button
+                  onClick={handleClick}
+                  className="btn btn-block btn-lg btn-primary"
+                  style={{
+                    backgroundColor: 'darkorange',
+                    borderColor: 'darkgray',
+                  }}
+                  disabled={loading}
+                >
+                  {loading ? 'loading...' : 'Book now'}
+                </button>
               </div>
             </div>
-            <div className="description-details-container">
-              {/* <DatePicker /> */}
-            </div>
-            <button
-              onClick={handleClick}
-              className="btn btn-block btn-lg btn-primary"
-              disabled={loading}
-            >
-              {authed ? 'Book now' : loading ? 'loading...' : 'Login'}
-            </button>
           </div>
-        </>
+        </div>
       ) : (
         <div>{toast.error('Unable to fetch the experience')}</div>
       )}

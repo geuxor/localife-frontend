@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom'
 import { filterExpById } from '../../helpers/helperFunctions'
 import { ExperienceInterface } from '../../types/types'
 import DatePicker from '../../components/datePicker/DatePicker'
+import Guests from '../../components/guests/guests'
+import Counter from '../../components/counter/counter'
 import { useSelector } from 'react-redux'
 import ExperiencesApi from '../../apiServices/experiencesApi'
 import apiStripe from '../../apiServices/stripeApi'
@@ -49,6 +51,7 @@ function ExperienceDetails(props) {
 
   const handleClick = async (e) => {
     if (!authed) {
+      toast.info('Please login before booking')
       setShowLogIn(true)
     } else {
       handleBook(e)
@@ -109,13 +112,16 @@ function ExperienceDetails(props) {
                   className="btn btn-block btn-lg btn-primary"
                   disabled={loading}
                 >
-                  {authed ? 'Book now' : loading ? 'loading...' : 'Login'}
+                  {loading ? 'loading...' : 'Book now'}
                 </button>
               </div>
             </div>
             <div className="description-details-container">
               {/* <DatePicker /> */}
             </div>
+          </div>
+          <div>
+            <Guests />
           </div>
         </>
       ) : (

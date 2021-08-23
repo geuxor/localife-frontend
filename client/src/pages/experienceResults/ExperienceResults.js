@@ -20,6 +20,9 @@ function ExperienceResults() {
     country: searchCountry,
   }
 
+  let search = useLocation().search
+  let locationSearch = new URLSearchParams(search).get('location')
+
   useEffect(() => {
     console.log('searchLocation:', searchCity)
     ;(async () => {

@@ -5,7 +5,6 @@ import './ExperienceResults.css'
 import Experience from '../../components/experiences/experience'
 import Map from '../../components/Map/Map'
 import Spinner from '../../components/Spinner/Spinner'
-document.body.style.overflow = 'hidden'
 
 function ExperienceResults() {
   const [experiences, setExperiences] = useState([])

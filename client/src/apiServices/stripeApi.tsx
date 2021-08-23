@@ -25,20 +25,6 @@ apiStripe.stripeConnectAccount = async (user) => {
   )
 }
 
-//func => axios.post does a return - but if no {} no return
-//func => { return axios.post } - return needed
-apiStripe.getAccountStatus = async (token) => {
-  return axios.post(
-    `${process.env.REACT_APP_API}/get-account-status`,
-    {},
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    },
-  )
-}
-
 apiStripe.getAccountBalance = async (store) =>
   axios.post(
     `${process.env.REACT_APP_API}/stripe/account-balance`,

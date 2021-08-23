@@ -14,6 +14,7 @@ import { RootState } from '../../redux/reducers/reducers'
 import { toast } from 'react-toastify'
 import Spinner from '../../components/Spinner/Spinner'
 import LogIn from '../../components/LogIn/LogIn'
+// import HeartSpinner from '../../components/Spinner/Heart.Spinner.js'
 
 function ExperienceDetails(props) {
   const [experience, setExperience] = useState<ExperienceInterface>()
@@ -85,6 +86,22 @@ function ExperienceDetails(props) {
       }
     }
   }
+  //   (alias) const HeartSpinner: {
+  //     ({ color, size, sizeUnit, width, height }: {
+  //         color: any;
+  //         size: any;
+  //         sizeUnit: any;
+  //         width: any;
+  //         height: any;
+  //     }): {
+  //         color: any;
+  //     };
+  //     defaultProps: {
+  //         size: number;
+  //         color: string;
+  //         sizeUnit: string;
+  //     };
+  // }
 
   return (
     <div className="details-container">

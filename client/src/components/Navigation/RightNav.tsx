@@ -33,6 +33,10 @@ function RightNav(props: Props) {
   //why page doesn't change when clicking logout??? or others
   return (
     <>
+      {console.log(
+        'User is Provider:',
+        state.user.stripe_registration_complete,
+      )}
       <S.Ul open={props.open}>
         <NavLink
           onClick={() => resetClickHandler()}
@@ -47,15 +51,17 @@ function RightNav(props: Props) {
 
         {state.user.email ? (
           <>
-            <NavLink
-              to="/become-provider"
-              activeStyle={{
-                fontWeight: 'bold',
-                color: '#0DADEA',
-              }}
-            >
-              <li>Become a Provider</li>
-            </NavLink>
+            {state.user.stripe_registration_complete !== 'COMPLETED' && (
+              <NavLink
+                to="/become-provider"
+                activeStyle={{
+                  fontWeight: 'bold',
+                  color: '#0DADEA',
+                }}
+              >
+                <li>Become a Provider</li>
+              </NavLink>
+            )}
             <NavLink
               to="/stripe/success"
               activeStyle={{

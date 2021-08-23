@@ -15,6 +15,7 @@ const initialState = {
     email: '',
   },
   experience: {},
+  stripe: {},
 }
 
 export const reducer = (state = initialState, action) => {

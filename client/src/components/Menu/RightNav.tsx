@@ -91,6 +91,15 @@ function RightNav(props: Props) {
               <li>Dashboard</li>
             </NavLink>
             <NavLink
+              to="/my-bookings"
+              activeStyle={{
+                fontWeight: 'bold',
+                color: '#0DADEA',
+              }}
+            >
+              <li>My Bookings</li>
+            </NavLink>
+            <NavLink
               to="/logout"
               activeStyle={{
                 fontWeight: 'bold',

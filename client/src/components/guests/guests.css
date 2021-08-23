@@ -1,14 +1,16 @@
 .dropdown {
   background-color: white;
-  border-radius: 50%;
 }
 
 #dropdown-basic-button {
-  background-color: darkorange;
-  color: white;
+  border-radius: 10px;
+  background-color: white;
+  color: darkgrey;
   border-color: lightgray;
   user-select: none;
-  width: 12em;
+  width: 100%;
+  height: 5vh;
+  /* padding-right: 7em; */
 }
 
 .dropdown-adults {

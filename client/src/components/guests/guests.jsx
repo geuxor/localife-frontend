@@ -8,6 +8,7 @@ function Guests() {
       <DropdownButton
         id="dropdown-basic-button"
         title="Guests"
+        //collect counter num state from counter and update title/placeholder text with current counter state
         autoClose="outside"
         active="false"
       >

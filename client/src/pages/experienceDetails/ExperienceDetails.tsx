@@ -91,7 +91,7 @@ function ExperienceDetails(props) {
       {loading ? (
         <Spinner />
       ) : experience ? (
-        <>
+        <div>
           <div className="title-img-details-container">
             <img
               src={experience?.image}
@@ -107,23 +107,32 @@ function ExperienceDetails(props) {
                 <div className="details-decription">
                   {experience.description}
                 </div>
+              </div>
+            </div>
+            <div className="details-datepicker-container">
+              <div className="booking-cont-date">
+                <h6>Booking Form:</h6>
+                <DatePicker />
+              </div>
+              <div className="booking-cont-guests">
+                <Guests />
+              </div>
+              <div className="booking-cont-booknow">
                 <button
                   onClick={handleClick}
                   className="btn btn-block btn-lg btn-primary"
+                  style={{
+                    backgroundColor: 'darkorange',
+                    borderColor: 'darkgray',
+                  }}
                   disabled={loading}
                 >
                   {loading ? 'loading...' : 'Book now'}
                 </button>
               </div>
             </div>
-            <div className="description-details-container">
-              {/* <DatePicker /> */}
-            </div>
           </div>
-          <div>
-            <Guests />
-          </div>
-        </>
+        </div>
       ) : (
         <div>{toast.error('Unable to fetch the experience')}</div>
       )}

@@ -1,7 +1,18 @@
 .datepicker {
   border: solid 1px lightgray;
   border-radius: 10px;
-  width: 30vh;
+  width: 15rem;
   height: 5vh;
-  text-indent: 20px;
+  text-indent: 10px;
+}
+
+.react-datepicker-wrapper {
+  display: flex;
+  align-items: center;
+  /* margin-left: 1em; */
+}
+
+.react-datepicker__inputcontainer {
+  display: flex;
+  align-items: center;
 }

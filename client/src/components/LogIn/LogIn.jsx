@@ -43,7 +43,7 @@ export default function LogIn({ setShowLogIn }) {
           dispatch(setUser(userRedux))
           dispatch(setLogIn(true))
           setShowLogIn(false)
-          toast.success('Welcome! You are succesfully logged in!')
+          toast.success('Welcome! You are successfully logged in!')
         } else {
           toast.error('Err: Who ate the cookie?')
         }

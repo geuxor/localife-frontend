@@ -5,31 +5,31 @@ import './ExperienceResults.css'
 import Experience from '../../components/experiences/experience'
 import Map from '../../components/Map/Map'
 import Spinner from '../../components/Spinner/Spinner'
+document.body.style.overflow = 'hidden'
 
 function ExperienceResults() {
   const [experiences, setExperiences] = useState([])
   const [loading, setLoading] = useState(true)
 
-
   const searchQuery = queryString.parse(window.location.search)
 
   useEffect(() => {
     console.log('searchLocation:', searchQuery)
-      ; (async () => {
-        try {
-          const searchResults = await ExperiencesApi.searchExperiencesApi(
-            searchQuery,
-          )
-          if (searchResults === [])
-            throw new Error(`...nothing found in ${searchQuery.location}`)
-          console.log('SEARCH RESULTS ===>', searchResults.data)
-          setExperiences(searchResults.data)
-          setLoading(false)
-        } catch (err) {
-          console.log(err)
-          setLoading(false)
-        }
-      })()
+    ;(async () => {
+      try {
+        const searchResults = await ExperiencesApi.searchExperiencesApi(
+          searchQuery,
+        )
+        if (searchResults === [])
+          throw new Error(`...nothing found in ${searchQuery.location}`)
+        console.log('SEARCH RESULTS ===>', searchResults.data)
+        setExperiences(searchResults.data)
+        setLoading(false)
+      } catch (err) {
+        console.log(err)
+        setLoading(false)
+      }
+    })()
     // eslint-disable-next-line
   }, [window.location.search])
 

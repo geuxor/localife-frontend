@@ -1,10 +1,10 @@
 .search-form {
   background-color: transparent;
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
   left: 28vw;
   position: absolute;
-  top: 40vh;
+  top: 30vh;
   width: 100%;
 }
 .search-term {
@@ -17,14 +17,22 @@
   outline: none;
   padding: 0.5em 1em;
   width: 40vw;
+  position: absolute;
 }
 ::placeholder {
   color: grey;
 }
+
 .suggestions {
   position: absolute;
-  top: 58vh;
+  top: 45vh;
   left: 35vw;
   width: 30vw;
   z-index: 1;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }

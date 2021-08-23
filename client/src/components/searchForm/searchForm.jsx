@@ -22,46 +22,45 @@ export default function SearchForm() {
     // e.target.value = ‘’
   }
   return (
-    <div className="container-places">
-      <PlacesAutocomplete
-        onError={(e) => {
-          console.log('error', e)
-        }}
-        value={location}
-        onChange={setLocation}
-        onSelect={handleSubmit}
-      >
-        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => {
-          setSelectedSuggestion(suggestions)
-          return (
-            <div>
-              <form className="search-form">
-                <input
-                  {...getInputProps({
-                    placeholder: 'Type address',
-                    className: 'search-term',
-                    type: 'text',
-                  })}
-                />
-              </form>
-              <div className="suggestions">
-                {loading ? <div>...loading</div> : null}
-                {suggestions.map((suggestion) => {
-                  console.log('SUGGESTION', suggestion)
-                  const style = {
-                    backgroundColor: suggestion.active ? '#41B6E6' : '#fff',
-                  }
-                  return (
-                    <div {...getSuggestionItemProps(suggestion, { style })}>
-                      {suggestion.description}
-                    </div>
-                  )
+    <PlacesAutocomplete
+      onError={(e) => {
+        console.log('error', e)
+      }}
+      value={location}
+      onChange={setLocation}
+      onSelect={handleSubmit}
+      highlightFirstSuggestion={true}
+    >
+      {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => {
+        setSelectedSuggestion(suggestions)
+        return (
+          <div className="search-container">
+            <form className="search-form">
+              <input
+                {...getInputProps({
+                  placeholder: 'Type address',
+                  className: 'search-term',
+                  type: 'text',
                 })}
-              </div>
+              />
+            </form>
+            <div className="suggestions">
+              {loading ? <div>...loading</div> : null}
+              {suggestions.map((suggestion) => {
+                console.log('SUGGESTION', suggestion)
+                const style = {
+                  backgroundColor: suggestion.active ? '#41B6E6' : '#fff',
+                }
+                return (
+                  <div {...getSuggestionItemProps(suggestion, { style })}>
+                    {suggestion.description}
+                  </div>
+                )
+              })}
             </div>
-          )
-        }}
-      </PlacesAutocomplete>
-    </div>
+          </div>
+        )
+      }}
+    </PlacesAutocomplete>
   )
 }

@@ -17,8 +17,8 @@ export default function Map() {
   })
 
   const [viewport, setViewport] = useState({
-    width: '35vw',
-    height: '80vh',
+    width: '37vw',
+    height: '97vh',
     latitude: location.latitude,
     longitude: location.longitude,
     zoom: 7,
@@ -59,7 +59,9 @@ export default function Map() {
   let search = useLocation().search
   let searchCity = new URLSearchParams(search).get('city')
   let searchCountry = new URLSearchParams(search).get('country')
-  const filteredPins = pins.filter((pin) => pin.location === searchCity)
+  const filteredPins = pins.filter(
+    (pin) => pin.city === searchCity && pin.country === searchCountry,
+  )
 
   // console.log(locationSearch)
 

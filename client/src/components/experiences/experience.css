@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: row;
   padding: 1em;
-  border-top: 1px solid rgb(207, 201, 201);
+  border-top: 1px solid rgb(231, 225, 225);
   border-right: none;
 }
 
@@ -98,4 +98,8 @@
 
 .fas {
   margin-right: 3px;
+}
+
+.fa-euro-sign {
+  color: grey;
 }

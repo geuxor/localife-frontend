@@ -15,7 +15,6 @@
 .exp-list {
   height: 80vh;
   overflow-x: auto;
-  box-shadow: 0px -1px 10px rgb(209, 203, 203);
 }
 
 .no-exp {

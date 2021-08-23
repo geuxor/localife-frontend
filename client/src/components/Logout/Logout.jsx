@@ -15,7 +15,7 @@ export default function LogOut() {
       dispatch({
         type: 'SET_LOGOUT',
       })
-      toast.info('You have been Logged out...')
+      toast.info('You have been logged out...')
       const res = await apiAuth.logout()
       console.log('Logout: response', res)
       history.push('/')

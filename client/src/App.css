@@ -4,5 +4,8 @@
 body {
   /* font-family: 'Poppins', sans-serif; */
   font-family: 'Montserrat', sans-serif;
-  overflow: hidden;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }

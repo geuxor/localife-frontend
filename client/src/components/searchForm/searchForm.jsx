@@ -35,15 +35,14 @@ export default function SearchForm() {
         setSelectedSuggestion(suggestions)
         return (
           <div className="search-container">
-            <form className="search-form">
-              <input
-                {...getInputProps({
-                  placeholder: ' I want to go to...',
-                  className: 'search-term',
-                  type: 'text',
-                })}
-              />
-            </form>
+            <input
+              {...getInputProps({
+                placeholder: ' I want to go to...',
+                className: 'search-term',
+                type: 'text',
+                autoFocus: 'true',
+              })}
+            />
             <div className="suggestions">
               {loading ? <div>...loading</div> : null}
               {suggestions.map((suggestion) => {

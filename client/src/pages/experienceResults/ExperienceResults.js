@@ -5,6 +5,7 @@ import './ExperienceResults.css'
 import Experience from '../../components/experiences/experience'
 import Map from '../../components/Map/Map'
 import Spinner from '../../components/Spinner/Spinner'
+import { useLocation } from 'react-router-dom'
 
 function ExperienceResults() {
   const [experiences, setExperiences] = useState([])
@@ -12,6 +13,9 @@ function ExperienceResults() {
 
 
   const searchQuery = queryString.parse(window.location.search)
+
+  let search = useLocation().search
+  let locationSearch = new URLSearchParams(search).get('location')
 
   useEffect(() => {
     console.log('searchLocation:', searchQuery)

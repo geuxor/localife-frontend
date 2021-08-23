@@ -5,7 +5,7 @@ import Routes from './routes/routes'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import Menu from './components/Menu/Navbar'
-Footer from './components/Footer/Footer'
+import Footer from './components/Footer/Footer'
 import { get_cookie } from './utils/cookieHandler'
 import apiAuth from './apiServices/auth'
 import { useDispatch } from 'react-redux'
@@ -50,7 +50,6 @@ function App() {
 
   return (
     <div className="App">
-      <Router>
       {!loading ? (
         <Router>
           <Menu />
@@ -65,6 +64,7 @@ function App() {
             draggable
             pauseOnHover
           />
+          <Footer />
           <Routes />
         </Router>
       ) : (

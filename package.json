@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/geuxor/localife-frontend#readme",
   "dependencies": {
+    "@types/react-places-autocomplete": "^7.2.8",
+    "react-places-autocomplete": "^7.3.0",
     "react-redux": "^7.2.4"
   }
 }

@@ -41,7 +41,7 @@ function Experience(props: Props): any {
             >
               More Info
             </button>
-            <i className="fas fa-heart"></i>
+            <i className="far fa-heart"></i>
           </div>
         </div>
       </div>

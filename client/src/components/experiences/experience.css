@@ -38,7 +38,7 @@
 
 .exp-buy-button {
   width: 15vh;
-  background-color: darkorange;
+  background-color: #ff8303;
   border: none;
   border-radius: 5px;
   color: white;
@@ -85,6 +85,7 @@
 }
 
 .experience-title {
+  /* color: #a35709; */
   width: fit-content;
   font-size: 1.3em;
   font-weight: 600;
@@ -101,5 +102,9 @@
 }
 
 .fa-euro-sign {
-  color: grey;
+  color: #a35709;
+}
+
+.exp-price {
+  color: #a35709;
 }

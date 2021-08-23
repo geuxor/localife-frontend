@@ -4,6 +4,7 @@ import Routes from './routes/routes'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import Menu from './components/Menu/Navbar'
+import Footer from './components/Footer/Footer'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           draggable
           pauseOnHover
         />
+        <Footer />
         <Routes />
       </Router>
     </div>

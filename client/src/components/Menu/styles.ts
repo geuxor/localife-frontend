@@ -45,10 +45,10 @@ export const StyledBurger = styled.div<INav>`
 
 export const Nav = styled.nav`
   font-family: 'Zilla Slab';
-  height: 100%;
+  height: 65px;
   display: flex;
   justify-content: space-between;
-  background-color: #fdfdfdfa;
+  background-color: #f6eede;
   align-items: center;
   position: relative;
   box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
@@ -74,7 +74,7 @@ export const Ul = styled.ul<INav>`
   display: flex;
   flex-flow: row nowrap;
   position: absolute;
-  width: 90%;
+  width: 98.5%;
   top: 0;
   right: 20px;
   justify-content: flex-end;
@@ -95,6 +95,7 @@ export const Ul = styled.ul<INav>`
   }
 
   li {
+    color: black;
     padding: 10px 24px;
     text-decoration: none;
     text-transform: none;

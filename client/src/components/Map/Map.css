@@ -3,8 +3,8 @@
 .map {
   position: absolute;
   right: 0;
-  top: 62px;
-  z-index: -2;
+  top: 63px;
+  z-index: 1;
 }
 
 .popup {

@@ -38,7 +38,7 @@ export default function SearchForm() {
             <form className="search-form">
               <input
                 {...getInputProps({
-                  placeholder: 'Type address',
+                  placeholder: ' I want to go to...',
                   className: 'search-term',
                   type: 'text',
                 })}

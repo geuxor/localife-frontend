@@ -14,7 +14,6 @@ import { RootState } from '../../redux/reducers/reducers'
 import { toast } from 'react-toastify'
 import Spinner from '../../components/Spinner/Spinner'
 import LogIn from '../../components/LogIn/LogIn'
-document.body.style.overflow = 'auto'
 
 function ExperienceDetails(props) {
   const [experience, setExperience] = useState<ExperienceInterface>()
@@ -49,6 +48,12 @@ function ExperienceDetails(props) {
     })()
     // eslint-disable-next-line
   }, [])
+
+  useEffect(() => {
+    if (experience) {
+      document.body.style.overflow = 'auto'
+    }
+  })
 
   const handleClick = async (e) => {
     if (!authed) {

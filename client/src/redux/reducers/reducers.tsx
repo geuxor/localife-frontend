@@ -13,7 +13,9 @@ const initialState = {
     firstname: '',
     lastname: '',
     email: '',
+    id: null
   },
+  
   experience: {},
   stripe: {},
 }

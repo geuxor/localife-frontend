@@ -10,6 +10,7 @@ import StripeRedirect from '../Stripe/StripeRedirect.component'
 import Bookings from '../components/Bookings/bookings.component'
 import Dashbaord from '../components/Provider/Dashboard.component'
 import CreateExperienceForm from '../components/experiences/CreateExperience'
+import MyBookings from '../pages/myBookingsPage/MyBookings'
 
 function Routes() {
   return (
@@ -25,7 +26,6 @@ function Routes() {
           exact
           component={CreateExperienceForm}
         />
-
         <PrivateRoute
           path="/become-provider"
           exact
@@ -34,6 +34,7 @@ function Routes() {
         <Route path="/logout" exact component={LogOut} />
         <Route path="/search-results" exact component={ExperienceResults} />
         <Route path="/" exact component={LandingPage} />
+        <Route path="/my-bookings" exact component={MyBookings} />
       </Switch>
     </div>
   )

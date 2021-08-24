@@ -4,7 +4,9 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import Routes from './routes/routes'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import NavMenu from './components/Navigation/Navbar'
+// import NavMenu from './components/Navigation/Navbar'
+import Menu from './components/Menu/Navbar'
+import Footer from './components/Footer/Footer'
 import { get_cookie } from './utils/cookieHandler'
 import apiAuth from './apiServices/auth'
 import { useDispatch, useSelector } from 'react-redux'
@@ -55,7 +57,7 @@ function App() {
     <div className="App">
       {!loading ? (
         <Router>
-          <NavMenu />
+          <Menu />
           <ToastContainer
             position="bottom-center"
             autoClose={5000}
@@ -67,6 +69,7 @@ function App() {
             draggable
             pauseOnHover
           />
+          <Footer />
           <Routes />
         </Router>
       ) : (

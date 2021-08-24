@@ -4,6 +4,7 @@ import apiAuth from '../../apiServices/auth'
 import { delete_cookie } from '../../utils/cookieHandler'
 import { toast } from 'react-toastify'
 import { useEffect } from 'react'
+import './Logout.css'
 
 export default function LogOut() {
   const history = useHistory()
@@ -15,7 +16,7 @@ export default function LogOut() {
       dispatch({
         type: 'SET_LOGOUT',
       })
-      toast.info('You have been Logged out...')
+      toast.info('You have been logged out...')
       const res = await apiAuth.logout()
       console.log('Logout: response', res)
       history.push('/')
@@ -31,5 +32,5 @@ export default function LogOut() {
   useEffect(() => {
     logoutUser()
   })
-  return <div>Logged out</div>
+  return <div className="logged-out">Logged out</div>
 }

@@ -51,6 +51,21 @@ function RightNav(props: Props) {
       )}
       <S.Ul open={props.open}>
         <NavLink
+          className="Localife"
+          to="/"
+          activeStyle={{
+            fontSize: '1.5em',
+            position: 'absolute',
+            left: 0,
+            fontWeight: 'bold',
+            color: '#0DADEA',
+            fontFamily: 'Montserrat',
+          }}
+        >
+          <li>Localife</li>
+        </NavLink>
+
+        <NavLink
           onClick={() => resetClickHandler()}
           to="/about"
           activeStyle={{
@@ -102,6 +117,15 @@ function RightNav(props: Props) {
               }}
             >
               <li>Dashboard</li>
+            </NavLink>
+            <NavLink
+              to="/my-bookings"
+              activeStyle={{
+                fontWeight: 'bold',
+                color: '#0DADEA',
+              }}
+            >
+              <li>My Bookings</li>
             </NavLink>
             <NavLink
               to="/logout"

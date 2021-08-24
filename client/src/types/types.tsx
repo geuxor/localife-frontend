@@ -12,9 +12,13 @@ export interface ExperienceInterface {
   lat: number
   createdAt: Date
   updatedAt: Date
-  UserId?: number
+  UserId: number
+  User: User
 }
-
+interface User {
+  avatar: string
+  firstname: string
+}
 export interface Props {
   experience: any
 }

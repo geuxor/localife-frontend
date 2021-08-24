@@ -1,12 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Poppins:wght@100&display=swap');
+
 .details-title {
-  align-self: start;
+  margin-top: 3rem;
 }
 .details-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   margin-top: 20px;
-  /* background-color: burlywood; */
   height: 100vh;
   margin: 6rem;
 }
@@ -16,7 +17,7 @@
   flex-direction: row;
   justify-content: space-evenly;
   width: 100%;
-  height: 40vh;
+  height: 50vh;
   margin-top: 5rem;
 }
 
@@ -24,15 +25,13 @@
   width: 100%;
   height: 15rem;
   margin-top: 1.5rem;
-  padding-left: 2.5rem;
 }
 
 .provider-details-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* background-color: lightyellow; */
-  width: 50%;
+  width: 70%;
   height: 15rem;
 }
 
@@ -52,4 +51,18 @@
   width: 20rem;
   height: 18rem;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.booking-cont-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: -2.5em;
+}
+
+.btn-book-now {
+  background-color: darkorange;
+  border-radius: 10px;
+  color: white;
 }

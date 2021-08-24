@@ -1,26 +1,30 @@
-.search-form {
-  background-color: transparent;
-  display: flex;
-  justify-content: center;
-  left: 28vw;
-  position: absolute;
-  top: 40vh;
-  width: 100%;
-  z-index: 1;
-}
-
 .search-term {
   background-color: white;
   border: none;
   border-radius: 25px;
-  box-shadow: 5px 8px 15px slategray;
+  box-shadow: 8px 8px 18px #363636;
   font-size: 1.2em;
   height: 50px;
   outline: none;
-  padding: 0.5em 1em;
+  padding-left: 1em;
   width: 40vw;
 }
-
 ::placeholder {
   color: grey;
+}
+
+.suggestions {
+  margin-left: 90px;
+  width: 30vw;
+  z-index: 1;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 300px;
+  top: 36vh;
+  left: 30vw;
+  width: 40vw;
 }

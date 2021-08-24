@@ -1,11 +1,10 @@
 import './ExperienceDetails.css'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { filterExpById } from '../../helpers/helperFunctions'
 import { ExperienceInterface } from '../../types/types'
 import DatePicker from '../../components/datePicker/DatePicker'
 import Guests from '../../components/guests/guests'
-import Counter from '../../components/counter/counter'
+import ImgCarousel from '../../components/carousel/carousel'
 import { useSelector } from 'react-redux'
 import ExperiencesApi from '../../apiServices/experiencesApi'
 import apiStripe from '../../apiServices/stripeApi'
@@ -20,14 +19,11 @@ function ExperienceDetails(props) {
   const [experience, setExperience] = useState<ExperienceInterface>()
   const [loading, setLoading] = useState(true)
   const { id }: { id: string } = useParams()
-  const numId = parseInt(id)
   const authed = useSelector((state: RootState) => state.isLoggedIn)
   const [showLogIn, setShowLogIn] = useState(false)
-  console.log(authed)
 
   useEffect(() => {
     ;(async () => {
-      console.log(id)
       try {
         const detailedExperience = await ExperiencesApi.viewExperience(id)
         console.log('detailedExperience', detailedExperience.data)
@@ -42,10 +38,6 @@ function ExperienceDetails(props) {
         }
         setLoading(false)
       }
-      // setExperience((prevstate) => {
-      //   console.log('prevstate', prevstate)
-      //   return prevstate
-      // })
     })()
     // eslint-disable-next-line
   }, [])
@@ -108,39 +100,46 @@ function ExperienceDetails(props) {
       {loading ? (
         <Spinner />
       ) : experience ? (
-        <>
+        <div>
           <div className="title-img-details-container">
-            <img
-              src={experience?.image}
-              alt="experience"
-              className="details-img"
-            />
+            <ImgCarousel />
           </div>
-          <h1 className="details-title">{experience?.title}</h1>
+          <h1 className="details-title">{experience.title}</h1>
           <div className="details-container2">
             <div className="provider-details-container">
               <div>
                 <h6>hosted by </h6>
+                <p>{experience.User.firstname}</p>
+                <img src={experience.User.avatar} alt="user-avatar" />
                 <div className="details-decription">
                   {experience.description}
                 </div>
+              </div>
+            </div>
+            <div className="details-datepicker-container">
+              <div className="booking-cont-date">
+                <h6>Booking Form:</h6>
+                <DatePicker />
+              </div>
+              <div className="booking-cont-guests">
+                <Guests />
+              </div>
+              <div className="booking-cont-booknow">
                 <button
                   onClick={handleClick}
                   className="btn btn-block btn-lg btn-primary"
+                  style={{
+                    backgroundColor: 'darkorange',
+                    borderColor: 'darkgray',
+                  }}
                   disabled={loading}
                 >
                   {loading ? 'loading...' : 'Book now'}
                 </button>
               </div>
             </div>
-            <div className="description-details-container">
-              {/* <DatePicker /> */}
-            </div>
           </div>
-          <div>
-            <Guests />
-          </div>
-        </>
+        </div>
       ) : (
         <div>{toast.error('Unable to fetch the experience')}</div>
       )}

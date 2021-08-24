@@ -44,7 +44,7 @@ const Heart = ({ color, size }) => (
     color={color}
     size={size}
   >
-    <i class="fas fa-heart heart-style"></i>
+    <i className="fas fa-heart heart-style"></i>
 
   </HeartSpinner>
 )

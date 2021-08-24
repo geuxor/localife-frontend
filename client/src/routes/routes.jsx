@@ -9,6 +9,7 @@ import ExperienceDetails from '../pages/experienceDetails/ExperienceDetails'
 import StripeRedirect from '../Stripe/StripeRedirect.component'
 import Bookings from '../components/Bookings/bookings.component'
 import Dashbaord from '../components/Provider/Dashboard.component'
+import CreateExperienceForm from '../components/experiences/CreateExperience'
 
 function Routes() {
   return (
@@ -19,6 +20,12 @@ function Routes() {
         <Route path="/stripe/redirect" exact component={StripeRedirect} />
         <PrivateRoute path="/bookings" exact component={Bookings} />
         <PrivateRoute path="/dashboard" exact component={Dashbaord} />
+        <PrivateRoute
+          path="/experience/new"
+          exact
+          component={CreateExperienceForm}
+        />
+
         <PrivateRoute
           path="/become-provider"
           exact

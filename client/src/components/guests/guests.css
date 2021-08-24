@@ -10,19 +10,23 @@
   user-select: none;
   width: 100%;
   height: 5vh;
-  /* padding-right: 7em; */
+  padding-right: 10rem;
 }
+
+/* .dropdown-container{
+
+} */
 
 .dropdown-adults {
   font-size: small;
-  margin-left: 0.5em;
+  /* margin-left: 0.5em; */
   width: 12rem;
 }
 
 .dropdown-children {
   font-size: small;
-  margin-top: 2em;
-  margin-left: 0.5em;
+  /* margin-top: 2em; */
+  /* margin-left: 0.5em; */
   width: 12rem;
 }
 

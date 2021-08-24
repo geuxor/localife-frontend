@@ -26,14 +26,15 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: start;
   padding-top: 2rem;
 }
 
 .start-date,
 .end-date {
-  width: 9vw;
+  width: 105px;
   height: 10vh;
+  margin-left: 15px;
 }
 
 .booking-time {
@@ -113,4 +114,8 @@
 
 .booking-date {
   margin: auto;
+}
+
+.booking-price {
+  margin-right: 70px;
 }

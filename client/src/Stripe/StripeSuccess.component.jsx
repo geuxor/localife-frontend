@@ -13,7 +13,7 @@ const StripeSuccess = ({ match, history }) => {
 
     if (okres) {
       // console.log("StripeSuccess: res.data.success : stripe success response", res.data);
-      toast.success('Your purchase has been successfull!')
+      toast.success('Your purchase has been successful!')
       setTimeout(() => {
         history.push('/bookings')
       }, 2000)

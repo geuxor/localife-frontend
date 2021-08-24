@@ -41,6 +41,12 @@ function ExperienceDetails(props) {
     // eslint-disable-next-line
   }, [])
 
+  useEffect(() => {
+    if (experience) {
+      document.body.style.overflow = 'auto'
+    }
+  })
+
   const handleClick = async (e) => {
     if (!authed) {
       toast.info('Please login before booking')

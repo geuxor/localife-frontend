@@ -26,17 +26,29 @@ export default function MyBookings() {
   console.log(myBookings)
 
   return (
-    <div>
-      <h2 className="hello-user">
-        Hello {store.user.firstname}
-        <i class="far fa-smile"></i>
-      </h2>
-      <h5 className='upcoming'>Upcoming Events:</h5>
-      <div className="booking-list">
-        {myBookings.map((booking, i) => (
-          <SingleBooking key={i} booking={booking} />
-        ))}
-      </div>
-    </div>
+    <>
+      {myBookings.length ? (
+        <div>
+          <h2 className="hello-user">
+            Hello {store.user.firstname}
+            <i class="far fa-smile"></i>
+          </h2>
+          <h5 className="upcoming">These are your upcoming events:</h5>
+          <div className="booking-list">
+            {myBookings.map((booking, i) => (
+              <SingleBooking key={i} booking={booking} />
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div className="container-no-bookings">
+          No events booked yet, click{' '}
+          <a className="anchor-redirect-home" href="/">
+            here
+          </a>{' '}
+          to start a new adventure!
+        </div>
+      )}
+    </>
   )
 }

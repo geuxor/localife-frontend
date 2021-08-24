@@ -26,17 +26,23 @@ export default function SingleBooking({ booking }) {
             {booking.price}.00
           </div>
           <div className="start-date">
-            <p>{moment(booking.start_date).format(formatDay)}</p>
+            <p className="booking-date">
+              {moment(booking.start_date).format(formatDay)}
+              <i class="far fa-calendar-alt date-icon-start"></i>
+            </p>
             <p className="booking-time">
               {moment(booking.start_date).format(formatTime)}
-              <i class="far fa-clock"></i>
+              <i class="far fa-clock clock-icon-start"></i>
             </p>
           </div>
           <div className="end-date">
-            <p>{moment(booking.end).format(formatDay)}</p>
+            <p className="booking-date">
+              {moment(booking.end).format(formatDay)}
+              <i class="far fa-calendar-alt date-icon-end"></i>
+            </p>
             <p className="booking-time">
               {moment(booking.end).format(formatTime)}
-              <i class="far fa-clock"></i>
+              <i class="far fa-clock clock-icon-end"></i>
             </p>
           </div>
         </div>

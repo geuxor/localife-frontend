@@ -4,6 +4,7 @@ import apiAuth from '../../apiServices/auth'
 import { delete_cookie } from '../../utils/cookieHandler'
 import { toast } from 'react-toastify'
 import { useEffect } from 'react'
+import './Logout.css'
 
 export default function LogOut() {
   const history = useHistory()
@@ -31,5 +32,5 @@ export default function LogOut() {
   useEffect(() => {
     logoutUser()
   })
-  return <div>Logged out</div>
+  return <div className="logged-out">Logged out</div>
 }

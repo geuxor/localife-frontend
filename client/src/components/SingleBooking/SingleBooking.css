@@ -72,12 +72,12 @@
 
 .exp-info-button:hover {
   transform: translate(0px, -2px);
-  transition: 0.2s;
+  transition: 0.3s;
   /* transition-timing-function: ease-in; */
 }
 
 .exp-buy-button:not(:hover) {
-  transition: 0.2s;
+  transition: 0.3s;
 }
 
 .booking-title {

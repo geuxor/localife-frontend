@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import queryString from 'query-string'
 import ExperiencesApi from '../../apiServices/experiencesApi'
 import './ExperienceResults.css'
 import Experience from '../../components/experiences/experience'
@@ -10,7 +9,7 @@ import { useLocation } from 'react-router-dom'
 function ExperienceResults() {
   const [experiences, setExperiences] = useState([])
   const [loading, setLoading] = useState(true)
-  
+
   let search = useLocation().search
   let searchCity = new URLSearchParams(search).get('city')
   let searchCountry = new URLSearchParams(search).get('country')
@@ -52,9 +51,13 @@ function ExperienceResults() {
         ) : experiences.length ? (
           <>
             <div className="exp-list">
-              {experiences.map((xp, i) => (
-                <Experience key={i} experience={xp} />
-              ))}
+              {experiences.map(
+                (xp, i) => (
+                  console.log('xppppp', xp),
+                  console.log('iiiiii', i),
+                  (<Experience key={i} experience={xp} />)
+                ),
+              )}
             </div>
             <div className="map-container">
               <Map />

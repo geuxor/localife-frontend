@@ -3,14 +3,11 @@ import './experience.css'
 import { useHistory } from 'react-router'
 
 function Experience(props: Props): any {
-  // console.log('exp-page', props)
+  console.log('PROPS', props)
   const history = useHistory()
 
   const handleClick = () =>
     history.push(`/result-details/${props.experience.id}`)
-
-  // const handleClick2 = () =>
-  //   history.push(`/result-details/${props.experience.id}`)
 
   return (
     <div className="exp-container2">

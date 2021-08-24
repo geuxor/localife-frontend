@@ -10,7 +10,6 @@ import StripeRedirect from '../Stripe/StripeRedirect.component'
 import MyBookings from '../pages/myBookingsPage/MyBookings'
 import Dashbaord from '../components/Provider/Dashboard.component'
 import CreateExperienceForm from '../components/experiences/CreateExperience'
-import MyBookings from '../pages/myBookingsPage/MyBookings'
 
 function Routes() {
   return (

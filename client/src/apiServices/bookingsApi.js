@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const BookingsApi = {}
 
-const options: any = {
+const options = {
   headers: { 'Content-Type': 'application/json' },
   method: 'post',
   withCredentials: true,              

@@ -29,7 +29,7 @@ function Experience(props: Props): any {
         <div className="exp-container5">
           <b>
             <div className="exp-price">
-              <i className="fas fa-euro-sign"></i>
+              <i className="euro fas fa-euro-sign"></i>
               {props.experience.price}.00
             </div>
           </b>

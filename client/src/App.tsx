@@ -8,45 +8,49 @@ import Menu from './components/Menu/Navbar'
 import Footer from './components/Footer/Footer'
 import { get_cookie } from './utils/cookieHandler'
 import apiAuth from './apiServices/auth'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setUser, setLogIn } from './redux/actions/actions'
+import { RootState } from './redux/reducers/reducers'
 
 function App() {
   const [loading, setLoading] = useState(true)
   const dispatch = useDispatch()
+  const store = useSelector((state: RootState) => state)
 
   useEffect(() => {
-    ;(async () => {
-      try {
-        const sid = get_cookie()
-        console.log('App: cookie:', sid)
-        if (sid) {
-          let res = await apiAuth.getProfile()
-          console.log('App: profile response:', res.data)
-          if (res.data) {
-            console.log('App: reLoggedIn SUCCESSFUL ===> ')
-            dispatch(setUser(res.data))
-            dispatch(setLogIn(true))
+    if (!store.isLoggedIn) {
+      ;(async () => {
+        try {
+          const sid = get_cookie()
+          console.log('App: cookie:', sid)
+          if (sid) {
+            let res = await apiAuth.getProfile()
+            console.log('App: profile response:', res.data)
+            if (res.data) {
+              console.log('App: reLoggedIn SUCCESSFULL ===> ')
+              dispatch(setUser(res.data))
+              dispatch(setLogIn(true))
+            } else {
+              console.log('App: err relogging - redirect to login')
+              toast.error('App: Error reLogging you in - Please relogin')
+            }
+            setLoading(false)
           } else {
-            console.log('App: err relogging - redirect to login')
-            toast.error('App: Error reLogging you in - Please relogin')
+            setLoading(false)
           }
+        } catch (err) {
           setLoading(false)
-        } else {
-          setLoading(false)
+          if (err.response && err.response.status >= 400) {
+            console.log('err:', err.response.data)
+            toast.error(err.response.data)
+          } else {
+            console.log(err)
+            toast.error(err)
+          }
         }
-      } catch (err) {
-        setLoading(false)
-        if (err.response && err.response.status >= 400) {
-          console.log('err:', err.response.data)
-          toast.error(err.response.data)
-        } else {
-          console.log(err)
-          toast.error(err)
-        }
-      }
-    })()
-  }, [dispatch])
+      })()
+    }
+  }, [])
 
   return (
     <div className="App">

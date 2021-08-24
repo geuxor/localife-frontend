@@ -13,6 +13,7 @@ import { RootState } from '../../redux/reducers/reducers'
 import { toast } from 'react-toastify'
 import Spinner from '../../components/Spinner/Spinner'
 import LogIn from '../../components/LogIn/LogIn'
+// import HeartSpinner from '../../components/Spinner/Heart.Spinner.js'
 
 function ExperienceDetails(props) {
   const [experience, setExperience] = useState<ExperienceInterface>()

@@ -17,13 +17,14 @@ const initialState = {
   },
   
   experience: {},
+  stripe: {},
 }
 
 export const reducer = (state = initialState, action) => {
   // console.log('action.payload', action.payload)
   switch (action.type) {
     case SET_USER:
-      console.log(state)
+      // console.log(state)
       return {
         ...state,
         user: action.payload,

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../redux/reducers/reducers'
 import * as S from './styles'
@@ -13,7 +13,19 @@ type Props = {
 function RightNav(props: Props) {
   const [showLogIn, setShowLogIn] = useState(false)
   const [showRegister, setShowRegister] = useState(false)
-  const state = useSelector((state: RootState) => state)
+  const [showProviderLink, setshowProviderLink] = useState(true)
+  const store = useSelector((state: RootState) => state)
+
+  useEffect(() => {
+    if (store.isLoggedIn) {
+      ;(async () => {
+        try {
+          if (store.user.stripe_registration_complete === 'COMPLETE')
+            setshowProviderLink(false)
+        } catch (err) {}
+      })()
+    }
+  }, [])
 
   function resetClickHandler() {
     setShowLogIn(false)
@@ -33,6 +45,10 @@ function RightNav(props: Props) {
   //why page doesn't change when clicking logout??? or others
   return (
     <>
+      {console.log(
+        'User is Provider:',
+        store.user.stripe_registration_complete,
+      )}
       <S.Ul open={props.open}>
         <NavLink
           className="Localife"
@@ -60,17 +76,29 @@ function RightNav(props: Props) {
           <li>About</li>
         </NavLink>
 
-        {state.user.email ? (
+        {store.user.email ? (
           <>
-            <NavLink
-              to="/become-provider"
-              activeStyle={{
-                fontWeight: 'bold',
-                color: '#0DADEA',
-              }}
-            >
-              <li>Become a Provider</li>
-            </NavLink>
+            {showProviderLink ? (
+              <NavLink
+                to="/become-provider"
+                activeStyle={{
+                  fontWeight: 'bold',
+                  color: '#0DADEA',
+                }}
+              >
+                <li>Become a Provider</li>
+              </NavLink>
+            ) : (
+              <NavLink
+                to="/experience/new"
+                activeStyle={{
+                  fontWeight: 'bold',
+                  color: '#0DADEA',
+                }}
+              >
+                <li>Create Experience</li>
+              </NavLink>
+            )}
             <NavLink
               to="/stripe/success"
               activeStyle={{

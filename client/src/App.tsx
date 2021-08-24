@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import { BrowserRouter as Router } from 'react-router-dom'
 import Routes from './routes/routes'
-
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import Menu from './components/Menu/Navbar'
+import Footer from './components/Footer/Footer'
 import { get_cookie } from './utils/cookieHandler'
 import apiAuth from './apiServices/auth'
 import { useDispatch } from 'react-redux'
@@ -24,7 +24,7 @@ function App() {
           let res = await apiAuth.getProfile()
           console.log('App: profile response:', res.data)
           if (res.data) {
-            console.log('App: reLoggedIn SUCCESSFULL ===> ')
+            console.log('App: reLoggedIn SUCCESSFUL ===> ')
             dispatch(setUser(res.data))
             dispatch(setLogIn(true))
           } else {
@@ -64,6 +64,7 @@ function App() {
             draggable
             pauseOnHover
           />
+          <Footer />
           <Routes />
         </Router>
       ) : (

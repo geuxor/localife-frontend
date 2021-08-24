@@ -1,8 +1,15 @@
 .background-image {
-  background-image: url('../../images/fjord.jpg');
+  background-image: url('../../images/tokyo.jpg');
   background-size: cover;
   background-position: bottom;
-  min-height: 100%;
-  height: 100vh;
+  /* min-height: 100%; */
+  height: 93vh;
 }
 
+.background-image::-webkit-scrollbar {
+  display: none;
+}
+/* 
+body {
+  overflow-y: hidden;
+} */

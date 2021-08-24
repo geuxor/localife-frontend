@@ -17,8 +17,8 @@ export default function Map() {
   })
 
   const [viewport, setViewport] = useState({
-    width: '35vw',
-    height: '80vh',
+    width: '37vw',
+    height: '91vh',
     latitude: location.latitude,
     longitude: location.longitude,
     zoom: 7,
@@ -57,8 +57,11 @@ export default function Map() {
   }, [location])
 
   let search = useLocation().search
-  let locationSearch = new URLSearchParams(search).get('location')
-  const filteredPins = pins.filter((pin) => pin.location === locationSearch)
+  let searchCity = new URLSearchParams(search).get('city')
+  let searchCountry = new URLSearchParams(search).get('country')
+  const filteredPins = pins.filter(
+    (pin) => pin.city === searchCity && pin.country === searchCountry,
+  )
 
   // console.log(locationSearch)
 
@@ -67,7 +70,7 @@ export default function Map() {
 
     Geocode.setLocationType('APPROXIMATE')
 
-    Geocode.fromAddress(locationSearch).then(
+    Geocode.fromAddress(`${searchCity}, ${searchCountry}`).then(
       (response) => {
         const { lat, lng } = response.results[0].geometry.location
         setLocation({

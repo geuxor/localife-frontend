@@ -5,22 +5,30 @@ import './ExperienceResults.css'
 import Experience from '../../components/experiences/experience'
 import Map from '../../components/Map/Map'
 import Spinner from '../../components/Spinner/Spinner'
+import { useLocation } from 'react-router-dom'
 
 function ExperienceResults() {
   const [experiences, setExperiences] = useState([])
   const [loading, setLoading] = useState(true)
+  
+  let search = useLocation().search
+  let searchCity = new URLSearchParams(search).get('city')
+  let searchCountry = new URLSearchParams(search).get('country')
 
-  const searchQuery = queryString.parse(window.location.search)
+  let location = {
+    city: searchCity,
+    country: searchCountry,
+  }
 
   useEffect(() => {
-    console.log('searchLocation:', searchQuery)
+    console.log('searchLocation:', searchCity)
     ;(async () => {
       try {
         const searchResults = await ExperiencesApi.searchExperiencesApi(
-          searchQuery,
+          location,
         )
         if (searchResults === [])
-          throw new Error(`...nothing found in ${searchQuery.location}`)
+          throw new Error(`...nothing found in ${searchResults}`)
         console.log('SEARCH RESULTS ===>', searchResults.data)
         setExperiences(searchResults.data)
         setLoading(false)
@@ -34,11 +42,9 @@ function ExperienceResults() {
 
   return (
     <>
-      {console.log(experiences.data)}
-      {console.log(loading)}
       <div className="exp-container">
         <div className="results-info">
-          <h2>Experiences in {searchQuery.location}</h2>
+          <h2>Experiences in {location.city}</h2>
           <h4>Aug 21st to 28th</h4>
         </div>
         {loading ? (
@@ -55,7 +61,7 @@ function ExperienceResults() {
             </div>
           </>
         ) : (
-          <div>No experiences found</div>
+          <div className="no-exp">No experiences found</div>
         )}
       </div>
     </>

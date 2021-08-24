@@ -7,7 +7,6 @@ import BecomeProvider from '../components/Provider/BecomeProvider'
 import StripeSuccess from '../Stripe/StripeSuccess.component'
 import ExperienceDetails from '../pages/experienceDetails/ExperienceDetails'
 import StripeRedirect from '../Stripe/StripeRedirect.component'
-import Bookings from '../components/Bookings/bookings.component'
 import Dashbaord from '../components/Provider/Dashboard.component'
 import CreateExperienceForm from '../components/experiences/CreateExperience'
 import MyBookings from '../pages/myBookingsPage/MyBookings'
@@ -19,7 +18,7 @@ function Routes() {
         <Route path="/result-details/:id" exact component={ExperienceDetails} />
         <Route path="/stripe/success/:id" exact component={StripeSuccess} />
         <Route path="/stripe/redirect" exact component={StripeRedirect} />
-        <PrivateRoute path="/bookings" exact component={Bookings} />
+        <PrivateRoute path="/bookings" exact component={MyBookings} />
         <PrivateRoute path="/dashboard" exact component={Dashbaord} />
         <PrivateRoute
           path="/experience/new"

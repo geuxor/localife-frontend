@@ -26,16 +26,20 @@ export default function MyBookings() {
     })()
   }, [])
 
-  const formatDay = 'DD/MM/YYYY'
+  console.log(myBookings)
   const currentDate = new Date()
-  const sortedExperiences = myBookings.sort(
+  const sortedExperiencesDistant = myBookings.sort(
     (a, b) => new Date(a.end_date) - new Date(b.end_date),
   )
-  const pastExperiences = sortedExperiences.filter(
-    (exp) => new Date(exp.end_date) > currentDate,
+  const pastExperiences = myBookings.filter(
+    (exp) => new Date(exp.end_date) < currentDate,
   )
-  console.log('PAST', pastExperiences)
-  // console.log(myBookings)
+  const sortedExperiencesRecent = pastExperiences.sort(
+    (a, b) => new Date(b.end_date) - new Date(a.end_date),
+  )
+  const futureExperiences = sortedExperiencesDistant.filter(
+    (exp) => new Date(exp.start_date) > currentDate,
+  )
 
   return (
     <>
@@ -49,13 +53,19 @@ export default function MyBookings() {
           </h2>
           <h5 className="upcoming">These are your upcoming events:</h5>
           <div className="booking-list">
-            {myBookings.map((booking, i) => (
-              <SingleBooking key={i} booking={booking} />
+            {futureExperiences.map((booking, i) => (
+              <SingleBooking
+                key={i}
+                booking={booking}
+                style={{
+                  backgroundColor: i % 2 === 0 ? '#f6eede' : 'white',
+                }}
+              />
             ))}
           </div>
           <div className="past-exp-container">
             <h5 className="past-exp">Past experiences:</h5>
-            {pastExperiences.map((exp) => (
+            {sortedExperiencesRecent.map((exp) => (
               <div className="past-exp-detail">
                 <h5>{exp.Experience.title}</h5>
                 <h6>{moment(exp.end_date).fromNow()}</h6>

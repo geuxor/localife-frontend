@@ -5,9 +5,9 @@
   padding: 1.2em 0 1.2em 0;
   border-top: 1px solid rgb(231, 225, 225);
   border-right: none;
-  margin-left: 27px;
+  /* margin-left: 27px; */
   width: 65vw;
-  height: 250px;
+  height: 220px;
 }
 
 .booking-container3 {
@@ -22,7 +22,7 @@
 }
 
 .booking-details-container {
-  height: 20vh;
+  height: 12vh;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -32,14 +32,14 @@
 
 .start-date,
 .end-date {
-  width: 105px;
-  height: 10vh;
+  width: 115px;
+  height: 6vh;
   margin-left: 15px;
 }
 
 .booking-time {
   font-size: 0.9rem;
-  margin-left: 20px;
+  margin-left: 27px;
   margin-top: 2px;
 }
 
@@ -52,9 +52,11 @@
   width: 276px;
   height: 180px;
   border-radius: 20px;
+  margin-left: 27px;
+  margin: 0 25px 0 27px;
 }
 
-.exp-buy-button {
+.exp-info-button {
   width: 15vh;
   background-color: #ff8303;
   border: none;
@@ -64,9 +66,11 @@
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.25em;
   padding: 8px;
+  margin-left: 30px;
+  height: 50px;
 }
 
-.exp-buy-button:hover {
+.exp-info-button:hover {
   transform: translate(0px, -2px);
   transition: 0.2s;
   /* transition-timing-function: ease-in; */
@@ -118,4 +122,5 @@
 
 .booking-price {
   margin-right: 70px;
+  height: 6vh;
 }

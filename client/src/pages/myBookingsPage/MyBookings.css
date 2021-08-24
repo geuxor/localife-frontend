@@ -11,11 +11,11 @@
 
 .fa-smile {
   margin-left: 5px;
-  transition: 1s;
+  transition: 0.5s;
 }
 
 .fa-smile:hover {
-  color: rgb(235, 235, 96);
+  color: #f6eede;
 }
 
 .upcoming {
@@ -27,13 +27,16 @@
 }
 
 .past-exp-container {
-  background-color: orange;
-  border-radius: 10px;
+  background-color: #f6eede;
+  border-right: 7px solid #d9ccb4;
+  border-bottom: 7px solid #d9ccb4;
+  border-radius: 15px;
   position: absolute;
-  top: 123px;
+  top: 162px;
   right: 25px;
   width: 27vw;
-  height: 75vh;
+  height: 70vh;
+  overflow: auto;
 }
 
 .past-exp {

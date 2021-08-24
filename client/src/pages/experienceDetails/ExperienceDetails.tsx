@@ -16,10 +16,13 @@ import LogIn from '../../components/LogIn/LogIn'
 
 function ExperienceDetails(props) {
   const [experience, setExperience] = useState<ExperienceInterface>()
+  //
   const [loading, setLoading] = useState(true)
   const { id }: { id: string } = useParams()
   const authed = useSelector((state: RootState) => state.isLoggedIn)
   const [showLogIn, setShowLogIn] = useState(false)
+
+  console.log('EXPERIENCES', experience)
 
   useEffect(() => {
     ;(async () => {

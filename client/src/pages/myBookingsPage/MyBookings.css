@@ -1,0 +1,27 @@
+.hello-user {
+  margin: 20px 0px 10px 27px;
+}
+
+.booking-list {
+  border-top: 2px, solid, black !important;
+  overflow-x: scroll;
+  width: 70vw;
+  height: 100vh;
+}
+
+.fa-smile {
+  margin-left: 5px;
+  transition: 1s;
+}
+
+.fa-smile:hover {
+  color: rgb(235, 235, 96);
+}
+
+.upcoming {
+  margin: 0px 0px 10px 27px;
+}
+
+.container-no-bookings {
+  margin: 30px;
+}

@@ -4,6 +4,7 @@ const ExperiencesApi: any = {}
 const options: any = {
   headers: { 'Content-Type': 'application/json' },
   method: 'post',
+  options: true
 }
 
 ExperiencesApi.searchExperiencesApi = async (searchLocation) => {

@@ -78,22 +78,6 @@ function ExperienceDetails(props) {
       }
     }
   }
-  //   (alias) const HeartSpinner: {
-  //     ({ color, size, sizeUnit, width, height }: {
-  //         color: any;
-  //         size: any;
-  //         sizeUnit: any;
-  //         width: any;
-  //         height: any;
-  //     }): {
-  //         color: any;
-  //     };
-  //     defaultProps: {
-  //         size: number;
-  //         color: string;
-  //         sizeUnit: string;
-  //     };
-  // }
 
   return (
     <div className="details-container">

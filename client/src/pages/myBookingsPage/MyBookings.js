@@ -27,8 +27,12 @@ export default function MyBookings() {
 
   return (
     <div>
-      <h2>Hello {store.user.firstname}</h2>
-      <div className="exp-list">
+      <h2 className="hello-user">
+        Hello {store.user.firstname}
+        <i class="far fa-smile"></i>
+      </h2>
+      <h5 className='upcoming'>Upcoming Events:</h5>
+      <div className="booking-list">
         {myBookings.map((booking, i) => (
           <SingleBooking key={i} booking={booking} />
         ))}
@@ -36,4 +40,3 @@ export default function MyBookings() {
     </div>
   )
 }
-

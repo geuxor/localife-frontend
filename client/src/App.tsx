@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import Routes from './routes/routes'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import Menu from './components/Menu/Navbar'
+import NavBar from './components/Navigation/Navbar'
 import Footer from './components/Footer/Footer'
 import { get_cookie } from './utils/cookieHandler'
 import apiAuth from './apiServices/auth'
@@ -56,7 +56,7 @@ function App() {
     <div className="App">
       {!loading ? (
         <Router>
-          <Menu />
+          <NavBar />
           <ToastContainer
             position="bottom-center"
             autoClose={5000}

@@ -10,7 +10,7 @@ import { useHistory } from 'react-router'
 
 function Dashbaord(props) {
   const dispatch = useDispatch()
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
   const store = useSelector((state: RootState) => state)
   const [missingRequirements, setMissingRequirements] = useState([])
   const history = useHistory()
@@ -25,21 +25,21 @@ function Dashbaord(props) {
         let res = await apiStripe.stripeCheckAccount(store.user)
         console.log('Dashbaord: res from stripeCheckAccount', res.data)
         if (res.data !== 'No Stripe account found') {
-          dispatch({
-            type: 'SET_STRIPE',
-            payload: { stripe: res.data },
-          })
+          // dispatch({
+          //   type: 'SET_STRIPE',
+          //   payload: { stripe: res.data },
+          // })
         }
         // if (!store.stripe.hasOwnProperty('stripe_account_id')) {
         //   console.log('store .stripe true', store.stripe.stripe_account_id)
         // }
-        setLoading(false)
+        // setLoading(false)
       } catch (err) {
         if (err.response && err.response.data.length < 100) {
           let fields_req = err.response.data.split(',')
           console.log('Dashbaord: errData', typeof fields_req)
           console.log('Dashbaord: errData', fields_req)
-          setMissingRequirements(fields_req)
+          // setMissingRequirements(fields_req)
           toast.error(err.response.data)
         } else {
           if (err.response) {
@@ -51,7 +51,7 @@ function Dashbaord(props) {
             console.log(err)
           }
         }
-        setLoading(false)
+        // setLoading(false)
       }
     })()
     // eslint-disable-next-line react-hooks/exhaustive-deps

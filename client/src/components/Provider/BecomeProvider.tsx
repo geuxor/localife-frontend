@@ -12,7 +12,7 @@ function BecomeProvider(props) {
   const dispatch = useDispatch()
   const [loading, setLoading] = useState(true)
   const store = useSelector((state: RootState) => state)
-  const [missingRequirements, setMissingRequirements] = useState([])
+  const [missingStripeRequirements, setMissingStripeRequirements] = useState([])
   const history = useHistory()
 
   useEffect(() => {
@@ -22,6 +22,8 @@ function BecomeProvider(props) {
         //if user already register redirect to dashboard
         if (store.user.stripe_registration_complete === 'COMPLETED')
           history.push('./dashboard')
+        if (store.stripe.missingRequirements)
+          setMissingStripeRequirements(store.stripe.missingRequirements)
         //otherwise get stripe accound details
         // let res = await apiStripe.stripeCheckAccount(store.user)
         // console.log('BecomeProvider: res from stripeCheckAccount', res.data)
@@ -40,7 +42,7 @@ function BecomeProvider(props) {
           let fields_req = err.response.data.split(',')
           console.log('BecomeProvider: errData', typeof fields_req)
           console.log('BecomeProvider: errData', fields_req)
-          setMissingRequirements(fields_req)
+          setMissingStripeRequirements(fields_req)
           toast.error(err.response.data)
         } else {
           if (err.response) {
@@ -108,8 +110,8 @@ function BecomeProvider(props) {
           </h5>
           <div className="text-muted">
             <ul>
-              {missingRequirements.length > 0 ? (
-                missingRequirements.map((value, index) => {
+              {missingStripeRequirements.length > 0 ? (
+                missingStripeRequirements.map((value, index) => {
                   return <li key={index}>{value}</li>
                 })
               ) : (

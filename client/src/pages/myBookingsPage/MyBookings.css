@@ -6,7 +6,7 @@
   border-top: 2px, solid, black !important;
   overflow-x: scroll;
   width: 70vw;
-  height: 100vh;
+  height: 75vh;
 }
 
 .fa-smile {
@@ -24,4 +24,24 @@
 
 .container-no-bookings {
   margin: 30px;
+}
+
+.past-exp-container {
+  background-color: orange;
+  border-radius: 10px;
+  position: absolute;
+  top: 123px;
+  right: 25px;
+  width: 27vw;
+  height: 75vh;
+}
+
+.past-exp {
+  margin: 10px 0 20px 15px;
+  font-weight: 900;
+  font-size: 22px;
+}
+
+.past-exp-detail {
+  margin: 15px 0 55px 15px;
 }

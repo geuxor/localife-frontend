@@ -5,6 +5,7 @@ const BookingsApi = {}
 const options = {
   headers: { 'Content-Type': 'application/json' },
   method: 'post',
+  withCredentials: true,              
 }
 
 BookingsApi.getUserBookings = async () => {

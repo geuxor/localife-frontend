@@ -78,6 +78,7 @@ function ExperienceDetails(props) {
     }
   }
 
+  console.log('HEREEEEE', experience)
   return (
     <div className="details-container">
       {loading ? (

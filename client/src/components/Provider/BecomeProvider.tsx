@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import apiStripe from '../../apiServices/stripeApi'
 import { toast } from 'react-toastify'
-import SpinIcon from '../../components/Design/Spin.component'
+import SpinIcon from '../../components/design/Spin.component'
 import { RootState } from '../../redux/reducers/reducers'
 
 function BecomeProvider(props) {

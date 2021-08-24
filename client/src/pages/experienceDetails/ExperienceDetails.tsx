@@ -78,7 +78,6 @@ function ExperienceDetails(props) {
     }
   }
 
-  console.log('HEREEEEE', experience)
   return (
     <div className="details-container">
       {loading ? (
@@ -88,11 +87,13 @@ function ExperienceDetails(props) {
           <div className="title-img-details-container">
             <ImgCarousel />
           </div>
-          <h1 className="details-title">{experience?.title}</h1>
+          <h1 className="details-title">{experience.title}</h1>
           <div className="details-container2">
             <div className="provider-details-container">
               <div>
                 <h6>hosted by </h6>
+                <p>{experience.User.firstname}</p>
+                <img src={experience.User.avatar} alt="user-avatar" />
                 <div className="details-decription">
                   {experience.description}
                 </div>

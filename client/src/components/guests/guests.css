@@ -5,7 +5,7 @@
 #dropdown-basic-button {
   border-radius: 10px;
   background-color: white;
-  color: darkgrey;
+  color: lightgray;
   border-color: lightgray;
   user-select: none;
   width: 100%;
@@ -13,20 +13,13 @@
   padding-right: 10rem;
 }
 
-/* .dropdown-container{
-
-} */
-
 .dropdown-adults {
   font-size: small;
-  /* margin-left: 0.5em; */
   width: 12rem;
 }
 
 .dropdown-children {
   font-size: small;
-  /* margin-top: 2em; */
-  /* margin-left: 0.5em; */
   width: 12rem;
 }
 

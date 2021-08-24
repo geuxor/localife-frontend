@@ -1,9 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Poppins:wght@100&display=swap');
+
 .datepicker {
   border: solid 1px lightgray;
   border-radius: 10px;
   width: 15rem;
   height: 5vh;
   text-indent: 10px;
+}
+
+.datepicker::-webkit-input-placeholder {
+  color: lightgray;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .react-datepicker-wrapper {

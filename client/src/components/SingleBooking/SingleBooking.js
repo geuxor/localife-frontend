@@ -1,17 +1,23 @@
 import React, { useSelector } from 'react'
 import './SingleBooking.css'
 import moment from 'moment'
+import { useHistory } from 'react-router'
 
-export default function SingleBooking({ booking }) {
+export default function SingleBooking({ booking, style }) {
   const formatDay = 'DD/MM/YYYY'
   const formatTime = 'HH:mm'
 
+  const history = useHistory()
+
+  const handleClick = () =>
+    history.push(`/result-details/${booking.ExperienceId}`)
+
   return (
-    <div className="booking-container2">
+    <div className="booking-container2" style={style}>
       <img
         src={booking.Experience.image}
         alt="experience"
-        className="experience-image"
+        className="booking-image"
       />
       <div className="booking-container3">
         <div className="booking-container4">
@@ -37,14 +43,21 @@ export default function SingleBooking({ booking }) {
           </div>
           <div className="end-date">
             <p className="booking-date">
-              {moment(booking.end).format(formatDay)}
+              {moment(booking.end_date).format(formatDay)}
               <i class="far fa-calendar-alt date-icon-end"></i>
             </p>
             <p className="booking-time">
-              {moment(booking.end).format(formatTime)}
+              {moment(booking.end_date).format(formatTime)}
               <i class="far fa-clock clock-icon-end"></i>
             </p>
           </div>
+          <button
+            className="exp-info-button"
+            type="button"
+            onClick={handleClick}
+          >
+            More Info
+          </button>
         </div>
       </div>
     </div>

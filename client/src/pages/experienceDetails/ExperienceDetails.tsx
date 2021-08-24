@@ -87,20 +87,22 @@ function ExperienceDetails(props) {
       {loading ? (
         <Spinner />
       ) : experience ? (
-        <div>
-          <div className="title-img-details-container">
-            <ImgCarousel />
+        <div className="details-cont-rendered">
+          <div className="details-cont-images">
+            {/* <ImgCarousel /> */}Images go here
           </div>
-          <h1 className="details-title">{experience.title}</h1>
-          <div className="details-container2">
-            <div className="provider-details-container">
-              <div>
+          <div className="details-cont-tpd-and-bookingForm">
+            <div className="details-cont-title-prov-descrip">
+              <div className="details-title">
+                <h1>{experience.title}</h1>
+              </div>
+              <div className="details-cont-provider">
                 <h6>hosted by </h6>
                 <p>{experience.User.firstname}</p>
                 <img src={experience.User.avatar} alt="user-avatar" />
-                <div className="details-decription">
-                  {experience.description}
-                </div>
+              </div>
+              <div className="details-cont-description">
+                <p>{experience.description}</p>
               </div>
             </div>
             <div className="details-datepicker-container">

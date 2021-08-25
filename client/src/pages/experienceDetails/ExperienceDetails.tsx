@@ -94,11 +94,48 @@ function ExperienceDetails(props) {
             <div className="details-cont-title-prov-descrip">
               <div className="details-cont-provider">
                 <h6>hosted by {experience.User.firstname}</h6>
-                <img className='user-avatar' src={experience.User.avatar} alt="user-avatar" />
+                <img
+                  className="user-avatar"
+                  src={experience.User.avatar}
+                  alt="user-avatar"
+                />
               </div>
               <div className="details-cont-description">
                 <p>{experience.description}</p>
               </div>
+              <div className="food-icon">
+                <i className="fas fa-utensils"></i>
+                Food
+              </div>
+              <div className="transport-icon">
+                <i className="fas fa-car-side"></i>
+                Transport
+              </div>
+              <div className="tree-icon">
+                <i className="fas fa-tree"></i>
+                Outdoors
+              </div>
+              <div className="cat-icon">
+                <i className="fas fa-cat"></i>
+                Pet Friendly
+              </div>
+              <div className="kiss-icon">
+                <i className="far fa-kiss-wink-heart"></i>
+                LGBTQ+
+              </div>
+              <div className="baby-icon">
+                <i className="fas fa-baby"></i>
+                Kids
+              </div>
+              <div className="parking-icon">
+                <i className="fas fa-parking"></i>
+                Parking
+              </div>
+              <div className="disabled-icon">
+                <i className="fas fa-wheelchair"></i>
+                Wheelchair
+              </div>
+              <div></div>
             </div>
             <div className="details-datepicker-container">
               <div className="booking-cont-date">

@@ -5,13 +5,21 @@ const BookingsApi = {}
 const options = {
   headers: { 'Content-Type': 'application/json' },
   method: 'post',
-  withCredentials: true,              
+  withCredentials: true,
 }
 
 BookingsApi.getUserBookings = async () => {
   return await axios.post(
     `${process.env.REACT_APP_API}/bookings/mine`,
     null,
+    options,
+  )
+}
+
+BookingsApi.getOneBooking = async (id) => {
+  return await axios.post(
+    `${process.env.REACT_APP_API}/bookings/:${id}`,
+    id,
     options,
   )
 }

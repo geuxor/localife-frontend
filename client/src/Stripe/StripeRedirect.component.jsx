@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-// import Spinner from '../components/Spinner/Spinner'
 import { toast } from 'react-toastify'
 import { useHistory } from 'react-router-dom'
 import Heart from '../components/Spinner/Heart.Spinner'
@@ -68,7 +67,6 @@ const StripeRedirect = () => {
               payload: { missingRequirements: stripeReqs },
             })
           }
-          // history.push('/become-provider')
         } else {
           console.log('StripeRedirect err data:', err.message.data)
         }

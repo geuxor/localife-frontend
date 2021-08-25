@@ -11,9 +11,9 @@ import apiStripe from '../../apiServices/stripeApi'
 import { loadStripe } from '@stripe/stripe-js'
 import { RootState } from '../../redux/reducers/reducers'
 import { toast } from 'react-toastify'
-import Spinner from '../../components/Spinner/Spinner'
+// import Spinner from '../../components/Spinner/Spinner'
 import LogIn from '../../components/LogIn/LogIn'
-// import HeartSpinner from '../../components/Spinner/Heart.Spinner.js'
+import Heart from '../../components/Spinner/Heart.Spinner.js'
 
 function ExperienceDetails(props) {
   const [experience, setExperience] = useState<ExperienceInterface>()
@@ -85,22 +85,24 @@ function ExperienceDetails(props) {
   return (
     <div className="details-container">
       {loading ? (
-        <Spinner />
+        <Heart />
       ) : experience ? (
-        <div>
-          <div className="title-img-details-container">
-            <ImgCarousel />
+        <div className="details-cont-rendered">
+          <div className="details-cont-images">
+            {/* <ImgCarousel /> */}Images go here
           </div>
-          <h1 className="details-title">{experience.title}</h1>
-          <div className="details-container2">
-            <div className="provider-details-container">
-              <div>
+          <div className="details-cont-tpd-and-bookingForm">
+            <div className="details-cont-title-prov-descrip">
+              <div className="details-title">
+                <h1>{experience.title}</h1>
+              </div>
+              <div className="details-cont-provider">
                 <h6>hosted by </h6>
                 <p>{experience.User.firstname}</p>
                 <img src={experience.User.avatar} alt="user-avatar" />
-                <div className="details-decription">
-                  {experience.description}
-                </div>
+              </div>
+              <div className="details-cont-description">
+                <p>{experience.description}</p>
               </div>
             </div>
             <div className="details-datepicker-container">

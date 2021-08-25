@@ -23,8 +23,10 @@ const motion = (props) => keyframes`
 `
 
 const HeartSpinner = styled.div`
-  position: center;
-  width: 100%;
+  position: absolute;
+  left: 50vw;
+  top: 35vh;
+  width: 100%
   height: 1064px;
   transform: rotate(0deg);
   transform-origin: 0px 0px;
@@ -35,23 +37,19 @@ const HeartSpinner = styled.div`
   }
 
   .heart-style {
-    color: ${props => props.color};
-    font-size: ${props => props.size};
+    color: ${(props) => props.color};
+    font-size: ${(props) => props.size};
   }
 `
 const Heart = ({ color, size }) => (
-  <HeartSpinner
-    color={color}
-    size={size}
-  >
+  <HeartSpinner color={color} size={size}>
     <i className="fas fa-heart heart-style"></i>
-
   </HeartSpinner>
 )
 
 Heart.defaultProps = {
   size: '46px',
-  color: '#00bfff',
+  color: '#f6eede',
 }
 
 export default Heart

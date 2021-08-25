@@ -3,8 +3,8 @@ import ExperiencesApi from '../../apiServices/experiencesApi'
 import './ExperienceResults.css'
 import Experience from '../../components/experiences/experience'
 import Map from '../../components/Map/Map'
-import Spinner from '../../components/Spinner/Spinner'
 import { useLocation } from 'react-router-dom'
+import Heart from '../../components/Spinner/Heart.Spinner'
 
 function ExperienceResults() {
   const [experiences, setExperiences] = useState([])
@@ -47,7 +47,7 @@ function ExperienceResults() {
           <h4>Aug 21st to 28th</h4>
         </div>
         {loading ? (
-          <Spinner />
+            <Heart />
         ) : experiences.length ? (
           <>
             <div className="exp-list">

@@ -4,7 +4,7 @@ import Counter from '../../components/counter/counter'
 
 function Guests() {
   return (
-    <div>
+    <div className='guest-container'>
       <DropdownButton
         id="dropdown-basic-button"
         title="Guests"

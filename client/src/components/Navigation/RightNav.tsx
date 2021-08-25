@@ -105,15 +105,6 @@ function RightNav(props: Props) {
               </NavLink>
             )}
             <NavLink
-              to="/stripe/success"
-              activeStyle={{
-                fontWeight: 'bold',
-                color: '#0DADEA',
-              }}
-            >
-              <li>Stripe Success</li>
-            </NavLink>
-            <NavLink
               exact
               to={'/dashboard'}
               activeStyle={{

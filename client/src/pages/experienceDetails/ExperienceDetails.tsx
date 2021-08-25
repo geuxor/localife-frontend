@@ -73,10 +73,7 @@ function ExperienceDetails(props) {
         start_date: formatedStartDate,
       }
 
-      console.log(bookingData)
-
       const res = await bookingsApi.createBooking(bookingData)
-      // apiStripe.getSessionId(experience)
       console.log('ViewExperience: Create Booking SessionID res:', res)
       if (!res.data) throw new Error('Unable to create booking')
       sessionId = res.data.sessionId

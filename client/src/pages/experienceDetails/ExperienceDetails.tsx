@@ -94,7 +94,7 @@ function ExperienceDetails(props) {
             <div className="details-cont-title-prov-descrip">
               <div className="details-cont-provider">
                 <h6>hosted by {experience.User.firstname}</h6>
-                <img src={experience.User.avatar} alt="user-avatar" />
+                <img className='user-avatar' src={experience.User.avatar} alt="user-avatar" />
               </div>
               <div className="details-cont-description">
                 <p>{experience.description}</p>

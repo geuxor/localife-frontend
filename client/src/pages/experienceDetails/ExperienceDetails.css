@@ -49,6 +49,11 @@
   background-color: lightsalmon;
 }
 
+.user-avatar {
+  border-radius: 100px;
+  height: 100px;
+}
+
 .provider-details-container {
   display: flex;
   flex-direction: column;

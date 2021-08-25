@@ -3,10 +3,6 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import apiStripe from '../../apiServices/stripeApi'
 import { toast } from 'react-toastify'
-<<<<<<< HEAD
-import SpinIcon from '../Design/Spin.component'
-=======
->>>>>>> dced6a0501e3394859a4ea23fc66b84217965550
 import { RootState } from '../../redux/reducers/reducers'
 import Heart from '../Spinner/Heart.Spinner'
 import { useHistory } from 'react-router'

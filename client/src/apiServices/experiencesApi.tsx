@@ -4,7 +4,7 @@ const ExperiencesApi: any = {}
 const options: any = {
   headers: { 'Content-Type': 'application/json' },
   method: 'post',
-  options: true
+  options: true,
 }
 
 ExperiencesApi.searchExperiencesApi = async (searchLocation) => {
@@ -18,6 +18,14 @@ ExperiencesApi.searchExperiencesApi = async (searchLocation) => {
 ExperiencesApi.viewExperience = async (experienceId) => {
   return await axios.get(
     `${process.env.REACT_APP_API}/experience/${experienceId}`,
+  )
+}
+
+ExperiencesApi.getMyExperiences = async () => {
+  return await axios.post(
+    `${process.env.REACT_APP_API}/experiences/mine`,
+    null,
+    options,
   )
 }
 

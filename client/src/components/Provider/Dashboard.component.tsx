@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import apiStripe from '../../apiServices/stripeApi'
+import ExperiencesApi from '../../apiServices/experiencesApi'
 import { toast } from 'react-toastify'
 import { RootState } from '../../redux/reducers/reducers'
 import Heart from '../Spinner/Heart.Spinner'
@@ -11,7 +12,13 @@ import './Dashboard.css'
 function Dashbaord(props) {
   const dispatch = useDispatch()
   const [loading, setLoading] = useState(false)
+  const [myExperiences, setmyExperiences] = useState()
   const store = useSelector((state: RootState) => state)
+
+  const fetchMyExperiences = async () => {
+    let res = await ExperiencesApi.getMyExperiences()
+    return res
+  }
 
   useEffect(() => {
     ;(async () => {
@@ -21,6 +28,8 @@ function Dashbaord(props) {
         console.log('Dashbaord: res from stripeCheckAccount', res.data)
         if (res.data === 'COMPLETE') {
           if (store.isLoggedIn && store.user.email !== '') {
+            const xpList = fetchMyExperiences()
+            setmyExperiences(await xpList)
             console.log('Dashboard: fetching balance info from backend')
             let res = await apiStripe.getAccountBalance(store)
             console.log(

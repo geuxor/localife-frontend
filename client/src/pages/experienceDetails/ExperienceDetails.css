@@ -4,10 +4,11 @@
   margin-top: 5vh;
   background-color: white;
   display: flex;
-  height: 95vh;
+  height: auto;
   /* justify-content: center; */
   align-items: center;
   flex-direction: column;
+  margin-bottom: 100px;
 }
 
 .details-cont-tpd-and-bookingForm {
@@ -15,10 +16,11 @@
   flex-direction: row;
   justify-content: space-between;
   width: 80vw;
+  margin-top: 2rem;
 }
 
 .details-cont-title-prov-descrip {
-  background-color: mediumaquamarine;
+  /* background-color: mediumaquamarine; */
   display: flex;
   flex-direction: column;
   width: 55vw;
@@ -31,22 +33,39 @@
 }
 
 .details-cont-provider {
-  background-color: mediumvioletred;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: mediumvioletred; */
+  width: 50%;
+}
+
+.details-cont-prov-headers {
+  display: flex;
+  flex-direction: column;
 }
 
 .details-cont-description {
-  background-color: yellow;
+  /* background-color: yellow; */
   height: auto;
+  width: 70%;
+  margin-top: 3rem;
+  border-top: darkgrey solid 1px;
+  padding-top: 2rem;
+  border-bottom: darkgrey solid 1px;
+  padding-bottom: 2rem;
 }
 
 .details-cont-images {
   margin-top: 65px;
   margin-bottom: 10px;
   display: flex;
-  justify-content: center;
-  width: 80vw;
-  height: 15rem;
-  background-color: lightsalmon;
+  flex-direction: row;
+  /* flex-wrap: wrap; */
+  width: 80%;
+  height: 50%;
+  /* background-color: lightsalmon; */
 }
 
 .user-avatar {
@@ -100,4 +119,49 @@
   font-size: 1.25em;
   padding: 8px;
   height: 50px;
+}
+
+.icons-container {
+  display: flex;
+  flex-direction: row;
+  /* background-color: brown; */
+  justify-content: space-between;
+  margin-top: 3rem;
+  width: 70%;
+  height: auto;
+}
+
+.right-hand-icons {
+  display: flex;
+  flex-direction: column;
+  /* background-color: cornsilk; */
+}
+
+.left-hand-icons {
+  display: flex;
+  flex-direction: column;
+  /* background-color: cyan; */
+}
+
+/* .smaller-image-cont {
+  display: flex;
+  align-content: flex-end;
+} */
+
+.img1 {
+  /* height: 100%; */
+  width: 80%;
+  object-fit: cover;
+}
+
+.img2 {
+  margin-left: 1.55rem;
+  height: 50%;
+  width: 44%;
+}
+
+.img3 {
+  margin-left: 14.5rem;
+  height: 50%;
+  width: 22%;
 }

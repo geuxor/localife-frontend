@@ -1,30 +1,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Poppins:wght@100&display=swap');
 
-.details-title {
-  margin-top: 3rem;
-}
-.details-container {
+.details-cont-rendered {
+  margin-top: 5vh;
+  background-color: white;
   display: flex;
+  height: 95vh;
+  /* justify-content: center; */
+  align-items: center;
   flex-direction: column;
-  align-items: flex-start;
-  margin-top: 20px;
-  height: 100vh;
-  margin: 6rem;
 }
 
-.details-container2 {
+.details-cont-tpd-and-bookingForm {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  width: 100%;
-  height: 50vh;
-  margin-top: 5rem;
+  justify-content: space-between;
+  width: 80vw;
 }
 
-.title-img-details-container {
-  width: 100%;
+.details-cont-title-prov-descrip {
+  background-color: mediumaquamarine;
+  display: flex;
+  flex-direction: column;
+  width: 55vw;
+}
+
+.details-title {
+  justify-content: flex-start;
+  position: absolute;
+  left: 10vw;
+}
+
+.details-cont-provider {
+  background-color: mediumvioletred;
+}
+
+.details-cont-description {
+  background-color: yellow;
+  height: auto;
+}
+
+.details-cont-images {
+  margin-top: 65px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  width: 80vw;
   height: 15rem;
-  margin-top: 1.5rem;
+  background-color: lightsalmon;
+}
+
+.user-avatar {
+  border-radius: 100px;
+  height: 100px;
 }
 
 .provider-details-container {
@@ -44,13 +71,14 @@
 .details-datepicker-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
-  border: 1px solid lightgray;
+  /* border: 1px solid lightgray; */
   border-radius: 10px;
-  width: 20rem;
+  width: 22vw;
   height: 18rem;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  /* background-color: rgb(146, 132, 132); */
 }
 
 .booking-cont-date {
@@ -62,7 +90,14 @@
 }
 
 .btn-book-now {
-  background-color: darkorange;
-  border-radius: 10px;
+  width: 15vh;
+  background-color: #d9ccb4;
+  border: none;
+  border-radius: 5px;
   color: white;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.25em;
+  padding: 8px;
+  height: 50px;
 }

@@ -2,7 +2,7 @@ import './MyBookings.css'
 import { useSelector } from 'react-redux'
 import React, { useEffect, useState } from 'react'
 import bookingsApi from '../../apiServices/bookingsApi'
-import Spinner from '../../components/Spinner/Spinner'
+import Heart from '../../components/Spinner/Heart.Spinner'
 import SingleBooking from '../../components/SingleBooking/SingleBooking'
 import moment from 'moment'
 
@@ -44,7 +44,7 @@ export default function MyBookings() {
   return (
     <>
       {loading ? (
-        <Spinner />
+        <Heart />
       ) : myBookings.length ? (
         <div>
           <h2 className="hello-user">

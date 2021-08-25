@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-// import Spinner from '../components/Spinner/Spinner'
 import { toast } from 'react-toastify'
 import { useHistory } from 'react-router-dom'
 import Heart from '../components/Spinner/Heart.Spinner'

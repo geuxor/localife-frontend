@@ -128,7 +128,7 @@ export default function Map() {
                     <label>Experience</label>
                     <h4>{pin.title}</h4>
                     <label>Description</label>
-                    <p>{pin.description}</p>
+                    <p>{pin.subtitle}</p>
                     <label>Price</label>
                     <p>€{pin.price}</p>
                   </div>

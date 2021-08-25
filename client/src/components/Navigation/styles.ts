@@ -16,7 +16,7 @@ export const StyledBurger = styled.div<INav>`
   display: none;
   font-family: 'Zilla Slab';
 
-  @media (max-width: 768px) {
+  @media (max-width: 1200px) {
     display: flex;
     justify-content: space-around;
     flex-flow: column nowrap;
@@ -104,7 +104,7 @@ export const Ul = styled.ul<INav>`
       color: #de8500;
     }
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1200px) {
     flex-flow: column nowrap;
     background-color: #fdfdfdfa;
     position: fixed;
@@ -144,7 +144,7 @@ export const LogoUl = styled.img`
   margin: 2px;
   display: none;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1200px) {
     display: flex;
     width: 65px;
     height: 70px;

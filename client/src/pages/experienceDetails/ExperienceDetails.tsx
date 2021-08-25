@@ -11,7 +11,6 @@ import apiStripe from '../../apiServices/stripeApi'
 import { loadStripe } from '@stripe/stripe-js'
 import { RootState } from '../../redux/reducers/reducers'
 import { toast } from 'react-toastify'
-// import Spinner from '../../components/Spinner/Spinner'
 import LogIn from '../../components/LogIn/LogIn'
 import Heart from '../../components/Spinner/Heart.Spinner.js'
 
@@ -22,8 +21,6 @@ function ExperienceDetails(props) {
   const { id }: { id: string } = useParams()
   const authed = useSelector((state: RootState) => state.isLoggedIn)
   const [showLogIn, setShowLogIn] = useState(false)
-
-  console.log('EXPERIENCES', experience)
 
   useEffect(() => {
     ;(async () => {
@@ -82,23 +79,21 @@ function ExperienceDetails(props) {
     }
   }
 
+  console.log(experience)
   return (
     <div className="details-container">
       {loading ? (
         <Heart />
       ) : experience ? (
         <div className="details-cont-rendered">
-          <div className="details-cont-images">
-            {/* <ImgCarousel /> */}Images go here
+          <div className="details-title">
+            <h1>{experience.title}</h1>
           </div>
+          <div className="details-cont-images">{/* <ImgCarousel /> */}</div>
           <div className="details-cont-tpd-and-bookingForm">
             <div className="details-cont-title-prov-descrip">
-              <div className="details-title">
-                <h1>{experience.title}</h1>
-              </div>
               <div className="details-cont-provider">
-                <h6>hosted by </h6>
-                <p>{experience.User.firstname}</p>
+                <h6>hosted by {experience.User.firstname}</h6>
                 <img src={experience.User.avatar} alt="user-avatar" />
               </div>
               <div className="details-cont-description">
@@ -107,7 +102,6 @@ function ExperienceDetails(props) {
             </div>
             <div className="details-datepicker-container">
               <div className="booking-cont-date">
-                <h6>Booking Form:</h6>
                 <DatePicker />
               </div>
               <div className="booking-cont-guests">
@@ -116,11 +110,7 @@ function ExperienceDetails(props) {
               <div className="booking-cont-booknow">
                 <button
                   onClick={handleClick}
-                  className="btn btn-block btn-lg btn-primary"
-                  style={{
-                    backgroundColor: 'darkorange',
-                    borderColor: 'darkgray',
-                  }}
+                  className="btn-book-now"
                   disabled={loading}
                 >
                   {loading ? 'loading...' : 'Book now'}

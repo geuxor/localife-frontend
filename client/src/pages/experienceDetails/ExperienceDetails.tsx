@@ -12,11 +12,14 @@ import { loadStripe } from '@stripe/stripe-js'
 import { RootState } from '../../redux/reducers/reducers'
 import { toast } from 'react-toastify'
 import LogIn from '../../components/LogIn/LogIn'
+import moment from 'moment'
+import bookingsApi from '../../apiServices/bookingsApi'
 import Heart from '../../components/Spinner/Heart.Spinner.js'
+
 
 function ExperienceDetails(props) {
   const [experience, setExperience] = useState<ExperienceInterface>()
-  //
+  const [startDate, setStartDate] = useState(null)
   const [loading, setLoading] = useState(true)
   const { id }: { id: string } = useParams()
   const authed = useSelector((state: RootState) => state.isLoggedIn)
@@ -53,19 +56,31 @@ function ExperienceDetails(props) {
   const handleBook = async (e) => {
     let sessionId: string
     e.preventDefault()
+
     try {
       console.log('ViewExperience: Booking:', experience)
-      const res = await apiStripe.getSessionId(experience)
-      console.log('ViewExperience: Stripe SessionID res:', res)
-      if (!res.data) throw new Error(res)
+      console.log('ViewExperience Date:', startDate)
+      //reformat
+      //      Wed Aug 04 2021 00:00:00 GMT+0200 (Central European Summer Time)
+      // to this
+      //      2013-02-08 09:30
+      const formatedStartDate = moment(startDate)
+      console.log('formatedStartDate', formatedStartDate.toDate())
+      const bookingData = {
+        experience: experience,
+        start_date: formatedStartDate,
+      }
+
+      const res = await bookingsApi.createBooking(bookingData)
+      console.log('ViewExperience: Create Booking SessionID res:', res)
+      if (!res.data) throw new Error('Unable to create booking')
       sessionId = res.data.sessionId
       console.log('ViewExperience: ready handle booking:', sessionId)
       const stripe: any = await loadStripe(
         process.env.REACT_APP_STRIPE_PUBLISH_KEY!,
       )
       const checkout = stripe.redirectToCheckout({ sessionId: sessionId })
-      toast.success('ViewExperience: its all good man!', checkout)
-
+      toast.info('Ready to check out...!', checkout)
       setLoading(false)
     } catch (err) {
       setLoading(false)
@@ -139,7 +154,8 @@ function ExperienceDetails(props) {
             </div>
             <div className="details-datepicker-container">
               <div className="booking-cont-date">
-                <DatePicker />
+                <h6>Booking Form:</h6>
+                <DatePicker startDate={startDate} setStartDate={setStartDate} />
               </div>
               <div className="booking-cont-guests">
                 <Guests />

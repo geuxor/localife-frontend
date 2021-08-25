@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from 'react'
-import {useSelector} from 'react-redux'
+import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
+import { getOneBooking } from '../../apiServices/bookingsApi'
 
 export default function BookingDetails() {
-
-  const { id }: { id: string } = useParams()
+  const { id } = useParams()
   const authed = useSelector((state: RootState) => state.isLoggedIn)
   const [loading, setLoading] = useState(true)
   const [booking, setBooking] = useEffect()
@@ -12,9 +12,8 @@ export default function BookingDetails() {
   useEffect(() => {
     ;(async () => {
       try {
-        const detailedBooking = await ExperiencesApi.viewExperience(id)
-        console.log('detailedExperience', detailedExperience.data)
-        setExperience(detailedExperience.data)
+        const detailedBooking = await getOneBooking(id)
+        setBooking(detailedBooking.data)
         setLoading(false)
       } catch (err) {
         if (err.response && err.response.status >= 400) {
@@ -26,13 +25,7 @@ export default function BookingDetails() {
         setLoading(false)
       }
     })()
-    // eslint-disable-next-line
   }, [])
 
-
-  return (
-    <div>
-      
-    </div>
-  )
+  return <div></div>
 }

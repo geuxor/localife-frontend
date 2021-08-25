@@ -16,7 +16,6 @@ import moment from 'moment'
 import bookingsApi from '../../apiServices/bookingsApi'
 import Heart from '../../components/Spinner/Heart.Spinner.js'
 
-
 function ExperienceDetails(props) {
   const [experience, setExperience] = useState<ExperienceInterface>()
   const [startDate, setStartDate] = useState(null)
@@ -147,7 +146,7 @@ function ExperienceDetails(props) {
                 />
               </div>
               <div className="details-cont-description">
-                <p>{experience.description}</p>
+                <p className="desc">{experience.description}</p>
               </div>
 
               <div className="icons-container">

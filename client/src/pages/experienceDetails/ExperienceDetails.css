@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Poppins:wght@100&display=swap');
 
+.details-container {
+  overflow: auto;
+}
+
 .details-cont-rendered {
   margin-top: 5vh;
   background-color: white;
@@ -44,6 +48,11 @@
 .details-cont-prov-headers {
   display: flex;
   flex-direction: column;
+}
+
+.desc {
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .details-cont-description {
@@ -109,7 +118,7 @@
 }
 
 .btn-book-now {
-  width: 15vh;
+  width: 160px;
   background-color: #d9ccb4;
   border: none;
   border-radius: 5px;
@@ -127,6 +136,7 @@
   /* background-color: brown; */
   justify-content: space-between;
   margin-top: 3rem;
+  margin-bottom: 3rem;
   width: 70%;
   height: auto;
 }

@@ -13,7 +13,7 @@ type Props = {
 function RightNav(props: Props) {
   const [showLogIn, setShowLogIn] = useState(false)
   const [showRegister, setShowRegister] = useState(false)
-  const [showProviderLink, setshowProviderLink] = useState(true)
+  const [showProviderLinks, setShowProviderLinks] = useState(false)
   const store = useSelector((state: RootState) => state)
 
   useEffect(() => {
@@ -21,7 +21,11 @@ function RightNav(props: Props) {
       ;(async () => {
         try {
           if (store.user.stripe_registration_complete === 'COMPLETE')
-            setshowProviderLink(false)
+            console.log(
+              'setting become provider to false',
+              store.user.stripe_registration_complete,
+              setShowProviderLinks(true),
+            )
         } catch (err) {}
       })()
     }
@@ -48,6 +52,7 @@ function RightNav(props: Props) {
       {console.log(
         'User is Provider:',
         store.user.stripe_registration_complete,
+        showProviderLinks,
       )}
       <S.Ul open={props.open}>
         <NavLink
@@ -76,19 +81,9 @@ function RightNav(props: Props) {
           <li>About</li>
         </NavLink>
 
-        {store.user.email ? (
+        {store.isLoggedIn ? (
           <>
-            {showProviderLink ? (
-              <NavLink
-                to="/become-provider"
-                activeStyle={{
-                  fontWeight: 'bold',
-                  color: '#0DADEA',
-                }}
-              >
-                <li>Become a Provider</li>
-              </NavLink>
-            ) : (
+            {showProviderLinks ? (
               <NavLink
                 to="/experience/new"
                 activeStyle={{
@@ -97,6 +92,16 @@ function RightNav(props: Props) {
                 }}
               >
                 <li>Create Experience</li>
+              </NavLink>
+            ) : (
+              <NavLink
+                to="/become-provider"
+                activeStyle={{
+                  fontWeight: 'bold',
+                  color: '#0DADEA',
+                }}
+              >
+                <li>Become a Provider</li>
               </NavLink>
             )}
             <NavLink

@@ -1,0 +1,10 @@
+.card {
+  box-shadow: 8px 8px 16px rgba(119, 107, 74, 0.431);
+  border-radius: 10px;
+  margin: 16px 0px;
+}
+
+.ant-btn-link {
+  background: #1890ff;
+  color: #fff;
+}

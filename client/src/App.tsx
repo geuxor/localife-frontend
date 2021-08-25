@@ -21,9 +21,9 @@ function App() {
     if (!store.isLoggedIn) {
       ;(async () => {
         try {
-          const sid = get_cookie()
-          console.log('App: cookie:', sid)
-          if (sid) {
+          const foundCookie = get_cookie()
+          console.log('App: cookie:', foundCookie)
+          if (foundCookie) {
             let res = await apiAuth.getProfile()
             console.log('App: profile response:', res.data)
             if (res.data) {

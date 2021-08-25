@@ -1,14 +1,29 @@
 import axios from 'axios'
 
-const BookingsApi = {}
+const bookingsApi = {}
 
 const options = {
   headers: { 'Content-Type': 'application/json' },
   method: 'post',
-  withCredentials: true,              
+  withCredentials: true,
 }
 
-BookingsApi.getUserBookings = async () => {
+bookingsApi.createBooking = async (experience) => {
+  return await axios.post(
+    `${process.env.REACT_APP_API}/bookings/new`,
+    experience,
+    options,
+  )
+}
+
+bookingsApi.bookingSuccessRequest = async (experienceId) =>
+  await axios.post(
+    `${process.env.REACT_APP_API}/bookings/success`,
+    experienceId,
+    options,
+  )
+
+bookingsApi.getUserBookings = async () => {
   return await axios.post(
     `${process.env.REACT_APP_API}/bookings/mine`,
     null,
@@ -16,4 +31,4 @@ BookingsApi.getUserBookings = async () => {
   )
 }
 
-export default BookingsApi
+export default bookingsApi

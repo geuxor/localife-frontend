@@ -1,7 +1,7 @@
 import './MyBookings.css'
 import { useSelector } from 'react-redux'
 import React, { useEffect, useState } from 'react'
-import BookingsApi from '../../apiServices/bookingsApi'
+import bookingsApi from '../../apiServices/bookingsApi'
 import Spinner from '../../components/Spinner/Spinner'
 import SingleBooking from '../../components/SingleBooking/SingleBooking'
 import moment from 'moment'
@@ -13,9 +13,9 @@ export default function MyBookings() {
   const store = useSelector((state) => state)
 
   useEffect(() => {
-    ;(async () => {
+    ; (async () => {
       try {
-        const res = await BookingsApi.getUserBookings()
+        const res = await bookingsApi.getUserBookings()
         setMyBookings(res.data)
         setLoading(false)
         console.log(res.data)

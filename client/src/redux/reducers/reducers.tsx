@@ -13,9 +13,10 @@ const initialState = {
     firstname: '',
     lastname: '',
     email: '',
-    id: null
+    id: null,
+    stripe_registration_complete: null,
   },
-  
+
   experience: {},
   stripe: {},
 }
@@ -28,6 +29,7 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         user: action.payload,
+        // user: { ...state.user, stripe_registration_complete: action.payload},
       }
     case SET_LOGIN:
       return {

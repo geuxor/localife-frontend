@@ -26,7 +26,7 @@ export default function MyBookings() {
     })()
   }, [])
 
-  console.log(myBookings)
+  console.log('MYBOOKINGS', myBookings)
   const currentDate = new Date()
   const sortedExperiencesDistant = myBookings.sort(
     (a, b) => new Date(a.end_date) - new Date(b.end_date),

@@ -31,7 +31,7 @@ export default function SingleBooking({ booking, style }) {
         <div className="booking-details-container">
           <div className="booking-price">
             <i className="fas fa-euro-sign"></i>
-            {booking.price}.00
+            {Math.round(booking.total / 100)}.00
           </div>
           <div className="start-date">
             <p className="booking-date">

@@ -100,7 +100,7 @@ function ExperienceDetails(props) {
         <Heart />
       ) : experience ? (
         <div className="details-cont-rendered">
-          <div className="details-title">
+          <div className="exp-details-title">
             <h1>{experience.title}</h1>
           </div>
           <div className="details-cont-images">

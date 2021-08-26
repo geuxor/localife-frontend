@@ -95,15 +95,15 @@ function ExperienceDetails(props) {
 
   console.log(experience)
   return (
-    <div className="details-container">
+    <div className="details-container2">
       {loading ? (
         <Heart />
       ) : experience ? (
-        <div className="details-cont-rendered">
-          <div className="exp-details-title">
+        <div className="details-cont-rendered2">
+          <div className="exp-details-title2">
             <h1>{experience.title}</h1>
           </div>
-          <div className="details-cont-images">
+          <div className="details-cont-images2">
             <img
               src="https://source.unsplash.com/qD3dNOm-N48/600x400"
               alt="barcelona-view"
@@ -132,21 +132,21 @@ function ExperienceDetails(props) {
               />
             </div>
           </div>
-          <div className="details-cont-tpd-and-bookingForm">
-            <div className="details-cont-title-prov-descrip">
-              <div className="details-cont-provider">
-                <div className="details-cont-prov-headers">
+          <div className="details-cont-tpd-and-bookingForm2">
+            <div className="details-cont-title-prov-descrip2">
+              <div className="details-cont-provider2">
+                <div className="details-cont-prov-headers2">
                   <h4>hosted by {experience.User.firstname}</h4>
                   <h6>a local since 1988</h6>
                 </div>
                 <img
-                  className="user-avatar"
+                  className="user-avatar2"
                   src={experience.User.avatar}
                   alt="user-avatar"
                 />
               </div>
-              <div className="details-cont-description">
-                <p className="desc">{experience.description}</p>
+              <div className="details-cont-description2">
+                <p className="desc2">{experience.description}</p>
               </div>
 
               <div className="icons-container">

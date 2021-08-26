@@ -84,15 +84,27 @@ function RightNav(props: Props) {
         {store.isLoggedIn ? (
           <>
             {showProviderLinks ? (
-              <NavLink
-                to="/experience/new"
-                activeStyle={{
-                  fontWeight: 'bold',
-                  color: '#0DADEA',
-                }}
-              >
-                <li>Create Experience</li>
-              </NavLink>
+              <>
+                <NavLink
+                  to="/experience/new"
+                  activeStyle={{
+                    fontWeight: 'bold',
+                    color: '#0DADEA',
+                  }}
+                >
+                  <li>Create Experience</li>
+                </NavLink>
+                <NavLink
+                  exact
+                  to={'/dashboard'}
+                  activeStyle={{
+                    fontWeight: 'bold',
+                    color: '#0DADEA',
+                  }}
+                >
+                  <li>Dashboard</li>
+                </NavLink>
+              </>
             ) : (
               <NavLink
                 to="/become-provider"
@@ -104,16 +116,7 @@ function RightNav(props: Props) {
                 <li>Become a Provider</li>
               </NavLink>
             )}
-            <NavLink
-              exact
-              to={'/dashboard'}
-              activeStyle={{
-                fontWeight: 'bold',
-                color: '#0DADEA',
-              }}
-            >
-              <li>Dashboard</li>
-            </NavLink>
+
             <NavLink
               to="/my-bookings"
               activeStyle={{

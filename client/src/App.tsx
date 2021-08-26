@@ -5,12 +5,12 @@ import Routes from './routes/routes'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import NavBar from './components/Navigation/Navbar'
-import Footer from './components/Footer/Footer'
 import { get_cookie } from './utils/cookieHandler'
 import apiAuth from './apiServices/auth'
 import { useDispatch, useSelector } from 'react-redux'
 import { setUser, setLogIn } from './redux/actions/actions'
 import { RootState } from './redux/reducers/reducers'
+import Footer from './components/Footer/Footer'
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -53,28 +53,32 @@ function App() {
   }, [])
 
   return (
-    <div className="App">
-      {!loading ? (
-        <Router>
-          <NavBar />
-          <ToastContainer
-            position="bottom-center"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-          />
-          <Footer />
-          <Routes />
-        </Router>
-      ) : (
-        <p>Wait... Im loading...</p>
-      )}
-    </div>
+    <>
+      <div className="App">
+        {!loading ? (
+          <>
+            <Router>
+              <NavBar />
+              <ToastContainer
+                position="bottom-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+              />
+              <Routes />
+            </Router>
+          </>
+        ) : (
+          <p>Wait... Im loading...</p>
+        )}
+      </div>
+      <Footer />
+    </>
   )
 }
 

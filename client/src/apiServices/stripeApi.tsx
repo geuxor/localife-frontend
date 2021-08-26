@@ -32,12 +32,14 @@ apiStripe.getAccountBalance = async (store) =>
     options,
   )
 
-apiStripe.currencyFormatter = (data) => {
-  console.log('stripeApi:', data)
-  return (data.amount / 100).toLocaleString(data.currency, {
+apiStripe.currencyFormatter = (data: any) => {
+  console.log('currencyFormatter:', typeof data.currency)
+
+  let result = (data.amount / 100).toLocaleString(data.currency, {
     style: 'currency',
     currency: data.currency,
   })
+  return result
 }
 
 apiStripe.payoutSetting = async (user) =>

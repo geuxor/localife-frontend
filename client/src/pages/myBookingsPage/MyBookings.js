@@ -51,7 +51,7 @@ export default function MyBookings() {
             Hello {store.user.firstname}
             <i class="far fa-smile"></i>
           </h2>
-          <h5 className="upcoming">These are your upcoming events:</h5>
+          <h5 className="upcoming">These are your upcoming experiences:</h5>
           <div className="booking-list">
             {futureExperiences.map((booking, i) => (
               <SingleBooking

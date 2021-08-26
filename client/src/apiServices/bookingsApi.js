@@ -31,4 +31,13 @@ bookingsApi.getUserBookings = async () => {
   )
 }
 
+bookingsApi.getOneBooking = async (id) => {
+  console.log('...................', id)
+  return await axios.post(
+    `${process.env.REACT_APP_API}/booking/${id}`,
+    null,
+    options,
+  )
+}
+
 export default bookingsApi

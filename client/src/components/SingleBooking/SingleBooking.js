@@ -9,10 +9,8 @@ export default function SingleBooking({ booking, style }) {
 
   const history = useHistory()
 
-  console.log(booking)
+  const handleClick = () => history.push(`/booking/${booking.id}`)
 
-  const handleClick = () =>
-    history.push(`/result-details/${booking.ExperienceId}`)
 
   return (
     <div className="booking-container2" style={style}>

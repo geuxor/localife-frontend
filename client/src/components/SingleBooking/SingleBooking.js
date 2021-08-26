@@ -9,8 +9,8 @@ export default function SingleBooking({ booking, style }) {
 
   const history = useHistory()
 
-  const handleClick = () =>
-    history.push(`/result-details/${booking.ExperienceId}`)
+  const handleClick = () => history.push(`/booking/${booking.id}`)
+
 
   return (
     <div className="booking-container2" style={style}>
@@ -23,7 +23,7 @@ export default function SingleBooking({ booking, style }) {
         <div className="booking-container4">
           <div className="booking-title">{booking.Experience.title}</div>
           <div className="booking-description">
-            {booking.Experience.description}
+            {booking.Experience.subtitle}
           </div>
         </div>
         <div className="booking-details-container">

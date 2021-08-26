@@ -20,7 +20,7 @@ function Experience(props: Props): any {
         <div className="exp-container4">
           <div className="experience-title">{props.experience.title}</div>
           <div className="experience-description">
-            {props.experience.description}
+            {props.experience.subtitle}
           </div>
         </div>
         <div className="exp-container5">

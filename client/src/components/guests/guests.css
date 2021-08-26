@@ -1,5 +1,5 @@
 .dropdown {
-  background-color: white;
+  background-color: transparent;
 }
 
 #dropdown-basic-button {
@@ -33,4 +33,9 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+}
+
+.guest-container {
+  /* width: 800px; */
+  border-radius: 25px;
 }

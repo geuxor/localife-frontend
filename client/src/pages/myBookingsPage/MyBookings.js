@@ -2,7 +2,7 @@ import './MyBookings.css'
 import { useSelector } from 'react-redux'
 import React, { useEffect, useState } from 'react'
 import bookingsApi from '../../apiServices/bookingsApi'
-import Spinner from '../../components/Spinner/Spinner'
+import Heart from '../../components/Spinner/Heart.Spinner'
 import SingleBooking from '../../components/SingleBooking/SingleBooking'
 import moment from 'moment'
 
@@ -26,7 +26,7 @@ export default function MyBookings() {
     })()
   }, [])
 
-  console.log(myBookings)
+  console.log('MYBOOKINGS', myBookings)
   const currentDate = new Date()
   const sortedExperiencesDistant = myBookings.sort(
     (a, b) => new Date(a.end_date) - new Date(b.end_date),
@@ -44,14 +44,14 @@ export default function MyBookings() {
   return (
     <>
       {loading ? (
-        <Spinner />
+        <Heart />
       ) : myBookings.length ? (
         <div>
           <h2 className="hello-user">
             Hello {store.user.firstname}
             <i class="far fa-smile"></i>
           </h2>
-          <h5 className="upcoming">These are your upcoming events:</h5>
+          <h5 className="upcoming">These are your upcoming experiences:</h5>
           <div className="booking-list">
             {futureExperiences.map((booking, i) => (
               <SingleBooking

@@ -7,11 +7,10 @@ import BecomeProvider from '../components/Provider/BecomeProvider'
 import StripeSuccess from '../Stripe/StripeSuccess.component'
 import ExperienceDetails from '../pages/experienceDetails/ExperienceDetails'
 import StripeRedirect from '../Stripe/StripeRedirect.component'
-import Bookings from '../pages/myBookingsPage/MyBookings'
+import MyBookings from '../pages/myBookingsPage/MyBookings'
 import Dashbaord from '../components/Provider/Dashboard.component'
 import CreateExperienceForm from '../components/experiences/CreateExperience'
-import MyBookings from '../pages/myBookingsPage/MyBookings'
-import BookingDetails from '../pages/myBookingsPage/BookingDetail'
+import BookingDetails from '../pages/BookingDetails/BookingDetails'
 import UpdateExperienceForm from '../components/Forms/UpdateExperience.Form'
 
 function Routes() {
@@ -19,8 +18,10 @@ function Routes() {
     <div>
       <Switch>
         <Route path="/result-details/:id" exact component={ExperienceDetails} />
+        <Route path="/search-results" exact component={ExperienceResults} />
         <Route path="/stripe/success/:id" exact component={StripeSuccess} />
         <Route path="/stripe/redirect" exact component={StripeRedirect} />
+
         <PrivateRoute
           path="/experience/edit/:id"
           exact
@@ -31,16 +32,16 @@ function Routes() {
           exact
           component={CreateExperienceForm}
         />
+
+        <PrivateRoute path="/bookings" exact component={MyBookings} />
+        <PrivateRoute path="/booking/:id" exact component={BookingDetails} />
+        <Route path="/my-bookings" exact component={MyBookings} />
+        <PrivateRoute path="/dashboard" exact component={Dashbaord} />
         <PrivateRoute
           path="/become-provider"
           exact
           component={BecomeProvider}
         />
-        <PrivateRoute path="/bookings" exact component={Bookings} />
-        <PrivateRoute path="/booking/:id" exact component={BookingDetails} />
-        <PrivateRoute path="/dashboard" exact component={Dashbaord} />
-        <Route path="/search-results" exact component={ExperienceResults} />
-        <Route path="/my-bookings" exact component={MyBookings} />
         <Route path="/logout" exact component={LogOut} />
         <Route path="/" exact component={LandingPage} />
       </Switch>

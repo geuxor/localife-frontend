@@ -11,11 +11,10 @@ import apiStripe from '../../apiServices/stripeApi'
 import { loadStripe } from '@stripe/stripe-js'
 import { RootState } from '../../redux/reducers/reducers'
 import { toast } from 'react-toastify'
-import Spinner from '../../components/Spinner/Spinner'
 import LogIn from '../../components/LogIn/LogIn'
 import moment from 'moment'
-// import HeartSpinner from '../../components/Spinner/Heart.Spinner.js'
 import bookingsApi from '../../apiServices/bookingsApi'
+import Heart from '../../components/Spinner/Heart.Spinner.js'
 
 function ExperienceDetails(props) {
   const [experience, setExperience] = useState<ExperienceInterface>()
@@ -24,8 +23,6 @@ function ExperienceDetails(props) {
   const { id }: { id: string } = useParams()
   const authed = useSelector((state: RootState) => state.isLoggedIn)
   const [showLogIn, setShowLogIn] = useState(false)
-
-  console.log('EXPERIENCES', experience)
 
   useEffect(() => {
     ;(async () => {
@@ -96,27 +93,104 @@ function ExperienceDetails(props) {
     }
   }
 
+  console.log(experience)
   return (
     <div className="details-container">
       {loading ? (
-        <Spinner />
+        <Heart />
       ) : experience ? (
-        <div>
-          <div className="title-img-details-container">
-            <ImgCarousel />
+        <div className="details-cont-rendered">
+          <div className="details-title">
+            <h1>{experience.title}</h1>
           </div>
-          <h1 className="details-title">{experience.title}</h1>
-          <div className="details-container2">
-            <div className="provider-details-container">
-              <div>
-                <h6>hosted by </h6>
-                <p>{experience.User.firstname}</p>
-                <img src={experience.User.avatar} alt="user-avatar" />
-                <div className="details-decription">
-                  {experience.description}
+          <div className="details-cont-images">
+            <img
+              src="https://source.unsplash.com/qD3dNOm-N48/600x400"
+              alt="barcelona-view"
+              className="img1"
+            />
+            <div className="smaller-image-cont">
+              <img
+                src="https://source.unsplash.com/BG8TvW6NYYw/400x400"
+                alt="barcelona-beach"
+                className="img2"
+              />
+              <img
+                src="https://source.unsplash.com/MEW5M1WhMQE/400x400"
+                alt="barcelona-paella"
+                className="img2"
+              />
+              <img
+                src="https://source.unsplash.com/akvIvA4ZEeg/400x400"
+                alt="barcelona-beach"
+                className="img2"
+              />
+              <img
+                src="https://source.unsplash.com/sSyRnrhAqU8/400x400"
+                alt="barcelona-beach"
+                className="img2"
+              />
+            </div>
+          </div>
+          <div className="details-cont-tpd-and-bookingForm">
+            <div className="details-cont-title-prov-descrip">
+              <div className="details-cont-provider">
+                <div className="details-cont-prov-headers">
+                  <h4>hosted by {experience.User.firstname}</h4>
+                  <h6>a local since 1988</h6>
+                </div>
+                <img
+                  className="user-avatar"
+                  src={experience.User.avatar}
+                  alt="user-avatar"
+                />
+              </div>
+              <div className="details-cont-description">
+                <p className="desc">{experience.description}</p>
+              </div>
+
+              <div className="icons-container">
+                <div className="left-hand-icons">
+                  <div className="food-icon">
+                    <i className="fas fa-utensils"></i>
+                    Food
+                  </div>
+                  <div className="transport-icon">
+                    <i className="fas fa-car-side"></i>
+                    Transport
+                  </div>
+                  <div className="tree-icon">
+                    <i className="fas fa-tree"></i>
+                    Outdoors
+                  </div>
+
+                  <div className="cat-icon">
+                    <i className="fas fa-cat"></i>
+                    Pet Friendly
+                  </div>
+                </div>
+
+                <div className="right-hand-icons">
+                  <div className="kiss-icon">
+                    <i className="far fa-kiss-wink-heart"></i>
+                    LGBTQ+
+                  </div>
+                  <div className="baby-icon">
+                    <i className="fas fa-baby"></i>
+                    Kids
+                  </div>
+                  <div className="parking-icon">
+                    <i className="fas fa-parking"></i>
+                    Parking
+                  </div>
+                  <div className="disabled-icon">
+                    <i className="fas fa-wheelchair"></i>
+                    Wheelchair
+                  </div>
                 </div>
               </div>
             </div>
+
             <div className="details-datepicker-container">
               <div className="booking-cont-date">
                 <h6>Booking Form:</h6>
@@ -128,11 +202,7 @@ function ExperienceDetails(props) {
               <div className="booking-cont-booknow">
                 <button
                   onClick={handleClick}
-                  className="btn btn-block btn-lg btn-primary"
-                  style={{
-                    backgroundColor: 'darkorange',
-                    borderColor: 'darkgray',
-                  }}
+                  className="btn-book-now"
                   disabled={loading}
                 >
                   {loading ? 'loading...' : 'Book now'}

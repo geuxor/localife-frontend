@@ -4,6 +4,9 @@ import { useParams } from 'react-router-dom'
 import BookingsApi from '../../apiServices/bookingsApi'
 import Heart from '../../components/Spinner/Heart.Spinner'
 import { toast } from 'react-toastify'
+import './BookingDetails.css'
+import moment from 'moment'
+
 export default function BookingDetails() {
   const { id } = useParams()
   const [loading, setLoading] = useState(true)
@@ -29,30 +32,52 @@ export default function BookingDetails() {
       }
     })()
   }, [])
+
+  console.log(booking)
+
   return (
     <div className="details-container">
       {loading ? (
         <Heart />
       ) : (
         <div>
-          <h2 className="hello-user">
+          <h2 className="hello-booker">
             Hello {store.user.firstname}
             <i className="far fa-smile"></i>
           </h2>
-          <h5 className="booking-confirmation">
-            These are the details for your booking
-          </h5>
-          <h5>{booking.Experience.title}</h5>
-          <p>
-            When visiting Barcelona, one of the highlights is the food. Not only
-            Catalonia is a beautiful region but also boasts some of the best
-            gourmet delicacies in Spain. Typical food in Barcelona is quite
-            different from what you might have in mind if you have tried
-            traditional dishes in other parts of the country. Paella is a
-            traditional Spanish dish. It is a rice dish that can have meat,
-            fish, seafood, and vegetables and is characterized by its use of
-            saffron to give it a yellow color and unique flavor.
+          <div className="booking-confirmation">
+            <h3>These are the details for your booking:</h3>
+            <h5>{booking.Experience.title}</h5>
+            <div className="location">
+              <h6 className="location-details">
+                {booking.Experience.city}, {booking.Experience.country}
+                <i className="fas fa-map-marker-alt"></i>
+              </h6>
+              <h6 className="location-details">
+                booked {moment(booking.createdAt).fromNow()}
+                <i className="far fa-clock"></i>
+              </h6>
+            </div>
+          </div>
+          <img
+            className="exp-picture-booking"
+            src="https://i.ibb.co/2YFDb13/paella.jpg"
+          ></img>
+          <p className="booking-description-details">
+            {booking.Experience.description}
           </p>
+          <div className="provider-details">
+            <p>
+              You have booked an experience with our local{' '}
+              <span className="provider-name">
+                {booking.Experience.User.firstname}
+              </span>
+            </p>
+            <img
+              className="avatar-picture-booking"
+              src={booking.Experience.User.avatar}
+            ></img>
+          </div>
         </div>
       )}
     </div>

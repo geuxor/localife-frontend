@@ -12,11 +12,13 @@ import { loadStripe } from '@stripe/stripe-js'
 import { RootState } from '../../redux/reducers/reducers'
 import { toast } from 'react-toastify'
 import LogIn from '../../components/LogIn/LogIn'
+import moment from 'moment'
+import bookingsApi from '../../apiServices/bookingsApi'
 import Heart from '../../components/Spinner/Heart.Spinner.js'
 
 function ExperienceDetails(props) {
   const [experience, setExperience] = useState<ExperienceInterface>()
-  //
+  const [startDate, setStartDate] = useState(null)
   const [loading, setLoading] = useState(true)
   const { id }: { id: string } = useParams()
   const authed = useSelector((state: RootState) => state.isLoggedIn)
@@ -53,19 +55,31 @@ function ExperienceDetails(props) {
   const handleBook = async (e) => {
     let sessionId: string
     e.preventDefault()
+
     try {
       console.log('ViewExperience: Booking:', experience)
-      const res = await apiStripe.getSessionId(experience)
-      console.log('ViewExperience: Stripe SessionID res:', res)
-      if (!res.data) throw new Error(res)
+      console.log('ViewExperience Date:', startDate)
+      //reformat
+      //      Wed Aug 04 2021 00:00:00 GMT+0200 (Central European Summer Time)
+      // to this
+      //      2013-02-08 09:30
+      const formatedStartDate = moment(startDate)
+      console.log('formatedStartDate', formatedStartDate.toDate())
+      const bookingData = {
+        experience: experience,
+        start_date: formatedStartDate,
+      }
+
+      const res = await bookingsApi.createBooking(bookingData)
+      console.log('ViewExperience: Create Booking SessionID res:', res)
+      if (!res.data) throw new Error('Unable to create booking')
       sessionId = res.data.sessionId
       console.log('ViewExperience: ready handle booking:', sessionId)
       const stripe: any = await loadStripe(
         process.env.REACT_APP_STRIPE_PUBLISH_KEY!,
       )
       const checkout = stripe.redirectToCheckout({ sessionId: sessionId })
-      toast.success('ViewExperience: its all good man!', checkout)
-
+      toast.info('Ready to check out...!', checkout)
       setLoading(false)
     } catch (err) {
       setLoading(false)
@@ -89,11 +103,42 @@ function ExperienceDetails(props) {
           <div className="details-title">
             <h1>{experience.title}</h1>
           </div>
-          <div className="details-cont-images">{/* <ImgCarousel /> */}</div>
+          <div className="details-cont-images">
+            <img
+              src="https://source.unsplash.com/qD3dNOm-N48/600x400"
+              alt="barcelona-view"
+              className="img1"
+            />
+            <div className="smaller-image-cont">
+              <img
+                src="https://source.unsplash.com/BG8TvW6NYYw/400x400"
+                alt="barcelona-beach"
+                className="img2"
+              />
+              <img
+                src="https://source.unsplash.com/MEW5M1WhMQE/400x400"
+                alt="barcelona-paella"
+                className="img2"
+              />
+              <img
+                src="https://source.unsplash.com/akvIvA4ZEeg/400x400"
+                alt="barcelona-beach"
+                className="img2"
+              />
+              <img
+                src="https://source.unsplash.com/sSyRnrhAqU8/400x400"
+                alt="barcelona-beach"
+                className="img2"
+              />
+            </div>
+          </div>
           <div className="details-cont-tpd-and-bookingForm">
             <div className="details-cont-title-prov-descrip">
               <div className="details-cont-provider">
-                <h6>hosted by {experience.User.firstname}</h6>
+                <div className="details-cont-prov-headers">
+                  <h4>hosted by {experience.User.firstname}</h4>
+                  <h6>a local since 1988</h6>
+                </div>
                 <img
                   className="user-avatar"
                   src={experience.User.avatar}
@@ -101,45 +146,55 @@ function ExperienceDetails(props) {
                 />
               </div>
               <div className="details-cont-description">
-                <p>{experience.description}</p>
+                <p className="desc">{experience.description}</p>
               </div>
-              <div className="food-icon">
-                <i className="fas fa-utensils"></i>
-                Food
+
+              <div className="icons-container">
+                <div className="left-hand-icons">
+                  <div className="food-icon">
+                    <i className="fas fa-utensils"></i>
+                    Food
+                  </div>
+                  <div className="transport-icon">
+                    <i className="fas fa-car-side"></i>
+                    Transport
+                  </div>
+                  <div className="tree-icon">
+                    <i className="fas fa-tree"></i>
+                    Outdoors
+                  </div>
+
+                  <div className="cat-icon">
+                    <i className="fas fa-cat"></i>
+                    Pet Friendly
+                  </div>
+                </div>
+
+                <div className="right-hand-icons">
+                  <div className="kiss-icon">
+                    <i className="far fa-kiss-wink-heart"></i>
+                    LGBTQ+
+                  </div>
+                  <div className="baby-icon">
+                    <i className="fas fa-baby"></i>
+                    Kids
+                  </div>
+                  <div className="parking-icon">
+                    <i className="fas fa-parking"></i>
+                    Parking
+                  </div>
+                  <div className="disabled-icon">
+                    <i className="fas fa-wheelchair"></i>
+                    Wheelchair
+                  </div>
+                </div>
               </div>
-              <div className="transport-icon">
-                <i className="fas fa-car-side"></i>
-                Transport
-              </div>
-              <div className="tree-icon">
-                <i className="fas fa-tree"></i>
-                Outdoors
-              </div>
-              <div className="cat-icon">
-                <i className="fas fa-cat"></i>
-                Pet Friendly
-              </div>
-              <div className="kiss-icon">
-                <i className="far fa-kiss-wink-heart"></i>
-                LGBTQ+
-              </div>
-              <div className="baby-icon">
-                <i className="fas fa-baby"></i>
-                Kids
-              </div>
-              <div className="parking-icon">
-                <i className="fas fa-parking"></i>
-                Parking
-              </div>
-              <div className="disabled-icon">
-                <i className="fas fa-wheelchair"></i>
-                Wheelchair
-              </div>
-              <div></div>
             </div>
+
             <div className="details-datepicker-container">
               <div className="booking-cont-date">
-                <DatePicker />
+                <h6>Booking Form:</h6>
+                <DatePicker startDate={startDate} setStartDate={setStartDate} />
               </div>
               <div className="booking-cont-guests">
                 <Guests />

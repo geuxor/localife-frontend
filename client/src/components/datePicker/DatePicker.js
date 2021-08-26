@@ -3,8 +3,8 @@ import { useState } from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 
-function DatePick() {
-  const [startDate, setStartDate] = useState(null)
+function DatePick({ setStartDate, startDate }) {
+  // const [startDate, setStartDate] = useState(null)
   return (
     <DatePicker
       selected={startDate}
@@ -13,7 +13,7 @@ function DatePick() {
       timeFormat="HH:mm"
       timeIntervals={60}
       timeCaption="time"
-      dateFormat="MMMM d, yyyy h:mm aa"
+      dateFormat="d MMMM, yyyy h:mm aa"
       placeholderText="Select a date"
       className="datepicker"
     />

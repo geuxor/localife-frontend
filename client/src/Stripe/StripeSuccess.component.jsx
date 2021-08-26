@@ -1,15 +1,17 @@
 import React, { useEffect } from 'react'
 import { toast } from 'react-toastify'
 import { LoadingOutlined } from '@ant-design/icons'
+import bookingsApi from '../apiServices/bookingsApi'
 
 const StripeSuccess = ({ match, history }) => {
   useEffect(() => {
     //   fetch xp id from match.params.experienceId
     console.log('StripeSuccess: ', match.params.id)
-    const okres = false
-    // apiStripe
-    // .stripeSuccessRequest({experienceId: match.params.experienceId})
-    // .then((res) => {
+    const res = bookingsApi.bookingSuccessRequest({
+      experienceId: match.params.experienceId,
+    })
+    console.log(res)
+    const okres = true
 
     if (okres) {
       // console.log("StripeSuccess: res.data.success : stripe success response", res.data);

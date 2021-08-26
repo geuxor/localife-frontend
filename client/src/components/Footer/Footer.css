@@ -6,7 +6,7 @@
   background: #263238;
   text-align: center;
   color: #f4f4f4;
-  z-index: 2;
+  /* z-index: 0; */
 }
 
 .icons {

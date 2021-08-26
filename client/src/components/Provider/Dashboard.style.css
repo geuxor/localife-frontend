@@ -1,0 +1,21 @@
+.dashboard {
+  /* margin: 124px !important; */
+  padding-bottom: 100px !important;
+  font-family: 'Montserrat', sans-serif !important;
+  /* height: 100% !important; */
+}
+
+.card {
+  box-shadow: 8px 8px 16px rgba(119, 107, 74, 0.431);
+  border-radius: 10px;
+  margin: 16px 0px;
+}
+
+.btn-link {
+  background: #1890ff;
+  color: #fff;
+}
+
+.gap {
+  margin-bottom: 200px;
+}

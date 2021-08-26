@@ -2,6 +2,7 @@
 
 .details-container {
   overflow: auto;
+  /* padding-bottom: 100px !important; */
 }
 
 .details-cont-rendered {

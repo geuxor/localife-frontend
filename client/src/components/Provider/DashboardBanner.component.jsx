@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router'
 import { setStripe } from '../../redux/actions/actions'
 import { toast } from 'react-toastify'
+import ExperiencesApi from '../../apiServices/experiencesApi'
 import apiStripe from '../../apiServices/stripeApi'
 import moment from 'moment'
 import { Button, Card, Avatar, Image, Badge } from 'antd'
@@ -11,16 +12,49 @@ import {
   DollarCircleOutlined,
   SettingOutlined,
 } from '@ant-design/icons'
-import './Dashboard.css'
+// import './Dashboard.style.css'
+import ProviderExperiences from './ProviderExperiences.component'
 const { Meta } = Card
 const { Ribbon } = Badge
 
 const DashboardBanner = () => {
+  const [myExperiences, setmyExperiences] = useState([])
   const store = useSelector((state) => state)
   const [, setLoading] = useState(false)
   const [, setBalance] = useState({})
   const dispatch = useDispatch()
   const history = useHistory()
+  // console.log(
+  //   store.stripe.lifetime_volume,
+  //   typeof store.stripe.default_currency,
+  // )
+
+  const updateXps = (id) => {
+    setmyExperiences((prev) => {
+      return prev.filter((x) => {
+        return x.id !== id
+      })
+    })
+  }
+
+  useEffect(() => {
+    ;(async () => {
+      try {
+        let res = await ExperiencesApi.getMyExperiences()
+        console.log(',,,,,,,,,,,,,,', res.data)
+        setmyExperiences(res.data)
+      } catch (err) {
+        setLoading(false)
+        if (err.response && err.response.status >= 400) {
+          console.log('err:', err.response.data)
+          toast.error(err.response.data)
+        } else {
+          console.log(err)
+          toast.error(err)
+        }
+      }
+    })()
+  }, [])
 
   const handleStripeBalance = async () => {
     console.log(
@@ -75,8 +109,12 @@ const DashboardBanner = () => {
             />
             <div className="d-flex col justify-content-center p-0">
               <div className="d-flex row p-0">
-                <div>asdfx</div>
-                <div>asdfx</div>
+                <>
+                  {apiStripe.currencyFormatter({
+                    amount: store.stripe.lifetime_volume,
+                    currency: 'eur',
+                  })}
+                </>
               </div>
             </div>
           </div>
@@ -100,9 +138,23 @@ const DashboardBanner = () => {
         </Card>
       </Ribbon>
       <Ribbon text="Experiences" color="blue">
-        <Card className="card p-0">
-          <div className="d-flex justify-content-center">
-            <b>You are ready to create Experiences and receive payment</b>
+        <Card className="">
+          <div className="d-flex col flex-wrap justify-content-center">
+            {myExperiences ? (
+              <>
+                {myExperiences.map((x) => {
+                  return (
+                    <ProviderExperiences
+                      key={x.id}
+                      myExperience={x}
+                      updateXps={updateXps}
+                    />
+                  )
+                })}
+              </>
+            ) : (
+              <b>You are ready to create Experiences and receive payment</b>
+            )}
             <div className="d-flex row p-0">
               <div className="d-flex p-0">
                 <div className="px-5"></div>

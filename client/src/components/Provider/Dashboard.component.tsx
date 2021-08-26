@@ -6,7 +6,7 @@ import { RootState } from '../../redux/reducers/reducers'
 import Heart from '../Spinner/Heart.Spinner'
 import DashboardBanner from './DashboardBanner.component'
 import { setStripe } from '../../redux/actions/actions'
-import './Dashboard.css'
+import './Dashboard.style.css'
 
 function Dashbaord(props) {
   const dispatch = useDispatch()
@@ -25,12 +25,12 @@ function Dashbaord(props) {
             let res = await apiStripe.getAccountBalance(store)
             console.log(
               'DashboardBanner: Stripe accountBalance Api Response',
-              res,
+              res.data,
             )
             dispatch(setStripe(res.data))
           }
         }
-        // setLoading(false)
+        setLoading(false)
       } catch (err) {
         if (err.response && err.response.data.length < 100) {
           let fields_req = err.response.data.split(',')
@@ -56,7 +56,7 @@ function Dashbaord(props) {
 
   const connected = () => (
     <div>
-      {console.log('connected')}
+      {console.log('connected', store.stripe)}
       <DashboardBanner />
     </div>
   )
@@ -66,15 +66,17 @@ function Dashbaord(props) {
 
   return (
     <>
-      <div className="container-fluid bg-light py-4 px-5">
-        <div className="justify-content-center">
-          {loading ? (
-            <div className="m-5 p-5">
-              <Heart color={color} size={size} />
-            </div>
-          ) : (
-            store.user.stripe_registration_complete && connected()
-          )}
+      <div className="dashboard">
+        <div className="dahsboard p-5 bg-light">
+          <div className="justify-content-center">
+            {loading ? (
+              <div className="m-5 p-5">
+                <Heart color={color} size={size} />
+              </div>
+            ) : (
+              store.user.stripe_registration_complete && connected()
+            )}
+          </div>
         </div>
       </div>
     </>

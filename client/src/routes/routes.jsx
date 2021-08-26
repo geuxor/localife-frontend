@@ -11,31 +11,39 @@ import MyBookings from '../pages/myBookingsPage/MyBookings'
 import Dashbaord from '../components/Provider/Dashboard.component'
 import CreateExperienceForm from '../components/experiences/CreateExperience'
 import BookingDetails from '../pages/BookingDetails/BookingDetails'
+import UpdateExperienceForm from '../components/Forms/UpdateExperience.Form'
 
 function Routes() {
   return (
     <div>
       <Switch>
         <Route path="/result-details/:id" exact component={ExperienceDetails} />
+        <Route path="/search-results" exact component={ExperienceResults} />
         <Route path="/stripe/success/:id" exact component={StripeSuccess} />
         <Route path="/stripe/redirect" exact component={StripeRedirect} />
-        <PrivateRoute path="/bookings" exact component={MyBookings} />
-        <PrivateRoute path="/dashboard" exact component={Dashbaord} />
-        <Route path="/booking/:id" exact component={BookingDetails} />
+
+        <PrivateRoute
+          path="/experience/edit/:id"
+          exact
+          component={UpdateExperienceForm}
+        />
         <PrivateRoute
           path="/experience/new"
           exact
           component={CreateExperienceForm}
         />
+
+        <PrivateRoute path="/bookings" exact component={MyBookings} />
+        <PrivateRoute path="/booking/:id" exact component={BookingDetails} />
+        <Route path="/my-bookings" exact component={MyBookings} />
+        <PrivateRoute path="/dashboard" exact component={Dashbaord} />
         <PrivateRoute
           path="/become-provider"
           exact
           component={BecomeProvider}
         />
         <Route path="/logout" exact component={LogOut} />
-        <Route path="/search-results" exact component={ExperienceResults} />
         <Route path="/" exact component={LandingPage} />
-        <Route path="/my-bookings" exact component={MyBookings} />
       </Switch>
     </div>
   )

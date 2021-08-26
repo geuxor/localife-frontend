@@ -21,7 +21,7 @@ function Routes() {
         <Route path="/stripe/redirect" exact component={StripeRedirect} />
         <PrivateRoute path="/bookings" exact component={MyBookings} />
         <PrivateRoute path="/dashboard" exact component={Dashbaord} />
-        <PrivateRoute path="/bookings/:id" exact component={BookingDetails} />
+        <Route path="/booking/:id" exact component={BookingDetails} />
         <PrivateRoute
           path="/experience/new"
           exact

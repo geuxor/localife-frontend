@@ -8,10 +8,10 @@
 
 [![GitHub license](https://img.shields.io/github/license/geuxor/localife-frontend)](https://github.com/geuxor/localife-frontend/blob/develop/LICENSE)[![GitHub release](https://img.shields.io/github/release/geuxor/localife-frontend)](https://github.com/geuxor/localife-frontend/releases/tag/0.9.0)[![GitHub contributors](https://img.shields.io/github/contributors/geuxor/localife-frontend)](https://github.com/geuxor/localife-frontend/graphs/contributors)[![GitHub issues](https://img.shields.io/github/issues/geuxor/localife-frontend)](https://GitHub.com/geuxor/localife-frontend/issues)
 
-<span align="center">![ForTheBadge built-with-love](https://ForTheBadge.com/images/badges/built-with-love.svg)</span>
+<span align="center">![ForTheBadge built-with-love](https://forthebadge.com/images/badges/built-with-love.svg)</span>
 
 <p align="center">
- <img src="./readmeFiles/localife.gif" alt="localife logo" style="zoom:50%;" >
+ <img src="./readmeFiles/logo3.png" alt="localife logo" style="zoom:40%;" >
 </p>
 
 Localife is an app that encourages you to explore the world by enjoying the life of a local!
@@ -19,7 +19,7 @@ It started with an idea of a scratch map and evolved into a good looking, smooth
 Localife is made with React and Express and with the help of Postgres and Redis.
 
 <p align="center">
- <img src="./readmeFiles/screenshot1.png" >
+ <img src="./readmeFiles/back1.png" style="zoom:20%;" >
 </p>
 
 Once you're logged in (0Auth is coming next...), start searching by location and dates - you will discover many type of local experiences listed while visible in a map! You can select a map pin for more information and see the description of each experience. You can book by date and amount of people using Stripe Connect and see a list of bookings and (coming soon... start chatting with the provider). 

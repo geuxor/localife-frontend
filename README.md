@@ -64,18 +64,9 @@ Checkout a video demo of the app on [YouTube](https://www.youtube.com/watch?v=):
 
 ## Tech-Stack
 
-![https://reactjs.org](https://img.shields.io/badge/react-%5E16.3.1-%2361DAFB?style=flat-square&logo=react)
-![https://www.typescriptlang.org](https://img.shields.io/badge/TypeScript-%5E3.7.5-%23007ACC?style=flat-square&logo=typescript)
-
 ### Frontend
 
-- [TypeScript](https://www.typescriptlang.org)
-- [React](https://reactjs.org)
-- [Style-components](https://styled-components.com/)
-- [Cloudinary](https://cloudinary.com/)
-- [Redux](https://redux.js.org/)
-
-![https://www.cloudinary.com](https://img.shields.io/badge/cloudinary-API-yellow)
+![https://www.cloudinary.com](https://img.shields.io/badge/cloudinary--v1--white?style=for-the-badge&logo=cloudinary)
 ![https://www.material-ui.com](https://img.shields.io/badge/material--ui--white?style=for-the-badge&logo=materialui)
 ![https://www.stripe.com](https://img.shields.io/badge/stripe%20Connect--v1--white?style=for-the-badge&logo=stripe)
 ![https://www.typescriptlang.org](https://img.shields.io/badge/typescript--v1--white?style=for-the-badge&logo=typescript)
@@ -88,11 +79,14 @@ Checkout a video demo of the app on [YouTube](https://www.youtube.com/watch?v=):
 
 ### Backend
 
-- [Node.js](https://nodejs.org/)
-- [Express](https://expressjs.com)
-- [TypeScript](https://www.typescriptlang.org)
-- [PostgreSQL](https://www.postgresql.org/)  
-- [Sequelize](https://sequelize.org/)  
+![https://www.npmjs.com/package/bcrypt](https://img.shields.io/badge/bcrypt--v1--white?style=for-the-badge&logo=npm)
+![https://redis.io](https://img.shields.io/badge/redis--v1--white?style=for-the-badge&logo=redis)
+![https://expressjs.com](https://img.shields.io/badge/express--v1--white?style=for-the-badge&logo=express)
+![https://www.postgresql.org](https://img.shields.io/badge/postgresQL--v1--white?style=for-the-badge&logo=postgresQL)
+![https://sequelize.org](https://img.shields.io/badge/sequelize--v1--white?style=for-the-badge&logo=sequelize)
+![https://github.com/marak/Faker.js](https://img.shields.io/badge/faker--v1--white?style=for-the-badge&logo=npm)
+![https://eslint.org/](https://img.shields.io/badge/eslint--v1--white?style=for-the-badge&logo=eslint)
+![https://www.stripe.com](https://img.shields.io/badge/stripe%20Connect--v1--white?style=for-the-badge&logo=stripe)
 
 ### CI / CD
 
@@ -101,8 +95,7 @@ Checkout a video demo of the app on [YouTube](https://www.youtube.com/watch?v=):
 
 ### Hosting
 
-- [heroku](https://heroku.com) for Frontend and Backend
-- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) for the Database
+- [Netlify](https://netlify.com) for Frontend and Backend
 
 ### Authentication
 

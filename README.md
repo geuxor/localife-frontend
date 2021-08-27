@@ -42,7 +42,8 @@ Checkout a video demo of the app on [YouTube](https://www.youtube.com/watch?v=):
 
 [localife backend](https://github.com/geuxor/localife-backend)  
 [Tech Stack](#tech-stack)  
-[Running localife](#running-localife)  
+[Running localife](#running-localife)
+[Running localife](#architecture)
 [Observations](#observations)  
 [Developers Team](#developers-team)  
 [Contributors](#contributors-✨)
@@ -74,6 +75,12 @@ Checkout a video demo of the app on [YouTube](https://www.youtube.com/watch?v=):
   Edit the ./config/config.json file with your database details.
   With the database running, run `npm run recreateDb`. This will generate the tables in the database and seed the data to get the project started.
   Run `npm start` in localife-backend/server directory
+  
+## Architecture
+
+<p align="center">
+ <img src="./readmeFiles/Localife-front.png" style="zoom:20%;" >
+</p>
 
 ## Observations
 

@@ -45,7 +45,7 @@ Checkout a video demo of the app on [YouTube](https://www.youtube.com/watch?v=):
 [localife backend](https://github.com/geuxor/localife-backend)  
 [Tech Stack](#tech-stack)  
 [Running localife](#running-localife)
-[Running localife](#architecture)
+[Architecture](#architecture)
 [Observations](#observations)  
 [Developers Team](#developers-team)  
 [Contributors](#contributors-✨)
@@ -81,7 +81,7 @@ Checkout a video demo of the app on [YouTube](https://www.youtube.com/watch?v=):
 ## Architecture
 
 <p align="center">
- <img src="./readmeFiles/Localife-front.png" style="zoom:20%;" >
+ <img src="./readmeFiles/localife-front.png" style="zoom:20%;" >
 </p>
 
 ## Observations

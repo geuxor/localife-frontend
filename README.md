@@ -12,12 +12,14 @@
 
 <p align="center">
  <img src="./readmeFiles/logo-small.png" alt="localife logo" style="zoom:40%;" >
-</p>
+
 
 Localife is an app that encourages you to explore the world by enjoying the life of a local!
 It started with an idea of a scratch map and evolved into a good looking, smooth running and fun Web App.
 Localife is made with React and Express and with the help of Postgres and Redis.
 
+ </p>
+ 
 <p align="center">
  <img src="./readmeFiles/back500.png" style="zoom:20%;" >
 </p>

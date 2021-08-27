@@ -60,9 +60,51 @@ Checkout a video demo of the app on [YouTube](https://www.youtube.com/watch?v=):
 💖 [PostgreSQL](https://www.postgresql.org/)  
 💖 [Sequelize](https://sequelize.org/)  
 💖 [Heroku](https://www.heroku.com/)  
-💖 [Google Places API](https://cloud.google.com/maps-platform/places)
+💖 
 
-## Running localife
+## Tech-Stack
+
+![https://reactjs.org](https://img.shields.io/badge/react-%5E16.3.1-%2361DAFB?style=flat-square&logo=react)
+![https://www.typescriptlang.org](https://img.shields.io/badge/TypeScript-%5E3.7.5-%23007ACC?style=flat-square&logo=typescript)
+![https://www.mongodb.com](https://img.shields.io/badge/MongoDB-%5E3.6.0-%2347A248?style=flat-square&logo=mongodb)
+
+### Frontend
+
+- [TypeScript](https://www.typescriptlang.org)
+- [React](https://reactjs.org)
+- [Style-components](https://styled-components.com/)
+- [Cloudinary](https://cloudinary.com/)
+- [Redux](https://redux.js.org/)
+
+### Backend
+
+- [Node.js](https://nodejs.org/)
+- [Express](https://expressjs.com)
+- [TypeScript](https://www.typescriptlang.org)
+- [PostgreSQL](https://www.postgresql.org/)  
+- [Sequelize](https://sequelize.org/)  
+
+### CI / CD
+
+- [Github](https://github.com/features/actions)
+- [Trello](https://trello.com)
+
+### Hosting
+
+- [heroku](https://heroku.com) for Frontend and Backend
+- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) for the Database
+
+### Authentication
+
+- Session Cookies with bcrypt
+
+### APIs
+
+- [Stripe Connect](https://stripe.com)
+- [Google Places API](https://cloud.google.com/maps-platform/places)
+
+
+## Running Localife
 
 - Fork & clone this repo  
   Run `npm i` in localife directory  

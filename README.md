@@ -47,8 +47,7 @@ Checkout a video demo of the app:
 💖 [Express](https://expressjs.com/)  
 💖 [PostgreSQL](https://www.postgresql.org/)  
 💖 [Sequelize](https://sequelize.org/)  
-💖 [Heroku](https://www.heroku.com/)  
-💖 
+💖 [Heroku](https://www.heroku.com/)
 
 ## Tech-Stack
 
@@ -156,7 +155,7 @@ Thanks goes to these wonderful people ([💝 ](https://allcontributors.org/docs/
 
    <td align="center"><a href="https://www.linkedin.com/in/sebastiangreen13/"><img src="https://avatars.githubusercontent.com/u/79053034?v=4" width="100px;" alt=""/><br /><sub><b>Seb</b></sub></a><br />
    <a href="#infra-greenseb" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> 
-    <a href="https://github.com/geuxor/localife-frontend/commits?author=" title="Code">💻</a></td>
+    <a href="https://github.com/geuxor/localife-frontend/commits?author=greenseb" title="Code">💻</a></td>
     
    <td align="center"><a href="https://www.linkedin.com/in/maria-pallares/"><img src="https://avatars.githubusercontent.com/u/64910040?v=4" width="100px;" alt=""/><br /><sub><b>Maria</b></sub></a><br /><a href="#infra-" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/geuxor/localife-frontend/commits?author=mpallares" title="Code">💻</a></td>
    

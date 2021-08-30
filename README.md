@@ -21,22 +21,16 @@ Localife is made with React and Express and with the help of Postgres and Redis.
  </p>
  
 <p align="center">
- <img src="./readmeFiles/back500.png" width="300" >
+ <img src="./readmeFiles/back500.png" width="400" >
 </p>
 
 Once you're logged in (0Auth is coming next...), start searching by location and dates - you will discover many type of local experiences listed while visible in a map! You can select a map pin for more information and see the description of each experience. You can book by date and amount of people using Stripe Connect and see a list of bookings and (coming soon... start chatting with the provider). 
 
 It's very easy to register as a provider, and you can start creating experiences in no-time. As a provider you decide the price, location and images.Travellers will soon be booking your experience and you can start sharing your daily activities, stories, common interests and favorite spots with the visitor. 
 
-If you don't know where to go next, try the discovery button that will give you a variety of suggestions (comming next... )
-
-<p align="center">
- <img src="./readmeFiles/screenshot2.png" width="300">
-</p>
-
 ## Teaser:
 
-Checkout a video demo of the app on [YouTube](https://www.youtube.com/watch?v=):
+Checkout a video demo of the app on [YouTube](https://www.youtube.com/watch?v=8ktIg66ARAk):
 
 [![Watch the video](https://img.youtube.com/vi//hqdefault.jpg)](https://youtu.be/)
 

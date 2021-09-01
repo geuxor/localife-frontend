@@ -39,16 +39,6 @@ Checkout a video demo of the app:
 
 [![Watch the video](./readmeFiles/back500.png)](https://www.youtube.com/watch?v=8ktIg66ARAk )
 
-## Tech Stack
-
-💖 [React]()\
-💖 [Typescript](https://www.typescriptlang.org/)  
-💖 [Redux](https://redux.js.org/)  
-💖 [Express](https://expressjs.com/)  
-💖 [PostgreSQL](https://www.postgresql.org/)  
-💖 [Sequelize](https://sequelize.org/)  
-💖 [Heroku](https://www.heroku.com/)
-
 ## Tech-Stack
 
 ### Frontend

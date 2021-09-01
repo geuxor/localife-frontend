@@ -13,14 +13,14 @@
 
 ## Table of contents
 
-[localife backend](https://github.com/geuxor/localife-backend)
-[Description](#description)
-[Teaser](#teaser)
-[Tech Stack](#tech-stack)  
-[Running localife](#running-localife)
-[Architecture](#architecture)
-[Observations](#observations)  
-[Developers Team](#developers-team)  
+[Localife Backend Repo](https://github.com/geuxor/localife-backend)\
+[Description](#description)\
+[Teaser](#teaser)\
+[Tech Stack](#tech-stack)\
+[Running localife](#running-localife)\
+[Architecture](#architecture)\
+[Observations](#observations)\ 
+[Developers Team](#developers-team)\
 [Contributors](#contributors-✨)
 
 ## Description

@@ -131,6 +131,8 @@ Checkout a video demo of the app:
 
 ## Contributors ✨
  <span align="center">![ForTheBadge built-with-love](https://forthebadge.com/images/badges/built-with-love.svg)</span>
+ <br />
+ 
  Thanks goes to these wonderful people...
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->

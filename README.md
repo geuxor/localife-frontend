@@ -130,9 +130,9 @@ Checkout a video demo of the app:
 😂  Will - [Github](https://github.com/willwendal) - [LinkedIn](https://www.linkedin.com/in/william-johnson-39998493/)
 
 ## Contributors ✨
-<span align="center">
+
  Thanks goes to these wonderful people ([💝 ](https://allcontributors.org/docs/en/emoji-key))
- ![ForTheBadge built-with-love](https://forthebadge.com/images/badges/built-with-love.svg)</span>
+ <span align="center">(![ForTheBadge built-with-love](https://forthebadge.com/images/badges/built-with-love.svg))</span>
 
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->

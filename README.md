@@ -122,7 +122,7 @@ Checkout a video demo of the app:
 - Add more badges
 - Create PWA 
 
-## Developers Team
+## Developers Team 💝
 
 😋  German - [Github](https://github.com/geuxor) - [LinkedIn](https://www.linkedin.com/in/german-b)\
 🤠  Seb - [Github](https://github.com/greenseb) - [LinkedIn](https://www.linkedin.com/in/sebastiangreen13/)\
@@ -131,8 +131,8 @@ Checkout a video demo of the app:
 
 ## Contributors ✨
 
- Thanks goes to these wonderful people ([💝 ](https://allcontributors.org/docs/en/emoji-key))
- <span align="center">(![ForTheBadge built-with-love](https://forthebadge.com/images/badges/built-with-love.svg))</span>
+ Thanks goes to these wonderful people...
+ <span align="center">![ForTheBadge built-with-love](https://forthebadge.com/images/badges/built-with-love.svg)</span>
 
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->

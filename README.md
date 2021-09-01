@@ -1,18 +1,29 @@
 # Localife - your next local adventures
 
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-
-> Frontend client files for the localife app. ([localife backend](https://github.com/geuxor/localife-backend)  )
-
-[![GitHub license](https://img.shields.io/github/license/geuxor/localife-frontend)](https://github.com/geuxor/localife-frontend/blob/develop/LICENSE)[![GitHub release](https://img.shields.io/github/release/geuxor/localife-frontend)](https://github.com/geuxor/localife-frontend/releases/tag/0.9.0)[![GitHub contributors](https://img.shields.io/github/contributors/geuxor/localife-frontend)](https://github.com/geuxor/localife-frontend/graphs/contributors)[![GitHub issues](https://img.shields.io/github/issues/geuxor/localife-frontend)](https://GitHub.com/geuxor/localife-frontend/issues)
-
-<span align="center">![ForTheBadge built-with-love](https://forthebadge.com/images/badges/built-with-love.svg)</span>
+**Frontend client files for the localife app. ([localife backend](https://github.com/geuxor/localife-backend))**
+<br />
+<br />
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-yellow.svg?style=flat-square)](#contributors)
+[![GitHub license](https://img.shields.io/github/license/geuxor/localife-frontend)](https://github.com/geuxor/localife-frontend/blob/develop/LICENSE)[![GitHub release](https://img.shields.io/github/release/geuxor/localife-frontend)](https://github.com/geuxor/localife-frontend/releases/tag/0.9.0)[!
+[![GitHub issues](https://img.shields.io/github/issues/geuxor/localife-frontend)](https://GitHub.com/geuxor/localife-frontend/issues)
 
 <p align="center">
  <img src="./readmeFiles/logo-small.png" alt="localife logo" width="150" >
  </p>
+
+## Table of contents
+
+[localife backend](https://github.com/geuxor/localife-backend)
+[Description](#description)
+[Teaser](#teaser)
+[Tech Stack](#tech-stack)  
+[Running localife](#running-localife)
+[Architecture](#architecture)
+[Observations](#observations)  
+[Developers Team](#developers-team)  
+[Contributors](#contributors-✨)
+
+## Description
 
 Localife is an app that encourages you to explore the world by enjoying the life of a local!
 It started with an idea of a scratch map and evolved into a good looking, smooth running and fun Web App.
@@ -22,22 +33,11 @@ Once you're logged in (0Auth is coming next...), start searching by location and
 
 It's very easy to register as a provider, and you can start creating experiences in no-time. As a provider you decide the price, location and images.Travellers will soon be booking your experience and you can start sharing your daily activities, stories, common interests and favorite spots with the visitor. 
 
-## Teaser:
+## Teaser
 
 Checkout a video demo of the app:
 
 [![Watch the video](./readmeFiles/back500.png)](https://www.youtube.com/watch?v=8ktIg66ARAk )
-
-## Table of contents
-
-[localife backend](https://github.com/geuxor/localife-backend)  
-[Tech Stack](#tech-stack)  
-[Running localife](#running-localife)
-[Architecture](#architecture)
-[Observations](#observations)  
-[Developers Team](#developers-team)  
-[Contributors](#contributors-✨)
-
 
 ## Tech Stack
 
@@ -140,8 +140,10 @@ Checkout a video demo of the app:
 😂  Will - [Github](https://github.com/willwendal) - [LinkedIn](https://www.linkedin.com/in/william-johnson-39998493/)
 
 ## Contributors ✨
+<span align="center">
+ Thanks goes to these wonderful people ([💝 ](https://allcontributors.org/docs/en/emoji-key))
+ ![ForTheBadge built-with-love](https://forthebadge.com/images/badges/built-with-love.svg)</span>
 
-Thanks goes to these wonderful people ([💝 ](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->

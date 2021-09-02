@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { setEndpoint } from '../helpers/helperFunctions'
 const ExperiencesApi: any = {}
 
 const options: any = {
@@ -12,29 +13,23 @@ const options: any = {
 
 ExperiencesApi.searchExperiencesApi = async (searchLocation) => {
   return await axios.post(
-    `${process.env.REACT_APP_API}/search-results`,
+    `${setEndpoint}/search-results`,
     searchLocation,
     options,
   )
 }
 
 ExperiencesApi.viewExperience = async (experienceId) => {
-  return await axios.get(
-    `${process.env.REACT_APP_API}/experience/${experienceId}`,
-  )
+  return await axios.get(`${setEndpoint}/experience/${experienceId}`)
 }
 
 ExperiencesApi.getMyExperiences = async () => {
-  return await axios.post(
-    `${process.env.REACT_APP_API}/experiences/mine`,
-    null,
-    options,
-  )
+  return await axios.post(`${setEndpoint}/experiences/mine`, null, options)
 }
 
 ExperiencesApi.deleteExperience = async (experienceId) => {
   return await axios.post(
-    `${process.env.REACT_APP_API}/experience/delete`,
+    `${setEndpoint}/experience/delete`,
     experienceId,
     options,
   )
@@ -42,7 +37,7 @@ ExperiencesApi.deleteExperience = async (experienceId) => {
 
 ExperiencesApi.updateExperience = async (experienceId) => {
   return await axios.post(
-    `${process.env.REACT_APP_API}/experience/update`,
+    `${setEndpoint}/experience/update`,
     experienceId,
     options,
   )

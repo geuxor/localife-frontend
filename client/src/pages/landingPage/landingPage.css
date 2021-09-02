@@ -1,13 +1,14 @@
 .background-image {
-  background-image: url('../../images/fjord.jpg');
+  background-image: url('../../assets/back.png');
+  /* ../../images/tokyo.jpg' */
+  /* https://res.cloudinary.com/geuxor/image/upload/v1614934003/samples/people/bicycle.jpg */
   background-size: cover;
-  background-position: top;
-  min-height: 100%;
-  height: 100vh;
-  position: relative;
+  background-position: center;
+  /* min-height: 100%; */
+  height: 93vh;
+  /* overflow: initial; */
 }
 
-body {
-  overflow-x: hidden;
-  overflow-y: auto;
+.background-image::-webkit-scrollbar {
+  display: none;
 }

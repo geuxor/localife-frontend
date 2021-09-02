@@ -1,0 +1,51 @@
+.hello-user {
+  margin: 20px 0px 10px 27px;
+}
+
+.booking-list {
+  border-top: 2px, solid, black !important;
+  overflow-x: scroll;
+  width: 70vw;
+  height: 75vh;
+  margin-bottom: 77px;
+}
+
+.fa-smile {
+  margin-left: 5px;
+  transition: 0.5s;
+}
+
+.fa-smile:hover {
+  color: #f6eede;
+}
+
+.upcoming {
+  margin: 0px 0px 10px 27px;
+}
+
+.container-no-bookings {
+  margin: 30px;
+}
+
+.past-exp-container {
+  background-color: #f6eede;
+  border-right: 7px solid #c59f594d;
+  border-bottom: 7px solid #c59f594d;
+  border-radius: 15px;
+  position: absolute;
+  top: 162px;
+  right: 25px;
+  width: 27vw;
+  height: 70vh;
+  overflow: auto;
+}
+
+.past-exp {
+  margin: 10px 0 20px 15px;
+  font-weight: 900;
+  font-size: 22px;
+}
+
+.past-exp-detail {
+  margin: 15px 0 55px 15px;
+}

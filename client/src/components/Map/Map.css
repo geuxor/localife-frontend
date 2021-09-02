@@ -3,16 +3,18 @@
 .map {
   position: absolute;
   right: 0;
-  top: 183px;
+  top: 66px;
+  z-index: 1;
 }
 
 .popup {
   background-color: white;
   display: flex;
   flex-direction: column;
-  height: 260px;
+  height: 290px;
   justify-content: space-around;
   width: 290px;
+  z-index: 100;
 }
 
 label {

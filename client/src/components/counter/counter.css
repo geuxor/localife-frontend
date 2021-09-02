@@ -1,0 +1,26 @@
+.counter-button {
+  width: 25px;
+  height: 25px;
+  outline-style: initial;
+  border-radius: 12.5px;
+  cursor: pointer;
+}
+
+.counter-button:hover {
+  color: #000000;
+  background-color: white;
+}
+
+.counter-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 12rem;
+}
+
+@media all and (max-width: 30em) {
+   .counter-button {
+    display: block;
+    margin: 0.4em auto;
+  }
+}

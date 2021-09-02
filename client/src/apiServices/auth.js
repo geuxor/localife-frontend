@@ -21,4 +21,8 @@ apiAuth.logout = async () => {
   return await axios.get(`${process.env.REACT_APP_API}/logout`)
 }
 
+apiAuth.getProfile = async (sid) => {
+  return await axios.post(`${process.env.REACT_APP_API}/profile`, null, options);
+};
+
 export default apiAuth

@@ -3,8 +3,9 @@ import './experience.css'
 import { useHistory } from 'react-router'
 
 function Experience(props: Props): any {
-  console.log('exp-page', props)
+  console.log('PROPS', props)
   const history = useHistory()
+
   const handleClick = () =>
     history.push(`/result-details/${props.experience.id}`)
 
@@ -19,23 +20,26 @@ function Experience(props: Props): any {
         <div className="exp-container4">
           <div className="experience-title">{props.experience.title}</div>
           <div className="experience-description">
-            {props.experience.description}
+            {props.experience.subtitle}
           </div>
         </div>
         <div className="exp-container5">
           <b>
             <div className="exp-price">
-              <i class="fas fa-euro-sign"></i>
+              <i className="euro fas fa-euro-sign"></i>
               {props.experience.price}.00
             </div>
           </b>
-          <button
-            className="exp-buy-button"
-            type="button"
-            onClick={handleClick}
-          >
-            More Info
-          </button>
+          <div className="exp-container6">
+            <button
+              className="exp-buy-button"
+              type="button"
+              onClick={handleClick}
+            >
+              More Info
+            </button>
+            <i className="far fa-heart"></i>
+          </div>
         </div>
       </div>
     </div>

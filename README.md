@@ -1,4 +1,4 @@
-# ([Localife - your next local adventures](https://localife.netlify.app))
+# [Localife - your next local adventures](https://localife.netlify.app)
 
 
 **Frontend client files for the localife app. ([localife backend](https://github.com/geuxor/localife-backend))**

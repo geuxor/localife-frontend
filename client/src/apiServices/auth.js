@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { setEndpoint } from '../helpers/helperFunctions'
+import { baseUrl } from '../helpers/helperFunctions'
 const apiAuth = {}
 const options = {
   // headers: { 'X-Custom-Header': 'value' },
@@ -11,19 +11,19 @@ const options = {
 }
 
 apiAuth.registerUser = async (user) => {
-  return await axios.post(`${setEndpoint}/register`, user)
+  return await axios.post(`${baseUrl}/register`, user)
 }
 
 apiAuth.loginUser = async (user) => {
-  return await axios.post(`${setEndpoint}/login`, user, options)
+  return await axios.post(`${baseUrl}/login`, user, options)
 }
 
 apiAuth.logout = async () => {
-  return await axios.get(`${setEndpoint}/logout`)
+  return await axios.get(`${baseUrl}/logout`)
 }
 
 apiAuth.getProfile = async (sid) => {
-  return await axios.post(`${setEndpoint}/profile`, null, options);
+  return await axios.post(`${baseUrl}/profile`, null, options);
 };
 
 export default apiAuth

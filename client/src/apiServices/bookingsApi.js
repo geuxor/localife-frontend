@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { setEndpoint } from '../helpers/helperFunctions'
+import { baseUrl } from '../helpers/helperFunctions'
 const bookingsApi = {}
 
 const options = {
@@ -10,7 +10,7 @@ const options = {
 
 bookingsApi.createBooking = async (experience) => {
   return await axios.post(
-    `${setEndpoint}/bookings/new`,
+    `${baseUrl}/bookings/new`,
     experience,
     options,
   )
@@ -18,14 +18,14 @@ bookingsApi.createBooking = async (experience) => {
 
 bookingsApi.bookingSuccessRequest = async (experienceId) =>
   await axios.post(
-    `${setEndpoint}/bookings/success`,
+    `${baseUrl}/bookings/success`,
     experienceId,
     options,
   )
 
 bookingsApi.getUserBookings = async () => {
   return await axios.post(
-    `${setEndpoint}/bookings/mine`,
+    `${baseUrl}/bookings/mine`,
     null,
     options,
   )
@@ -33,7 +33,7 @@ bookingsApi.getUserBookings = async () => {
 
 bookingsApi.getOneBooking = async (id) => {
   return await axios.post(
-    `${setEndpoint}/booking/${id}`,
+    `${baseUrl}/booking/${id}`,
     null,
     options,
   )

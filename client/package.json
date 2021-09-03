@@ -52,7 +52,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "API_DOMAIN=development npm run dev"
+    "dev": "REACT_APP_API_DOMAIN=development npm start"
   },
   "eslintConfig": {
     "extends": [

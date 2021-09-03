@@ -4,7 +4,7 @@ import ExperiencesApi from '../../apiServices/experiencesApi'
 import { useSelector } from 'react-redux'
 import ExperienceEditForm from '../Forms/EditExperience'
 import experienceApi from '../../apiServices/experiencesApi'
-import { setEndpoint } from '../../helpers/helperFunctions'
+import { baseUrl } from '../helpers/helperFunctions'
 const UpdateExperienceForm = ({ match }) => {
   const { experience } = useSelector((state) => state)
   const [, setImage] = useState('')
@@ -30,7 +30,7 @@ const UpdateExperienceForm = ({ match }) => {
   const loadSellerExperience = async () => {
     let res = await experienceApi.viewExperience(match.params.experienceId)
     // console.log(res);
-    setPreview(`${setEndpoint}/experience/image/${res.data._id}`)
+    setPreview(`${baseUrl}/experience/image/${res.data._id}`)
   }
 
   const handleSubmit = async (e) => {

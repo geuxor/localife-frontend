@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { setEndpoint } from '../helpers/helperFunctions'
+import { baseUrl } from '../helpers/helperFunctions'
 const apiStripe: any = {}
 const options: any = {
   // headers: { 'X-Custom-Header': 'value' },
@@ -11,19 +11,15 @@ const options: any = {
 }
 
 apiStripe.stripeCheckAccount = async (user) => {
-  return await axios.post(`${setEndpoint}/stripe/account-status`, user, options)
+  return await axios.post(`${baseUrl}/stripe/account-status`, user, options)
 }
 
 apiStripe.stripeConnectAccount = async (user) => {
-  return await axios.post(
-    `${setEndpoint}/stripe/connect-account`,
-    user,
-    options,
-  )
+  return await axios.post(`${baseUrl}/stripe/connect-account`, user, options)
 }
 
 apiStripe.getAccountBalance = async (store) =>
-  axios.post(`${setEndpoint}/stripe/account-balance`, store, options)
+  axios.post(`${baseUrl}/stripe/account-balance`, store, options)
 
 apiStripe.currencyFormatter = (data: any) => {
   console.log('currencyFormatter:', typeof data.currency)
@@ -36,18 +32,14 @@ apiStripe.currencyFormatter = (data: any) => {
 }
 
 apiStripe.payoutSetting = async (user) =>
-  await axios.post(`${setEndpoint}/stripe/payout-setting`, user, options)
+  await axios.post(`${baseUrl}/stripe/payout-setting`, user, options)
 
 apiStripe.getSessionId = async (experience) => {
-  const res = await axios.post(
-    `${setEndpoint}/stripe/session`,
-    experience,
-    options,
-  )
+  const res = await axios.post(`${baseUrl}/stripe/session`, experience, options)
   return res
 }
 
 apiStripe.stripeSuccessRequest = async (experienceId) =>
-  await axios.post(`${setEndpoint}/stripe/success`, experienceId, options)
+  await axios.post(`${baseUrl}/stripe/success`, experienceId, options)
 
 export default apiStripe

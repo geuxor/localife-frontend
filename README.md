@@ -38,9 +38,9 @@ It's very easy to register as a provider, and you can start creating experiences
 
 ## Teaser
 
-Checkout a video demo of the app:
+[Website:](https://localife.netlify.app/)
 
-[![Watch the video](./readmeFiles/back500.png)](https://www.youtube.com/watch?v=8ktIg66ARAk )
+[![Watch the Demo video](./readmeFiles/back500.png)](https://www.youtube.com/watch?v=8ktIg66ARAk )
 
 ## Tech-Stack
 

@@ -9,7 +9,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/geuxor/localife-frontend)](https://GitHub.com/geuxor/localife-frontend/issues)
 
 <p align="center">
- <a  href="https://localife.netlify.app/">
+ <a  href="https://localife.netlify.app/" target="_blank">
   <img src="./readmeFiles/logo-small.png" alt="localife logo" width="150" >
  </a>
  </p>

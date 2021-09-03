@@ -1,4 +1,5 @@
-# Localife - your next local adventures
+# ([Localife - your next local adventures](https://localife.netlify.app))
+
 
 **Frontend client files for the localife app. ([localife backend](https://github.com/geuxor/localife-backend))**
 <br />
@@ -8,7 +9,9 @@
 [![GitHub issues](https://img.shields.io/github/issues/geuxor/localife-frontend)](https://GitHub.com/geuxor/localife-frontend/issues)
 
 <p align="center">
- <img src="./readmeFiles/logo-small.png" alt="localife logo" width="150" >
+ <a  href="https://localife.netlify.app/">
+  <img src="./readmeFiles/logo-small.png" alt="localife logo" width="150" >
+ </a>
  </p>
 
 ## Table of contents

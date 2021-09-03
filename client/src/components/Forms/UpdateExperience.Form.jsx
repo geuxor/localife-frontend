@@ -4,7 +4,7 @@ import ExperiencesApi from '../../apiServices/experiencesApi'
 import { useSelector } from 'react-redux'
 import ExperienceEditForm from '../Forms/EditExperience'
 import experienceApi from '../../apiServices/experiencesApi'
-import { baseUrl } from '../helpers/helperFunctions'
+import { baseUrl } from '../../helpers/helperFunctions'
 const UpdateExperienceForm = ({ match }) => {
   const { experience } = useSelector((state) => state)
   const [, setImage] = useState('')

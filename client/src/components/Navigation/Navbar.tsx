@@ -12,7 +12,7 @@ function Navbar(props: Props) {
 
   return (
     <>
-      <S.Nav>{/* <S.Logo alt="Localife" /> */}</S.Nav>
+      <S.Nav>Localife</S.Nav>
       <Burger />
       {props.children}
     </>

@@ -13,4 +13,4 @@ export const baseUrl =
   process.env.REACT_APP_API_DOMAIN === 'development'
     ? process.env.REACT_APP_API_DEV
     : process.env.REACT_APP_API_HEROKU
-console.log('YOU ARE NOW RUNNING:', baseUrl)
+console.log('YOU ARE NOW RUNNING: ', baseUrl)

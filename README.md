@@ -1,4 +1,5 @@
-# Localife - your next local adventures
+# [Localife - your next local adventures](https://localife.netlify.app)
+
 
 **Frontend client files for the localife app. ([localife backend](https://github.com/geuxor/localife-backend))**
 <br />
@@ -8,7 +9,9 @@
 [![GitHub issues](https://img.shields.io/github/issues/geuxor/localife-frontend)](https://GitHub.com/geuxor/localife-frontend/issues)
 
 <p align="center">
- <img src="./readmeFiles/logo-small.png" alt="localife logo" width="150" >
+ <a  href="https://localife.netlify.app/" target="_blank">
+  <img src="./readmeFiles/logo-small.png" alt="localife logo" width="150" >
+ </a>
  </p>
 
 ## Table of contents
@@ -35,9 +38,10 @@ It's very easy to register as a provider, and you can start creating experiences
 
 ## Teaser
 
-Checkout a video demo of the app:
+[Website](https://localife.netlify.app/)
 
-[![Watch the video](./readmeFiles/back500.png)](https://www.youtube.com/watch?v=8ktIg66ARAk )
+**Watch the Demo video**
+[![Watch the Demo video](./readmeFiles/back2.png)](https://www.youtube.com/watch?v=8ktIg66ARAk )
 
 ## Tech-Stack
 

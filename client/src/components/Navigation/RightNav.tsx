@@ -56,29 +56,14 @@ function RightNav(props: Props) {
       )}
       <S.Ul open={props.open}>
         <NavLink
-          className="Localife"
+          onClick={() => resetClickHandler()}
           to="/"
           activeStyle={{
-            fontSize: '1.5em',
-            position: 'absolute',
-            left: 0,
             fontWeight: 'bold',
-            color: '#0DADEA',
-            fontFamily: 'Montserrat',
+            color: 'white',
           }}
         >
-          <li>Localife</li>
-        </NavLink>
-
-        <NavLink
-          onClick={() => resetClickHandler()}
-          to="/about"
-          activeStyle={{
-            fontWeight: 'bold',
-            color: '#0DADEA',
-          }}
-        >
-          <li>About</li>
+          <li>Home</li>
         </NavLink>
 
         {store.isLoggedIn ? (

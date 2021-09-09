@@ -7,6 +7,7 @@ interface INav {
 
 export const StyledBurger = styled.div<INav>`
   overflow: hidden;
+  color: white;
   width: 2rem;
   height: 2rem;
   position: fixed;
@@ -15,6 +16,7 @@ export const StyledBurger = styled.div<INav>`
   z-index: 20;
   display: none;
   font-family: 'Zilla Slab';
+  margin-top: 1.5rem;
 
   @media (max-width: 1200px) {
     display: flex;
@@ -22,9 +24,10 @@ export const StyledBurger = styled.div<INav>`
     flex-flow: column nowrap;
   }
   div {
+    color: white;
     width: 2rem;
     height: 0.25rem;
-    background-color: ${(props) => (props.open ? '#000' : '#000')};
+    background-color: ${(props) => (props.open ? 'black' : 'white')};
     border-radius: 1px;
     transform-origin: 1px;
     transition: all 0.3s linear;
@@ -44,14 +47,18 @@ export const StyledBurger = styled.div<INav>`
 `
 
 export const Nav = styled.nav`
-  font-family: 'Zilla Slab';
+  color: white;
+  padding-left: 15px;
+  font-size: 1.8rem;
   height: 65px;
   display: flex;
+  text-decoration: none;
   justify-content: space-between;
-  background-color: #f6eede;
+  background-color: #263238;
   align-items: center;
   position: relative;
   box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
+  list-style-type: none;
 
   @media (max-width: 678px) {
     width: 100vw;
@@ -82,11 +89,12 @@ export const Ul = styled.ul<INav>`
   align-items: center;
   font-size: 18px;
   margin-left: 20px;
+  color: white;
 
   a {
     text-decoration: none;
     text-transform: none;
-    color: #000;
+    color: white;
     cursor: pointer;
 
     &:hover {
@@ -95,7 +103,7 @@ export const Ul = styled.ul<INav>`
   }
 
   li {
-    color: black;
+    color: white;
     padding: 10px 24px;
     text-decoration: none;
     text-transform: none;

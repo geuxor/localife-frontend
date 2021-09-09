@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { toast } from 'react-toastify'
 import { useHistory } from 'react-router-dom'
 import './searchForm.css'
 import PlacesAutocomplete, { geocodeByAddress } from 'react-places-autocomplete'
@@ -15,6 +16,10 @@ export default function SearchForm() {
     const matchedSuggestion = selectedSuggestion.find((suggestion) => {
       return suggestion.description === location
     })
+    if (!matchedSuggestion) {
+      toast.error('Please select a location from the drop-down menu')
+      return
+    }
     const { formattedSuggestion } = matchedSuggestion
     history.push(
       `/search-results?city=${formattedSuggestion.mainText}&country=${formattedSuggestion.secondaryText}`,

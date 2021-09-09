@@ -20,6 +20,7 @@
     "@types/react": "^17.0.17",
     "@types/react-dom": "^17.0.9",
     "@types/react-router-dom": "^5.1.8",
+    "@types/react-places-autocomplete": "^7.2.8",
     "antd": "^4.16.12",
     "axios": "^0.21.1",
     "bootstrap": "^5.0.2",
@@ -50,7 +51,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "REACT_APP_API_DOMAIN=development npm start"
   },
   "eslintConfig": {
     "extends": [

@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { baseUrl } from '../helpers/helperFunctions'
 const ExperiencesApi: any = {}
 
 const options: any = {
@@ -11,41 +12,23 @@ const options: any = {
 }
 
 ExperiencesApi.searchExperiencesApi = async (searchLocation) => {
-  return await axios.post(
-    `${process.env.REACT_APP_API}/search-results`,
-    searchLocation,
-    options,
-  )
+  return await axios.post(`${baseUrl}/search-results`, searchLocation, options)
 }
 
 ExperiencesApi.viewExperience = async (experienceId) => {
-  return await axios.get(
-    `${process.env.REACT_APP_API}/experience/${experienceId}`,
-  )
+  return await axios.get(`${baseUrl}/experience/${experienceId}`)
 }
 
 ExperiencesApi.getMyExperiences = async () => {
-  return await axios.post(
-    `${process.env.REACT_APP_API}/experiences/mine`,
-    null,
-    options,
-  )
+  return await axios.post(`${baseUrl}/experiences/mine`, null, options)
 }
 
 ExperiencesApi.deleteExperience = async (experienceId) => {
-  return await axios.post(
-    `${process.env.REACT_APP_API}/experience/delete`,
-    experienceId,
-    options,
-  )
+  return await axios.post(`${baseUrl}/experience/delete`, experienceId, options)
 }
 
 ExperiencesApi.updateExperience = async (experienceId) => {
-  return await axios.post(
-    `${process.env.REACT_APP_API}/experience/update`,
-    experienceId,
-    options,
-  )
+  return await axios.post(`${baseUrl}/experience/update`, experienceId, options)
 }
 
 export default ExperiencesApi

@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+import { baseUrl } from '../helpers/helperFunctions'
 const bookingsApi = {}
 
 const options = {
@@ -10,7 +10,7 @@ const options = {
 
 bookingsApi.createBooking = async (experience) => {
   return await axios.post(
-    `${process.env.REACT_APP_API}/bookings/new`,
+    `${baseUrl}/bookings/new`,
     experience,
     options,
   )
@@ -18,14 +18,14 @@ bookingsApi.createBooking = async (experience) => {
 
 bookingsApi.bookingSuccessRequest = async (experienceId) =>
   await axios.post(
-    `${process.env.REACT_APP_API}/bookings/success`,
+    `${baseUrl}/bookings/success`,
     experienceId,
     options,
   )
 
 bookingsApi.getUserBookings = async () => {
   return await axios.post(
-    `${process.env.REACT_APP_API}/bookings/mine`,
+    `${baseUrl}/bookings/mine`,
     null,
     options,
   )
@@ -33,7 +33,7 @@ bookingsApi.getUserBookings = async () => {
 
 bookingsApi.getOneBooking = async (id) => {
   return await axios.post(
-    `${process.env.REACT_APP_API}/booking/${id}`,
+    `${baseUrl}/booking/${id}`,
     null,
     options,
   )

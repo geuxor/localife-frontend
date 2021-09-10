@@ -33,13 +33,13 @@
 .experience-image {
   width: 276px;
   height: 180px;
-  border-radius: 20px;
+  border-radius: 8px;
   margin-right: 20px;
 }
 
 .exp-buy-button {
   width: 130px;
-  background-color: #ff8303;
+  background-color: #c59f59;
   border: none;
   border-radius: 5px;
   color: white;

@@ -72,7 +72,7 @@ textarea::placeholder {
 }
 
 .register-button {
-  background-color: darkorange;
+  background-color: #c59f59;
   border: none;
   border-radius: 5px;
   color: white;

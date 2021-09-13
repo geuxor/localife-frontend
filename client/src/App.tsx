@@ -22,7 +22,6 @@ function App() {
       ;(async () => {
         try {
           const foundCookie = get_cookie()
-          console.log('App: cookie:', foundCookie)
           if (foundCookie) {
             let res = await apiAuth.getProfile()
             if (res.data) {

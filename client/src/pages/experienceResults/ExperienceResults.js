@@ -29,6 +29,9 @@ function ExperienceResults() {
         setExperiences(searchResults.data)
         if (searchResults === [])
           throw new Error(`...nothing found in ${searchResults}`)
+       
+        if (searchResults === []) throw new Error(`...nothing found in ${searchResults}`)
+        await setExperiences(searchResults.data)
         setLoading(false)
       } catch (err) {
         console.log(err)
@@ -49,6 +52,7 @@ function ExperienceResults() {
         ) : experiences.length ? (
           <>
             <div className="exp-list">
+                {console.log(experiences)}
               {experiences.map((xp, i) => (
                 <Experience key={i} experience={xp} />
               ))}

@@ -16,7 +16,6 @@
 .react-datepicker-wrapper {
   display: flex;
   align-items: center;
-  /* margin-left: 1em; */
 }
 
 .react-datepicker__inputcontainer {

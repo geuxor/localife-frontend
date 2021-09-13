@@ -25,26 +25,21 @@ function App() {
           console.log('App: cookie:', foundCookie)
           if (foundCookie) {
             let res = await apiAuth.getProfile()
-            console.log('App: profile response:', res.data)
             if (res.data) {
-              console.log('App: reLoggedIn SUCCESSFULL ===> ')
               dispatch(setUser(res.data))
               dispatch(setLogIn(true))
             } else {
-              console.log('App: err relogging - redirect to login')
               toast.error('App: Error reLogging you in - Please relogin')
             }
             setLoading(false)
           } else {
             setLoading(false)
           }
-        } catch (err) {
+        } catch (err: any) {
           setLoading(false)
           if (err.response && err.response.status >= 400) {
-            console.log('err:', err.response.data)
             toast.error(err.response.data)
           } else {
-            console.log(err)
             toast.error(err)
           }
         }

@@ -20,7 +20,6 @@ export default function LogOut() {
       const res = await apiAuth.logout()
       console.log('Logout: response', res)
       history.push('/')
-      //why nothing happens after await apiAuth call???
     } catch (err) {
       console.log('Logout: Error fetching users:', err.response.data)
       history.push('/')

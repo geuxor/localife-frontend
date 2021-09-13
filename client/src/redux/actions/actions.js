@@ -4,18 +4,17 @@ export const SET_LOGOUT = 'SET_LOGOUT'
 export const SET_STRIPE = 'SET_STRIPE'
 export const SET_XP = 'SET_XP'
 
-//HELPER FUNCTIONS
 export function setUser(user) {
   return {
     type: SET_USER,
-    payload: user
+    payload: user,
   }
 }
 
 export function setLogIn(button) {
   return {
     type: SET_LOGIN,
-    payload: button
+    payload: button,
   }
 }
 
@@ -28,13 +27,13 @@ export function setLogout() {
 export function setStripe(stripe) {
   return {
     type: SET_STRIPE,
-    payload: stripe
+    payload: stripe,
   }
 }
 
 export function setXp(experience) {
   return {
     type: SET_XP,
-    payload: experience
+    payload: experience,
   }
 }

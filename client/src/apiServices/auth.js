@@ -2,12 +2,9 @@ import axios from 'axios'
 import { baseUrl } from '../helpers/helperFunctions'
 const apiAuth = {}
 const options = {
-  // headers: { 'X-Custom-Header': 'value' },
   headers: { 'Content-Type': 'application/json' },
   method: 'post',
   withCredentials: true,
-  // xsrfCookieName: 'XSRF-TOKEN',
-  // xsrfHeaderName: 'X-XSRF-TOKEN',
 }
 
 apiAuth.registerUser = async (user) => {
@@ -23,7 +20,7 @@ apiAuth.logout = async () => {
 }
 
 apiAuth.getProfile = async (sid) => {
-  return await axios.post(`${baseUrl}/profile`, null, options);
-};
+  return await axios.post(`${baseUrl}/profile`, null, options)
+}
 
 export default apiAuth

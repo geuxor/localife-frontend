@@ -5,16 +5,13 @@ import bookingsApi from '../apiServices/bookingsApi'
 
 const StripeSuccess = ({ match, history }) => {
   useEffect(() => {
-    //   fetch xp id from match.params.experienceId
     console.log('StripeSuccess: ', match.params.id)
     const res = bookingsApi.bookingSuccessRequest({
       experienceId: match.params.experienceId,
     })
-    console.log(res)
     const okres = true
 
     if (okres) {
-      // console.log("StripeSuccess: res.data.success : stripe success response", res.data);
       toast.success('Your purchase has been successful!')
       setTimeout(() => {
         history.push('/bookings')
@@ -24,11 +21,9 @@ const StripeSuccess = ({ match, history }) => {
         'Your purchase was declined - You will be reported to authorities!',
       )
       setTimeout(() => {
-        //redirect to experience details page
         history.push(`/result-details/${match.params.id}`)
       }, 3000)
     }
-    // });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [match.params.experienceId])
 

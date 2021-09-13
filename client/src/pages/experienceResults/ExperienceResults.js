@@ -26,6 +26,9 @@ function ExperienceResults() {
         const searchResults = await ExperiencesApi.searchExperiencesApi(
           location,
         )
+        setExperiences(searchResults.data)
+        if (searchResults === [])
+          throw new Error(`...nothing found in ${searchResults}`)
        
         if (searchResults === []) throw new Error(`...nothing found in ${searchResults}`)
         await setExperiences(searchResults.data)

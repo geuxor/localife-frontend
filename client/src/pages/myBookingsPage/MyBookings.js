@@ -18,9 +18,7 @@ export default function MyBookings() {
         const res = await bookingsApi.getUserBookings()
         setMyBookings(res.data)
         setLoading(false)
-        console.log(res.data)
       } catch (e) {
-        console.log(e)
         setLoading(false)
       }
     })()

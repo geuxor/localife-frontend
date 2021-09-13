@@ -5,7 +5,6 @@ import bookingsApi from '../apiServices/bookingsApi'
 
 const StripeSuccess = ({ match, history }) => {
   useEffect(() => {
-    console.log('StripeSuccess: ', match.params.id)
     const res = bookingsApi.bookingSuccessRequest({
       experienceId: match.params.experienceId,
     })
@@ -24,7 +23,6 @@ const StripeSuccess = ({ match, history }) => {
         history.push(`/result-details/${match.params.id}`)
       }, 3000)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [match.params.experienceId])
 
   return (

@@ -4,11 +4,10 @@ import Counter from '../../components/counter/counter'
 
 function Guests() {
   return (
-    <div className='guest-container'>
+    <div className="guest-container">
       <DropdownButton
         id="dropdown-basic-button"
         title="Guests"
-        //collect counter num state from counter and update title/placeholder text with current counter state
         autoClose="outside"
         active="false"
       >

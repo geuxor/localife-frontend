@@ -22,7 +22,6 @@ export default function BookingDetails() {
         if (err.response && err.response.status >= 400) {
           toast.error(err.response.data.message)
         } else {
-          console.log(err)
         }
         setLoading(false)
       }

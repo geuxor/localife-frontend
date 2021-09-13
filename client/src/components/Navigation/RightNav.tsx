@@ -46,14 +46,8 @@ function RightNav(props: Props) {
 
   const currentURL = window.location
 
-  //why page doesn't change when clicking logout??? or others
   return (
     <>
-      {console.log(
-        'User is Provider:',
-        store.user.stripe_registration_complete,
-        showProviderLinks,
-      )}
       <S.Ul open={props.open}>
         <NavLink
           onClick={() => resetClickHandler()}

@@ -2,12 +2,9 @@ import axios from 'axios'
 import { baseUrl } from '../helpers/helperFunctions'
 const apiStripe: any = {}
 const options: any = {
-  // headers: { 'X-Custom-Header': 'value' },
   headers: { 'Content-Type': 'application/json' },
   method: 'post',
   withCredentials: true,
-  // xsrfCookieName: 'XSRF-TOKEN',
-  // xsrfHeaderName: 'X-XSRF-TOKEN',
 }
 
 apiStripe.stripeCheckAccount = async (user) => {

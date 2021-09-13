@@ -30,7 +30,6 @@ export default function Registration({ setShowRegister, setShowLogIn }) {
         toast.error(res.data)
       }
     } catch (err) {
-      console.log(err)
       if (err.response && err.response.status >= 400)
         toast.error('Something went wrong!', err.response.data)
     }

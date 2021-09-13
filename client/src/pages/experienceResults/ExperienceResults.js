@@ -28,15 +28,12 @@ function ExperienceResults() {
         )
         if (searchResults === [])
           throw new Error(`...nothing found in ${searchResults}`)
-        console.log('SEARCH RESULTS ===>', searchResults.data)
-        setExperiences(searchResults.data)
         setLoading(false)
       } catch (err) {
         console.log(err)
         setLoading(false)
       }
     })()
-    // eslint-disable-next-line
   }, [window.location.search])
 
   return (
@@ -47,17 +44,13 @@ function ExperienceResults() {
           <h4>Aug 21st to 28th</h4>
         </div>
         {loading ? (
-            <Heart />
+          <Heart />
         ) : experiences.length ? (
           <>
             <div className="exp-list">
-              {experiences.map(
-                (xp, i) => (
-                  console.log('xppppp', xp),
-                  console.log('iiiiii', i),
-                  (<Experience key={i} experience={xp} />)
-                ),
-              )}
+              {experiences.map((xp, i) => (
+                <Experience key={i} experience={xp} />
+              ))}
             </div>
             <div className="map-container">
               <Map />

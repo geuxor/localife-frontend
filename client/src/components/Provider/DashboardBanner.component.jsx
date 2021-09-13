@@ -12,7 +12,6 @@ import {
   DollarCircleOutlined,
   SettingOutlined,
 } from '@ant-design/icons'
-// import './Dashboard.style.css'
 import ProviderExperiences from './ProviderExperiences.component'
 const { Meta } = Card
 const { Ribbon } = Badge
@@ -24,10 +23,6 @@ const DashboardBanner = () => {
   const [, setBalance] = useState({})
   const dispatch = useDispatch()
   const history = useHistory()
-  // console.log(
-  //   store.stripe.lifetime_volume,
-  //   typeof store.stripe.default_currency,
-  // )
 
   const updateXps = (id) => {
     setmyExperiences((prev) => {
@@ -41,15 +36,12 @@ const DashboardBanner = () => {
     ;(async () => {
       try {
         let res = await ExperiencesApi.getMyExperiences()
-        console.log(',,,,,,,,,,,,,,', res.data)
         setmyExperiences(res.data)
       } catch (err) {
         setLoading(false)
         if (err.response && err.response.status >= 400) {
-          console.log('err:', err.response.data)
           toast.error(err.response.data)
         } else {
-          console.log(err)
           toast.error(err)
         }
       }
@@ -57,25 +49,12 @@ const DashboardBanner = () => {
   }, [])
 
   const handleStripeBalance = async () => {
-    console.log(
-      'DashboardBanner: checking account balance for',
-      store.user.firstname,
-    )
     if (!store.stripe) {
-      console.log('fetching balance info from backend')
       if (store.isLoggedIn & store.user.email) {
         let res = await apiStripe.getAccountBalance(store)
-        console.log('DashboardBanner: Stripe accountBalance Api Response', res)
         dispatch(setStripe(res.data))
-        // dispatch(
-        //   setUser({ ...store.user, stripe_registration_complete: res.data }),
-        // )
 
         setBalance({
-          balance_pending_amount: res.data.balance_pending_amount,
-          balance_pending_curr: res.data.balance_pending_curr,
-        })
-        console.log('DashboardBanner: ', {
           balance_pending_amount: res.data.balance_pending_amount,
           balance_pending_curr: res.data.balance_pending_curr,
         })
@@ -87,11 +66,9 @@ const DashboardBanner = () => {
     setLoading(true)
     try {
       const res = await apiStripe.payoutSetting()
-      console.log('DashboardBanner: stripePayoutSettings link res: ', res)
       window.location.href = res.data.url
       setLoading(false)
     } catch (err) {
-      console.log(err)
       setLoading(false)
       toast('Unable to access settings. Try again')
     }

@@ -13,11 +13,8 @@ const { Meta } = Card
 function ProviderExperiences({ myExperience, updateXps }) {
   const handleExperienceDelete = async () => {
     if (!window.confirm('Are you sure?')) return
-    // const res = experienceApi.deleteExperience(myExperience.id)
-    // if (res.data) {
     updateXps(myExperience.id)
     toast.success(' Deleted')
-    // }
   }
 
   return (

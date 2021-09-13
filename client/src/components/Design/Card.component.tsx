@@ -1,9 +1,8 @@
 import './Card.component.css'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import moment from 'moment'
 
 function Card({ experience }) {
-  // console.log(experience)
   const [overlay, setOverlay] = useState('card-product')
 
   return (

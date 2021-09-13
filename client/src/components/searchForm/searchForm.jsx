@@ -7,12 +7,8 @@ export default function SearchForm() {
   const history = useHistory()
   const [location, setLocation] = useState([])
   const [selectedSuggestion, setSelectedSuggestion] = useState([])
-  // function handleChange(location) {
-  //   setLocation(location)
-  // }
+
   function handleSubmit(location) {
-    // if (e.key === ‘Enter’ && e) {
-    //   e.preventDefault(
     const matchedSuggestion = selectedSuggestion.find((suggestion) => {
       return suggestion.description === location
     })
@@ -24,7 +20,6 @@ export default function SearchForm() {
     history.push(
       `/search-results?city=${formattedSuggestion.mainText}&country=${formattedSuggestion.secondaryText}`,
     )
-    // e.target.value = ‘’
   }
   return (
     <PlacesAutocomplete
@@ -51,7 +46,6 @@ export default function SearchForm() {
             <div className="suggestions">
               {loading ? <div>...loading</div> : null}
               {suggestions.map((suggestion) => {
-                console.log('SUGGESTION', suggestion)
                 const style = {
                   backgroundColor: suggestion.active ? '#41B6E6' : '#fff',
                 }

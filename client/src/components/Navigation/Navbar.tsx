@@ -8,8 +8,6 @@ type Props = {
 }
 
 function Navbar(props: Props) {
-  console.log(props.children)
-
   return (
     <>
       <S.Nav>Localife</S.Nav>

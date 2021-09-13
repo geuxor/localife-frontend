@@ -3,12 +3,9 @@ import { baseUrl } from '../helpers/helperFunctions'
 const ExperiencesApi: any = {}
 
 const options: any = {
-  // headers: { 'X-Custom-Header': 'value' },
   headers: { 'Content-Type': 'application/json' },
   method: 'post',
   withCredentials: true,
-  // xsrfCookieName: 'XSRF-TOKEN',
-  // xsrfHeaderName: 'X-XSRF-TOKEN',
 }
 
 ExperiencesApi.searchExperiencesApi = async (searchLocation) => {

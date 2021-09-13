@@ -68,7 +68,6 @@ input::placeholder,
 textarea::placeholder {
   color: darkgray;
   font-family: Arial, Helvetica, sans-serif;
-  /* font-size: 1.2em; */
 }
 
 .register-button {

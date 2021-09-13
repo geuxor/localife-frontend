@@ -13,20 +13,17 @@ export default function MyBookings() {
   const store = useSelector((state) => state)
 
   useEffect(() => {
-    ; (async () => {
+    ;(async () => {
       try {
         const res = await bookingsApi.getUserBookings()
         setMyBookings(res.data)
         setLoading(false)
-        console.log(res.data)
       } catch (e) {
-        console.log(e)
         setLoading(false)
       }
     })()
   }, [])
 
-  console.log('MYBOOKINGS', myBookings)
   const currentDate = new Date()
   const sortedExperiencesDistant = myBookings.sort(
     (a, b) => new Date(a.end_date) - new Date(b.end_date),

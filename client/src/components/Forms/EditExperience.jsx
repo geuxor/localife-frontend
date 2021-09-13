@@ -49,20 +49,7 @@ const ExperienceEditForm = ({
           className="form-control m-2"
           value={description}
         />
-        {location &&
-          location.length &&
-          {
-            /* <AlgoliaPlaces
-            className="form-control m-2"
-            placeholder="Location"
-            defaultValue={location}
-            options={config}
-            onChange={({ suggestion }) =>
-              setValues({ ...values, location: suggestion.value })
-            }
-            style={{ height: "50px" }}
-          /> */
-          }}
+        {location && location.length}
         <input
           type="number"
           name="price"
@@ -80,18 +67,6 @@ const ExperienceEditForm = ({
           className="form-control m-2"
           value={quantity}
         />
-
-        {/* <Select
-          labelInValue
-          defaultValue={1}
-          onChange={(value) => setValues({ ...values, quantity: value })}
-          className="w-100 m-2"
-          size="large"
-          placeholder="Quantity"
-          value={quantity}
-        >
-          <Option value={1}>Quantity</Option>
-        </Select> */}
       </div>
 
       {from && (

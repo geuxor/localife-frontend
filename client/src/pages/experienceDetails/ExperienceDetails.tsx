@@ -28,12 +28,10 @@ function ExperienceDetails(props) {
     ;(async () => {
       try {
         const detailedExperience = await ExperiencesApi.viewExperience(id)
-        console.log('detailedExperience', detailedExperience.data)
         setExperience(detailedExperience.data)
         setLoading(false)
-      } catch (err) {
+      } catch (err: any) {
         if (err.response && err.response.status >= 400) {
-          console.log(err.response.data)
           toast.error(err.response.data.message)
         } else {
           console.log(err)
@@ -41,7 +39,6 @@ function ExperienceDetails(props) {
         setLoading(false)
       }
     })()
-    // eslint-disable-next-line
   }, [])
 
   const handleClick = async (e) => {
@@ -57,14 +54,7 @@ function ExperienceDetails(props) {
     e.preventDefault()
 
     try {
-      console.log('ViewExperience: Booking:', experience)
-      console.log('ViewExperience Date:', startDate)
-      //reformat
-      //      Wed Aug 04 2021 00:00:00 GMT+0200 (Central European Summer Time)
-      // to this
-      //      2013-02-08 09:30
       const formatedStartDate = moment(startDate)
-      console.log('formatedStartDate', formatedStartDate.toDate())
       const bookingData = {
         experience: experience,
         start_date: formatedStartDate,
@@ -81,19 +71,15 @@ function ExperienceDetails(props) {
       const checkout = stripe.redirectToCheckout({ sessionId: sessionId })
       toast.info('Ready to check out...!', checkout)
       setLoading(false)
-    } catch (err) {
+    } catch (err: any) {
       setLoading(false)
       if (err.response && err.response.status >= 400) {
-        console.log('err.response.data', err.response.data)
         toast.error(err.response.data)
       } else {
-        console.log(err)
         toast.error(err)
       }
     }
   }
-
-  console.log(experience)
   return (
     <div className="details-container2">
       {loading ? (
@@ -104,14 +90,10 @@ function ExperienceDetails(props) {
             <h1>{experience.title}</h1>
           </div>
           <div className="details-cont-images2">
-            <img
-              src="https://source.unsplash.com/qD3dNOm-N48/600x400"
-              alt="barcelona-view"
-              className="img1"
-            />
+            <img src={experience.image} alt="barcelona-view" className="img1" />
             <div className="smaller-image-cont">
               <img
-                src="https://source.unsplash.com/BG8TvW6NYYw/400x400"
+                src={experience.image}
                 alt="barcelona-beach"
                 className="img2"
               />
@@ -135,15 +117,15 @@ function ExperienceDetails(props) {
           <div className="details-cont-tpd-and-bookingForm2">
             <div className="details-cont-title-prov-descrip2">
               <div className="details-cont-provider2">
-                <div className="details-cont-prov-headers2">
-                  <h4>hosted by {experience.User.firstname}</h4>
-                  <h6>a local since 1988</h6>
-                </div>
                 <img
                   className="user-avatar2"
                   src={experience.User.avatar}
                   alt="user-avatar"
                 />
+                <div className="details-cont-prov-headers2">
+                  <h4>hosted by {experience.User.firstname}</h4>
+                  <h6>a local since 1988</h6>
+                </div>
               </div>
               <div className="details-cont-description2">
                 <p className="desc2">{experience.description}</p>

@@ -33,13 +33,13 @@
 .experience-image {
   width: 276px;
   height: 180px;
-  border-radius: 20px;
+  border-radius: 8px;
   margin-right: 20px;
 }
 
 .exp-buy-button {
   width: 130px;
-  background-color: #ff8303;
+  background-color: #c59f59;
   border: none;
   border-radius: 5px;
   color: white;
@@ -65,7 +65,6 @@
 .exp-buy-button:hover {
   transform: translate(0px, -2px);
   transition: 0.2s;
-  /* transition-timing-function: ease-in; */
 }
 
 .exp-buy-button:not(:hover) {
@@ -86,7 +85,6 @@
 }
 
 .experience-title {
-  /* color: #a35709; */
   width: fit-content;
   font-size: 1.3em;
   font-weight: 600;

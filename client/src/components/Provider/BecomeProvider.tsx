@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import apiStripe from '../../apiServices/stripeApi'
@@ -17,35 +16,18 @@ function BecomeProvider(props) {
   useEffect(() => {
     ;(async () => {
       try {
-        console.log('BecomeProvider: checking stripe conx for', store.user)
-        //if user already register redirect to dashboard
         if (store.user.stripe_registration_complete === 'COMPLETED')
           history.push('./dashboard')
         if (store.stripe.missingRequirements)
           setMissingStripeRequirements(store.stripe.missingRequirements)
-        //otherwise get stripe accound details
-        // let res = await apiStripe.stripeCheckAccount(store.user)
-        // console.log('BecomeProvider: res from stripeCheckAccount', res.data)
-        // if (res.data !== 'No Stripe account found') {
-        //   dispatch({
-        //     type: 'SET_STRIPE',
-        //     payload: { stripe: res.data },
-        //   })
-        // }
-        // if (!store.stripe.hasOwnProperty('stripe_account_id')) {
-        //   console.log('store .stripe true', store.stripe.stripe_account_id)
-        // }
         setLoading(false)
-      } catch (err) {
+      } catch (err: any) {
         if (err.response && err.response.data.length < 100) {
           let fields_req = err.response.data.split(',')
-          console.log('BecomeProvider: errData', typeof fields_req)
-          console.log('BecomeProvider: errData', fields_req)
           setMissingStripeRequirements(fields_req)
           toast.error(err.response.data)
         } else {
           if (err.response) {
-            console.log('BecomeProvider: statusText', err.response.statusText)
             toast.error(
               `${err.response.statusText} Stripe check failed. Please Refresh your browser and relogin.`,
             )
@@ -56,26 +38,17 @@ function BecomeProvider(props) {
         setLoading(false)
       }
     })()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const handleClick = async () => {
     setLoading(true)
     try {
-      // get stripe onboarding link
-      console.log(
-        'BecomeProvider: gettin stripe onboarding link for ',
-        store.user,
-      )
       let res = await apiStripe.stripeConnectAccount(store.user)
-      console.log('BecomeProvider: res from stripeConnectAccount', res.data)
       window.location.href = res.data
-    } catch (err) {
+    } catch (err: any) {
       if (err.response.data && err.response.data.length < 100) {
-        console.log('BecomeProvider: errData', err.response.data)
         toast.error(err.response.data)
       } else {
-        console.log('BecomeProvider: statusText', err.response.statusText)
         toast.error(
           `${err.response.statusText} Token- Stripe connect failed. Please Refresh your browser and Try again.`,
         )
@@ -86,7 +59,6 @@ function BecomeProvider(props) {
 
   const notConnected = () => (
     <div className="row">
-      {console.log('not connected')}
       <div className="col-12 offset-md-1 text-left">
         <div className="p-2">
           <div className="d-flex justify-content-around">

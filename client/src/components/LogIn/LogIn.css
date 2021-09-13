@@ -52,10 +52,9 @@ input::placeholder,
 textarea::placeholder {
   color: darkgray;
   font-family: Arial, Helvetica, sans-serif;
-  /* font-size: 1.2em; */
 }
 .register-button {
-  background-color: darkorange;
+  background-color: #c59f59;
   border: none;
   border-radius: 5px;
   color: white;

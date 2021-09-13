@@ -1,4 +1,3 @@
-//ACTIONS
 import {
   SET_USER,
   SET_LOGIN,
@@ -22,14 +21,11 @@ const initialState = {
 }
 
 export const reducer = (state = initialState, action) => {
-  // console.log('action.payload', action.payload)
   switch (action.type) {
     case SET_USER:
-      // console.log(state)
       return {
         ...state,
         user: action.payload,
-        // user: { ...state.user, stripe_registration_complete: action.payload},
       }
     case SET_LOGIN:
       return {

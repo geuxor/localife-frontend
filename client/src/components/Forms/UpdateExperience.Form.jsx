@@ -24,12 +24,10 @@ const UpdateExperienceForm = ({ match }) => {
 
   useEffect(() => {
     loadSellerExperience()
-    // eslint-disable-next-line
   }, [])
 
   const loadSellerExperience = async () => {
     let res = await experienceApi.viewExperience(match.params.experienceId)
-    // console.log(res);
     setPreview(`${baseUrl}/experience/image/${res.data._id}`)
   }
 
@@ -51,19 +49,15 @@ const UpdateExperienceForm = ({ match }) => {
         experienceData,
         experience.id,
       )
-      console.log('RES', res)
       toast.success(`${res.data.title} is updated`)
     } catch (err) {
-      console.log(err)
       toast.error(err.response.data.err)
     }
   }
 
   const handleImageChange = (e) => {
-    // console.log(e.target.files[0]);
     setPreview(URL.createObjectURL(e.target.files[0]))
     setImage(e.target.files[0])
-    console.log(preview)
   }
 
   const handleChange = (e) => {
@@ -88,7 +82,6 @@ const UpdateExperienceForm = ({ match }) => {
             />
           </div>
           <div className="col-md-2">
-            {console.log(preview, typeof preview)}
             {!preview && (
               <img
                 src={preview}

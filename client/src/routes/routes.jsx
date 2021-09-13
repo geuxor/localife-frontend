@@ -35,7 +35,7 @@ function Routes() {
 
         <PrivateRoute path="/bookings" exact component={MyBookings} />
         <PrivateRoute path="/booking/:id" exact component={BookingDetails} />
-        <Route path="/my-bookings" exact component={MyBookings} />
+        <PrivateRoute path="/my-bookings" exact component={MyBookings} />
         <PrivateRoute path="/dashboard" exact component={Dashbaord} />
         <PrivateRoute
           path="/become-provider"

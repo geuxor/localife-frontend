@@ -16,31 +16,20 @@ function Dashbaord(props) {
   useEffect(() => {
     ;(async () => {
       try {
-        console.log('Dashbaord: checking stripe conx for', store.user)
         let res = await apiStripe.stripeCheckAccount(store.user)
-        console.log('Dashbaord: res from stripeCheckAccount', res.data)
         if (res.data === 'COMPLETE') {
           if (store.isLoggedIn && store.user.email !== '') {
-            console.log('Dashboard: fetching balance info from backend')
             let res = await apiStripe.getAccountBalance(store)
-            console.log(
-              'DashboardBanner: Stripe accountBalance Api Response',
-              res.data,
-            )
             dispatch(setStripe(res.data))
           }
         }
         setLoading(false)
-      } catch (err) {
+      } catch (err: any) {
         if (err.response && err.response.data.length < 100) {
           let fields_req = err.response.data.split(',')
-          console.log('Dashbaord: errData', typeof fields_req)
-          console.log('Dashbaord: errData', fields_req)
-          // setMissingRequirements(fields_req)
           toast.error(err.response.data)
         } else {
           if (err.response) {
-            console.log('Dashbaord: statusText', err.response.statusText)
             toast.error(
               `${err.response.statusText} Stripe check failed. Please Refresh your browser and relogin.`,
             )
@@ -48,15 +37,12 @@ function Dashbaord(props) {
             console.log(err)
           }
         }
-        // setLoading(false)
       }
     })()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const connected = () => (
     <div>
-      {console.log('connected', store.stripe)}
       <DashboardBanner />
     </div>
   )

@@ -15,25 +15,18 @@ export default function BookingDetails() {
   useEffect(() => {
     ;(async () => {
       try {
-        console.log('------------------')
-        console.log(id)
         const detailedBooking = await BookingsApi.getOneBooking(id)
-        console.log('detailedBooking', detailedBooking)
         setBooking(detailedBooking.data)
         setLoading(false)
       } catch (err) {
         if (err.response && err.response.status >= 400) {
-          console.log(err.response.data)
           toast.error(err.response.data.message)
         } else {
-          console.log(err)
         }
         setLoading(false)
       }
     })()
   }, [])
-
-  console.log(booking)
 
   return (
     <div className="details-container">

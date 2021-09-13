@@ -26,8 +26,7 @@ function ExperienceResults() {
         const searchResults = await ExperiencesApi.searchExperiencesApi(
           location,
         )
-        console.log('xxxxxxxxxxxxx', searchResults);
-        
+       
         if (searchResults === []) throw new Error(`...nothing found in ${searchResults}`)
         await setExperiences(searchResults.data)
         setLoading(false)

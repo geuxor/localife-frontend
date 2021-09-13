@@ -26,7 +26,7 @@ export default function LogIn({ setShowLogIn }) {
     // console.log(user)
     try {
       const res = await apiAuth.loginUser(user)
-      // console.log('Response from Server:', res.data)
+      console.log('Response from Server:', res)
       if (res.data && res.data.email === user.email) {
         const { email, firstname, lastname, createdAt, avatar } = res.data
 
@@ -37,16 +37,15 @@ export default function LogIn({ setShowLogIn }) {
           avatar: avatar,
           createdAt: createdAt,
         }
+        dispatch(setUser(userRedux))
+        dispatch(setLogIn(true))
+        setShowLogIn(false)
+        toast.success('Welcome! You are successfully logged in!')
         const mycookie = get_cookie()
         console.log('Login: new cookie found:', mycookie)
-        if (mycookie) {
-          dispatch(setUser(userRedux))
-          dispatch(setLogIn(true))
-          setShowLogIn(false)
-          toast.success('Welcome! You are successfully logged in!')
-        } else {
-          toast.error('Err: Who ate the cookie?')
-        }
+        // if (mycookie) {
+        // toast.error('Err: Who ate the cookie?')
+        // }
       }
     } catch (err) {
       console.log(err)

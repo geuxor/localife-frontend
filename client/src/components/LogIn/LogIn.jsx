@@ -43,9 +43,6 @@ export default function LogIn({ setShowLogIn }) {
         toast.success('Welcome! You are successfully logged in!')
         const mycookie = get_cookie()
         console.log('Login: new cookie found:', mycookie)
-        // if (mycookie) {
-        // toast.error('Err: Who ate the cookie?')
-        // }
       }
     } catch (err) {
       console.log(err)

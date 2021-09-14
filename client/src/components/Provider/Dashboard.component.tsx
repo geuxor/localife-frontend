@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import apiStripe from '../../apiServices/stripeApi'
 import { toast } from 'react-toastify'
 import { RootState } from '../../redux/reducers/reducers'
@@ -9,9 +9,9 @@ import { setStripe } from '../../redux/actions/actions'
 import './Dashboard.style.css'
 
 function Dashbaord(props) {
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
   const [loading, setLoading] = useState(false)
-  const store = useSelector((state: RootState) => state)
+  const store = useAppSelector((state) => state)
 
   useEffect(() => {
     ;(async () => {
@@ -53,7 +53,7 @@ function Dashbaord(props) {
   return (
     <>
       <div className="dashboard">
-        <div className="dahsboard p-5 bg-light">
+        <div className="dashboard p-5 bg-light">
           <div className="justify-content-center">
             {loading ? (
               <div className="m-5 p-5">

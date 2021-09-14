@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import { useHistory } from 'react-router'
 import { setStripe } from '../../redux/actions/actions'
 import { toast } from 'react-toastify'
@@ -7,6 +7,7 @@ import ExperiencesApi from '../../apiServices/experiencesApi'
 import apiStripe from '../../apiServices/stripeApi'
 import moment from 'moment'
 import { Button, Card, Avatar, Image, Badge } from 'antd'
+import { SizeType } from 'antd/lib/config-provider/SizeContext'
 import {
   PlusCircleOutlined,
   DollarCircleOutlined,
@@ -17,16 +18,19 @@ const { Meta } = Card
 const { Ribbon } = Badge
 
 const DashboardBanner = () => {
+
+  type CustomSizeType = SizeType | number
+
   const [myExperiences, setmyExperiences] = useState([])
-  const store = useSelector((state) => state)
+  const store = useAppSelector(state => state)
   const [, setLoading] = useState(false)
   const [, setBalance] = useState({})
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
   const history = useHistory()
 
   const updateXps = (id) => {
     setmyExperiences((prev) => {
-      return prev.filter((x) => {
+      return prev.filter((x: any) => {
         return x.id !== id
       })
     })
@@ -50,7 +54,7 @@ const DashboardBanner = () => {
 
   const handleStripeBalance = async () => {
     if (!store.stripe) {
-      if (store.isLoggedIn & store.user.email) {
+      if (store.isLoggedIn && store.user.email) {
         let res = await apiStripe.getAccountBalance(store)
         dispatch(setStripe(res.data))
 
@@ -119,7 +123,7 @@ const DashboardBanner = () => {
           <div className="d-flex col flex-wrap justify-content-center">
             {myExperiences ? (
               <>
-                {myExperiences.map((x) => {
+                {myExperiences.map((x: any) => {
                   return (
                     <ProviderExperiences
                       key={x.id}
@@ -151,7 +155,7 @@ const DashboardBanner = () => {
                   type="primary"
                   shape="round"
                   icon={<SettingOutlined />}
-                  size={10}
+                  size='small'
                 >
                   Configure Account
                 </Button>
@@ -162,7 +166,7 @@ const DashboardBanner = () => {
                   type="primary"
                   shape="round"
                   icon={<DollarCircleOutlined />}
-                  size={10}
+                  size='small'
                 >
                   Update Balance
                 </Button>

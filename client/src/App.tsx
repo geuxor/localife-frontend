@@ -7,15 +7,15 @@ import 'react-toastify/dist/ReactToastify.css'
 import NavBar from './components/Navigation/Navbar'
 import { get_cookie } from './utils/cookieHandler'
 import apiAuth from './apiServices/auth'
-import { useDispatch, useSelector } from 'react-redux'
+import { useAppSelector, useAppDispatch } from '../src/redux/hooks'
 import { setUser, setLogIn } from './redux/actions/actions'
 import { RootState } from './redux/reducers/reducers'
 import Footer from './components/Footer/Footer'
 
 function App() {
   const [loading, setLoading] = useState(true)
-  const dispatch = useDispatch()
-  const store = useSelector((state: RootState) => state)
+  const dispatch = useAppDispatch()
+  const store = useAppSelector(state => state)
 
   useEffect(() => {
     if (!store.isLoggedIn) {

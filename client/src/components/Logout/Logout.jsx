@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux'
+import { useAppDispatch } from '../../redux/hooks'
 import { useHistory } from 'react-router-dom'
 import apiAuth from '../../apiServices/auth'
 import { delete_cookie } from '../../utils/cookieHandler'
@@ -8,7 +8,7 @@ import './Logout.css'
 
 export default function LogOut() {
   const history = useHistory()
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
   const logoutUser = async () => {
     try {
       delete_cookie()

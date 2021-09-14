@@ -1,4 +1,4 @@
-import React, { useSelector } from 'react'
+import React from 'react'
 import './SingleBooking.css'
 import moment from 'moment'
 import { useHistory } from 'react-router'

@@ -14,10 +14,18 @@ const initialState = {
     email: '',
     id: null,
     stripe_registration_complete: null,
+    avatar: '',
+    createdAt: null
   },
 
-  experience: {},
-  stripe: {},
+  experience: {
+    
+  },
+  stripe: {
+    lifetime_volume: Number,
+    balance_pending_curr: 0,
+    balance_pending_amount: Number
+  },
 }
 
 export const reducer = (state = initialState, action) => {

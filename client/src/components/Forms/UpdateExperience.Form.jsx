@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 import { toast } from 'react-toastify'
 import ExperiencesApi from '../../apiServices/experiencesApi'
-import { useSelector } from 'react-redux'
+import { useAppSelector } from '../../redux/hooks'
 import ExperienceEditForm from '../Forms/EditExperience'
 import experienceApi from '../../apiServices/experiencesApi'
 import { baseUrl } from '../../helpers/helperFunctions'
 const UpdateExperienceForm = ({ match }) => {
-  const { experience } = useSelector((state) => state)
+  const { experience } = useAppSelector(state => state)
   const [, setImage] = useState('')
   const [preview, setPreview] = useState(
     'https://via.placeholder.com/100x100.png?text=PREVIEW',

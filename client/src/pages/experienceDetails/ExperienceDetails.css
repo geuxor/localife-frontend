@@ -110,6 +110,10 @@
   margin-bottom: -2.5em;
 }
 
+.booking-cont-guests {
+  width: 85%;
+}
+
 .btn-book-now {
   width: 160px;
   background-color: #c59f59;

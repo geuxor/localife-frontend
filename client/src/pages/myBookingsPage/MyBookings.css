@@ -28,19 +28,22 @@
 }
 
 .past-exp-container {
-  background-color: #f6eede;
-  border-right: 7px solid #c59f594d;
-  border-bottom: 7px solid #c59f594d;
+  background-color: #587583;
+  border-right: 7px solid #263238;
+  border-bottom: 7px solid #263238;
   border-radius: 15px;
+  margin-bottom: 70vh;
   position: absolute;
   top: 162px;
   right: 25px;
   width: 27vw;
-  height: 70vh;
+  height: 60vh;
   overflow: auto;
+  opacity: 0.7;
 }
 
 .past-exp {
+  color: white;
   margin: 10px 0 20px 15px;
   font-weight: 900;
   font-size: 22px;
@@ -48,4 +51,12 @@
 
 .past-exp-detail {
   margin: 15px 0 55px 15px;
+}
+
+.past-exp-detail h5 {
+  color: white;
+}
+
+.past-exp-detail h6 {
+  color: white;
 }

@@ -54,9 +54,6 @@ export default function MyBookings() {
               <SingleBooking
                 key={i}
                 booking={booking}
-                style={{
-                  backgroundColor: i % 2 === 0 ? '#f6eede' : 'white',
-                }}
               />
             ))}
           </div>

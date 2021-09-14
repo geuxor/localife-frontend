@@ -11,7 +11,12 @@ type Props = {
 function Navbar(props: Props) {
   return (
     <>
-      <S.Logo src={Logo}></S.Logo>
+      <NavLink to="/">
+        <S.Nav>
+          <S.Logo src={Logo}></S.Logo>
+        </S.Nav>
+      </NavLink>
+
       <Burger />
       {props.children}
     </>

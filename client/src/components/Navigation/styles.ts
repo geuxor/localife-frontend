@@ -142,7 +142,7 @@ export const Logo = styled.img`
   margin: 2px;
   width: 124px;
   object-fit: contain;
-  border: 1px black solid;
+  z-index: 2;
 
   @media (max-width: 1250px) {
     margin: 0px;

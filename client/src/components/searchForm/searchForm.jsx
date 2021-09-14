@@ -40,7 +40,7 @@ export default function SearchForm() {
                 placeholder: ' I want to go to...',
                 className: 'search-term',
                 type: 'text',
-                autoFocus: 'true',
+                autoFocus: true,
               })}
             />
             <div className="suggestions">

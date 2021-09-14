@@ -1,7 +1,8 @@
 import * as S from './styles'
-import Logo from '../../assets/logo.png'
+import Logo from '../../images/localife(1).png'
 import Burger from './Burger'
 import { NavLink } from 'react-router-dom'
+import RightNav from './RightNav'
 
 type Props = {
   children?: any
@@ -10,7 +11,12 @@ type Props = {
 function Navbar(props: Props) {
   return (
     <>
-      <S.Nav>Localife</S.Nav>
+      <NavLink to="/">
+        <S.Nav>
+          <S.Logo src={Logo}></S.Logo>
+        </S.Nav>
+      </NavLink>
+
       <Burger />
       {props.children}
     </>

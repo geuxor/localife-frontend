@@ -9,8 +9,9 @@
 }
 
 .datepicker::-webkit-input-placeholder {
-  color: lightgray;
+  color: darkgray;
   font-family: 'Montserrat', sans-serif;
+  font-size: medium;
 }
 
 .react-datepicker-wrapper {

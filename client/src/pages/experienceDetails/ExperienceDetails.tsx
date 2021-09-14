@@ -101,16 +101,6 @@ function ExperienceDetails(props) {
                 alt="barcelona-paella"
                 className="img2"
               />
-              <img
-                src="https://source.unsplash.com/akvIvA4ZEeg/400x400"
-                alt="barcelona-beach"
-                className="img2"
-              />
-              <img
-                src="https://source.unsplash.com/sSyRnrhAqU8/400x400"
-                alt="barcelona-beach"
-                className="img2"
-              />
             </div>
           </div>
           <div className="details-cont-tpd-and-bookingForm2">

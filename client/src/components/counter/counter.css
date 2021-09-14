@@ -3,7 +3,9 @@
   height: 25px;
   outline-style: initial;
   border-radius: 12.5px;
+  border-style: solid;
   cursor: pointer;
+  background-color: white;
 }
 
 .counter-button:hover {

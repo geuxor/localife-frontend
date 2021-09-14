@@ -5,11 +5,10 @@ import { ExperienceInterface } from '../../types/types'
 import DatePicker from '../../components/datePicker/DatePicker'
 import Guests from '../../components/guests/guests'
 import ImgCarousel from '../../components/carousel/carousel'
-import { useSelector } from 'react-redux'
+import { useAppSelector } from '../../redux/hooks'
 import ExperiencesApi from '../../apiServices/experiencesApi'
 import apiStripe from '../../apiServices/stripeApi'
 import { loadStripe } from '@stripe/stripe-js'
-import { RootState } from '../../redux/reducers/reducers'
 import { toast } from 'react-toastify'
 import LogIn from '../../components/LogIn/LogIn'
 import moment from 'moment'
@@ -21,7 +20,7 @@ function ExperienceDetails(props) {
   const [startDate, setStartDate] = useState(null)
   const [loading, setLoading] = useState(true)
   const { id }: { id: string } = useParams()
-  const authed = useSelector((state: RootState) => state.isLoggedIn)
+  const authed = useAppSelector((state) => state.isLoggedIn)
   const [showLogIn, setShowLogIn] = useState(false)
 
   useEffect(() => {

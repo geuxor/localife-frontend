@@ -3,13 +3,13 @@ import { toast } from 'react-toastify'
 import { useHistory } from 'react-router-dom'
 import Heart from '../components/Spinner/Heart.Spinner'
 import apiStripe from '../apiServices/stripeApi'
-import { useDispatch, useSelector } from 'react-redux'
+import { useAppDispatch, useAppSelector } from '../redux/hooks'
 import { setUser } from '../redux/actions/actions'
 
 const StripeRedirect = () => {
-  const store = useSelector((state) => state)
+  const store = useAppSelector((state) => state)
   const history = useHistory()
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
     ;(async () => {

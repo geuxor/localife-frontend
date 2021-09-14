@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useAppDispatch } from '../../redux/hooks'
 import { toast } from 'react-toastify'
 import './LogIn.css'
 import apiAuth from '../../apiServices/auth'
@@ -9,11 +9,7 @@ import { setUser, setLogIn } from '../../redux/actions/actions'
 import { get_cookie } from '../../utils/cookieHandler'
 
 export default function LogIn({ setShowLogIn }) {
-  // console.log('entering LogIN Modal')
-  const state = useSelector((state) => state)
-  // console.log(state)
-
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
   const emailRef = useRef()
   const passwordRef = useRef()
 
@@ -23,7 +19,6 @@ export default function LogIn({ setShowLogIn }) {
       email: emailRef.current.value,
       password: passwordRef.current.value,
     }
-    // console.log(user)
     try {
       const res = await apiAuth.loginUser(user)
       console.log('Response from Server:', res)

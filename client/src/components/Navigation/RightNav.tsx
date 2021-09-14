@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
-import { RootState } from '../../redux/reducers/reducers'
+import { useAppSelector } from '../../redux/hooks'
 import * as S from './styles'
 import { NavLink } from 'react-router-dom'
 import LogIn from '../LogIn/LogIn'
@@ -14,7 +13,7 @@ function RightNav(props: Props) {
   const [showLogIn, setShowLogIn] = useState(false)
   const [showRegister, setShowRegister] = useState(false)
   const [showProviderLinks, setShowProviderLinks] = useState(false)
-  const store = useSelector((state: RootState) => state)
+  const store = useAppSelector(state => state)
 
   useEffect(() => {
     if (store.isLoggedIn) {

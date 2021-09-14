@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useAppSelector } from '../../redux/hooks'
 import { useParams } from 'react-router-dom'
 import BookingsApi from '../../apiServices/bookingsApi'
 import Heart from '../../components/Spinner/Heart.Spinner'
@@ -11,7 +11,7 @@ export default function BookingDetails() {
   const { id } = useParams()
   const [loading, setLoading] = useState(true)
   const [booking, setBooking] = useState()
-  const store = useSelector((state) => state)
+  const store = useAppSelector(state => state)
   useEffect(() => {
     ;(async () => {
       try {

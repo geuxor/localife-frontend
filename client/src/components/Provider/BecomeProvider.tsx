@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import apiStripe from '../../apiServices/stripeApi'
 import { toast } from 'react-toastify'
 import { RootState } from '../../redux/reducers/reducers'
@@ -7,9 +7,9 @@ import Heart from '../Spinner/Heart.Spinner'
 import { useHistory } from 'react-router'
 
 function BecomeProvider(props) {
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
   const [loading, setLoading] = useState(true)
-  const store = useSelector((state: RootState) => state)
+  const store = useAppSelector((state: RootState) => state)
   const [missingStripeRequirements, setMissingStripeRequirements] = useState([])
   const history = useHistory()
 

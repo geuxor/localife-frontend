@@ -4,10 +4,8 @@ import { useParams } from 'react-router-dom'
 import { ExperienceInterface } from '../../types/types'
 import DatePicker from '../../components/datePicker/DatePicker'
 import Guests from '../../components/guests/guests'
-import ImgCarousel from '../../components/carousel/carousel'
 import { useAppSelector } from '../../redux/hooks'
 import ExperiencesApi from '../../apiServices/experiencesApi'
-import apiStripe from '../../apiServices/stripeApi'
 import { loadStripe } from '@stripe/stripe-js'
 import { toast } from 'react-toastify'
 import LogIn from '../../components/LogIn/LogIn'
@@ -18,7 +16,7 @@ import Heart from '../../components/Spinner/Heart.Spinner.js'
 function ExperienceDetails(props) {
   const [experience, setExperience] = useState<ExperienceInterface>()
   const [startDate, setStartDate] = useState(null)
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState<boolean>(true)
   const { id }: { id: string } = useParams()
   const authed = useAppSelector((state) => state.isLoggedIn)
   const [showLogIn, setShowLogIn] = useState(false)

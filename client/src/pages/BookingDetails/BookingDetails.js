@@ -11,7 +11,7 @@ export default function BookingDetails() {
   const { id } = useParams()
   const [loading, setLoading] = useState(true)
   const [booking, setBooking] = useState()
-  const store = useAppSelector(state => state)
+  const store = useAppSelector((state) => state)
   useEffect(() => {
     ;(async () => {
       try {
@@ -55,6 +55,7 @@ export default function BookingDetails() {
           <img
             className="exp-picture-booking"
             src="https://i.ibb.co/2YFDb13/paella.jpg"
+            alt="booking-experience"
           ></img>
           <p className="booking-description-details">
             {booking.Experience.description}

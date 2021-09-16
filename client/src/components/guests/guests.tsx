@@ -1,11 +1,11 @@
 import './guests.css'
 import { DropdownButton, Dropdown } from 'react-bootstrap'
-import Counter from '../../components/counter/counter'
+import Counter from '../counter/counter'
 import { useState } from 'react'
 
 function Guests() {
-  const [adultCount, setAdultCount] = useState(0)
-  const [childCount, setChildCount] = useState(0)
+  const [adultCount, setAdultCount] = useState<number>(0)
+  const [childCount, setChildCount] = useState<number>(0)
 
   const incrementAdult = () => {
     setAdultCount(adultCount + 1)

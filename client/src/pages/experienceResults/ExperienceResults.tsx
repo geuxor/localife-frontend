@@ -5,10 +5,11 @@ import Experience from '../../components/experiences/experience'
 import Map from '../../components/Map/Map'
 import { useLocation } from 'react-router-dom'
 import Heart from '../../components/Spinner/Heart.Spinner'
+import { ExpState } from '../../types/types'
 
 function ExperienceResults() {
-  const [experiences, setExperiences] = useState([])
-  const [loading, setLoading] = useState(true)
+  const [experiences, setExperiences] = useState<ExpState['experience']>([])
+  const [loading, setLoading] = useState<boolean>(true)
 
   let search = useLocation().search
   let searchCity = new URLSearchParams(search).get('city')
@@ -29,8 +30,9 @@ function ExperienceResults() {
         setExperiences(searchResults.data)
         if (searchResults === [])
           throw new Error(`...nothing found in ${searchResults}`)
-       
-        if (searchResults === []) throw new Error(`...nothing found in ${searchResults}`)
+
+        if (searchResults === [])
+          throw new Error(`...nothing found in ${searchResults}`)
         await setExperiences(searchResults.data)
         setLoading(false)
       } catch (err) {
@@ -39,6 +41,8 @@ function ExperienceResults() {
       }
     })()
   }, [window.location.search])
+
+  console.log('EXPERIENCES!', experiences)
 
   return (
     <>
@@ -52,7 +56,7 @@ function ExperienceResults() {
         ) : experiences.length ? (
           <>
             <div className="exp-list">
-                {console.log(experiences)}
+              {console.log(experiences)}
               {experiences.map((xp, i) => (
                 <Experience key={i} experience={xp} />
               ))}

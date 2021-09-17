@@ -9,11 +9,11 @@ type Props = {
   open: boolean
 }
 
-function RightNav(props: Props) {
-  const [showLogIn, setShowLogIn] = useState(false)
-  const [showRegister, setShowRegister] = useState(false)
-  const [showProviderLinks, setShowProviderLinks] = useState(false)
-  const store = useAppSelector(state => state)
+function RightNav(props: Props): React.ReactNode {
+  const [showLogIn, setShowLogIn] = useState<boolean>(false)
+  const [showRegister, setShowRegister] = useState<boolean>(false)
+  const [showProviderLinks, setShowProviderLinks] = useState<boolean>(false)
+  const store = useAppSelector((state) => state)
 
   useEffect(() => {
     if (store.isLoggedIn) {

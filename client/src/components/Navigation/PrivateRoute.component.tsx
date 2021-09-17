@@ -1,8 +1,11 @@
 import { Route, Redirect } from 'react-router-dom'
 import { useAppSelector } from '../../redux/hooks'
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
-  const { isLoggedIn } = useAppSelector(state => state)
+const PrivateRoute: React.ComponentType<any> = ({
+  component: Component,
+  ...rest
+}) => {
+  const { isLoggedIn } = useAppSelector((state) => state)
 
   return (
     <Route

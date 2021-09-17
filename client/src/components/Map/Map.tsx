@@ -7,7 +7,7 @@ import axios from 'axios'
 import { useLocation } from 'react-router-dom'
 
 export default function Map() {
-  const [pins, setPins] = useState([])
+  const [pins, setPins] = useState([] as any[])
   const [currentPinId, setCurrentPinId] = useState(null)
 
   const [location, setLocation] = useState({
@@ -71,7 +71,7 @@ export default function Map() {
       },
       (error) => {},
     )
-  }, [])
+  })
 
   return (
     <div className="map">

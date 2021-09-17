@@ -3,17 +3,20 @@ import './SingleBooking.css'
 import moment from 'moment'
 import { useHistory } from 'react-router'
 
-export default function SingleBooking({ booking, style }) {
-  const formatDay = 'DD/MM/YYYY'
-  const formatTime = 'HH:mm'
+interface Props {
+  booking: any
+}
+
+export const SingleBooking: React.FC<Props> = ({ booking }: Props) => {
+  const formatDay: string = 'DD/MM/YYYY'
+  const formatTime: string = 'HH:mm'
 
   const history = useHistory()
 
   const handleClick = () => history.push(`/booking/${booking.id}`)
 
-
   return (
-    <div className="booking-container2" style={style}>
+    <div className="booking-container2">
       <img
         src={booking.Experience.image}
         alt="experience"
@@ -34,21 +37,21 @@ export default function SingleBooking({ booking, style }) {
           <div className="start-date">
             <p className="booking-date">
               {moment(booking.start_date).format(formatDay)}
-              <i class="far fa-calendar-alt date-icon-start"></i>
+              <i className="far fa-calendar-alt date-icon-start"></i>
             </p>
             <p className="booking-time">
               {moment(booking.start_date).format(formatTime)}
-              <i class="far fa-clock clock-icon-start"></i>
+              <i className="far fa-clock clock-icon-start"></i>
             </p>
           </div>
           <div className="end-date">
             <p className="booking-date">
               {moment(booking.end_date).format(formatDay)}
-              <i class="far fa-calendar-alt date-icon-end"></i>
+              <i className="far fa-calendar-alt date-icon-end"></i>
             </p>
             <p className="booking-time">
               {moment(booking.end_date).format(formatTime)}
-              <i class="far fa-clock clock-icon-end"></i>
+              <i className="far fa-clock clock-icon-end"></i>
             </p>
           </div>
           <button

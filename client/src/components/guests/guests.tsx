@@ -11,13 +11,13 @@ function Guests() {
     setAdultCount(adultCount + 1)
   }
   const decrementAdult = () => {
-    if (adultCount != 0) setAdultCount(adultCount - 1)
+    if (adultCount !== 0) setAdultCount(adultCount - 1)
   }
   const incrementChild = () => {
     setChildCount(childCount + 1)
   }
   const decrementChild = () => {
-    if (childCount != 0) setChildCount(childCount - 1)
+    if (childCount !== 0) setChildCount(childCount - 1)
   }
 
   const numOfGuests = `Total guests: ${adultCount + childCount}`
@@ -28,7 +28,6 @@ function Guests() {
         id="dropdown-basic-button"
         title={numOfGuests}
         autoClose="outside"
-        active="false"
       >
         <div className="dropdown-container">
           <Dropdown className="dropdown-adults">

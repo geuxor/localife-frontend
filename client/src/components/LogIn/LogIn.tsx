@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, ChangeEvent } from 'react'
 import { useAppDispatch } from '../../redux/hooks'
 import { toast } from 'react-toastify'
 import './LogIn.css'
@@ -10,14 +10,14 @@ import { get_cookie } from '../../utils/cookieHandler'
 
 export default function LogIn({ setShowLogIn }) {
   const dispatch = useAppDispatch()
-  const emailRef = useRef()
-  const passwordRef = useRef()
+  const emailRef = useRef<HTMLInputElement | null>(null)
+  const passwordRef = useRef<HTMLInputElement | null>(null)
 
-  async function handleSubmit(e) {
+  async function handleSubmit(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault()
     const user = {
-      email: emailRef.current.value,
-      password: passwordRef.current.value,
+      email: (emailRef as any).current.value,
+      password: (passwordRef as any).current.value,
     }
     try {
       const res = await apiAuth.loginUser(user)
@@ -39,10 +39,10 @@ export default function LogIn({ setShowLogIn }) {
         const mycookie = get_cookie()
         console.log('Login: new cookie found:', mycookie)
       }
-    } catch (err) {
+    } catch (err: any) {
       console.log(err)
       if (err.response && err.response.status >= 400)
-        toast.error('Something went wrong!', err, err.response.data)
+        toast.error('Something went wrong!', err.response.data)
     }
   }
 

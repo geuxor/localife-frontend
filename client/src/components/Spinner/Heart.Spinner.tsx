@@ -42,11 +42,7 @@ const HeartSpinner = styled.div`
   }
 `
 
-interface Props {
-  color: string
-  size: string
-}
-const Heart: React.FC<Props> = ({ color, size }) => (
+const Heart = ({ color, size }) => (
   <HeartSpinner color={color} size={size}>
     <i className="fas fa-heart heart-style"></i>
   </HeartSpinner>

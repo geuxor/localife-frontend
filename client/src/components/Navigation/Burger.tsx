@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import * as S from './styles';
+import React, { useState } from 'react'
+import * as S from './styles'
 
-import RightNav from './RightNav';
+import RightNav from './RightNav'
 
 const Burger = () => {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState<boolean>(false)
 
   return (
     <>

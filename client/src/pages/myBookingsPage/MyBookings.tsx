@@ -3,7 +3,7 @@ import { useAppSelector } from '../../redux/hooks'
 import React, { useEffect, useState } from 'react'
 import bookingsApi from '../../apiServices/bookingsApi'
 import Heart from '../../components/Spinner/Heart.Spinner'
-import SingleBooking from '../../components/SingleBooking/SingleBooking'
+import { SingleBooking } from '../../components/SingleBooking/SingleBooking'
 import moment from 'moment'
 
 export default function MyBookings() {
@@ -26,16 +26,16 @@ export default function MyBookings() {
 
   const currentDate = new Date()
   const sortedExperiencesDistant = myBookings.sort(
-    (a, b) => new Date(a.end_date) - new Date(b.end_date),
+    (a: any, b: any) => a.end_date.getTime() - b.end_date.getTime(),
   )
   const pastExperiences = myBookings.filter(
-    (exp) => new Date(exp.end_date) < currentDate,
+    (exp: any) => new Date(exp.end_date) < currentDate,
   )
   const sortedExperiencesRecent = pastExperiences.sort(
-    (a, b) => new Date(b.end_date) - new Date(a.end_date),
+    (a: any, b: any) => b.end_date.getTime() - a.end_date.getTime(),
   )
   const futureExperiences = sortedExperiencesDistant.filter(
-    (exp) => new Date(exp.start_date) > currentDate,
+    (exp: any) => new Date(exp.start_date) > currentDate,
   )
 
   return (
@@ -46,20 +46,17 @@ export default function MyBookings() {
         <div>
           <h2 className="hello-user">
             Hello {store.user.firstname}
-            <i class="far fa-smile"></i>
+            <i className="far fa-smile"></i>
           </h2>
           <h5 className="upcoming">These are your upcoming experiences:</h5>
           <div className="booking-list">
             {futureExperiences.map((booking, i) => (
-              <SingleBooking
-                key={i}
-                booking={booking}
-              />
+              <SingleBooking key={i} booking={booking} />
             ))}
           </div>
           <div className="past-exp-container">
             <h5 className="past-exp">Past experiences:</h5>
-            {sortedExperiencesRecent.map((exp) => (
+            {sortedExperiencesRecent.map((exp: any) => (
               <div className="past-exp-detail">
                 <h5>{exp.Experience.title}</h5>
                 <h6>{moment(exp.end_date).fromNow()}</h6>

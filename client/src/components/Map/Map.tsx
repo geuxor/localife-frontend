@@ -6,16 +6,29 @@ import Geocode from 'react-geocode'
 import axios from 'axios'
 import { useLocation } from 'react-router-dom'
 
-export default function Map() {
-  const [pins, setPins] = useState([])
-  const [currentPinId, setCurrentPinId] = useState(null)
+interface Location {
+  latitude: number
+  longitude: number
+}
 
-  const [location, setLocation] = useState({
+interface Viewport {
+  width: string
+  height: string
+  latitude: Location['latitude']
+  longitude: Location['longitude']
+  zoom: number
+}
+
+export const Map: React.FC = () => {
+  const [pins, setPins] = useState([] as any[])
+  const [currentPinId, setCurrentPinId] = useState<number | null>(null)
+
+  const [location, setLocation] = useState<Location>({
     latitude: 0,
     longitude: 0,
   })
 
-  const [viewport, setViewport] = useState({
+  const [viewport, setViewport] = useState<Viewport>({
     width: '37vw',
     height: '91vh',
     latitude: location.latitude,
@@ -49,7 +62,7 @@ export default function Map() {
     })
   }, [location])
 
-  let search = useLocation().search
+  let search: string = useLocation().search
   let searchCity = new URLSearchParams(search).get('city')
   let searchCountry = new URLSearchParams(search).get('country')
   const filteredPins = pins.filter(

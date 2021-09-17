@@ -11,7 +11,7 @@ import { toast } from 'react-toastify'
 import LogIn from '../../components/LogIn/LogIn'
 import moment from 'moment'
 import bookingsApi from '../../apiServices/bookingsApi'
-import Heart from '../../components/Spinner/Heart.Spinner.js'
+import Heart from '../../components/Spinner/Heart.Spinner'
 
 function ExperienceDetails(props) {
   const [experience, setExperience] = useState<ExperienceInterface>()

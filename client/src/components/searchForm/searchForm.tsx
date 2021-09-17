@@ -1,25 +1,24 @@
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import './searchForm.css'
-import PlacesAutocomplete, { geocodeByAddress } from 'react-places-autocomplete'
+import PlacesAutocomplete, { Suggestion } from 'react-places-autocomplete'
 export default function SearchForm() {
   const history = useHistory()
-  const [location, setLocation] = useState([])
-  const [selectedSuggestion, setSelectedSuggestion] = useState([])
-  // function handleChange(location) {
-  //   setLocation(location)
-  // }
+  const [location, setLocation] = useState([] as any)
+  const [selectedSuggestion, setSelectedSuggestion] = useState(
+    [] as any[] | readonly Suggestion[],
+  )
+
   function handleSubmit(location) {
-    // if (e.key === ‘Enter’ && e) {
-    //   e.preventDefault(
-    const matchedSuggestion = selectedSuggestion.find((suggestion) => {
-      return suggestion.description === location
-    })
+    const matchedSuggestion = (selectedSuggestion as any[]).find(
+      (suggestion) => {
+        return suggestion.description === location
+      },
+    )
     const { formattedSuggestion } = matchedSuggestion
     history.push(
       `/search-results?city=${formattedSuggestion.mainText}&country=${formattedSuggestion.secondaryText}`,
     )
-    // e.target.value = ‘’
   }
   return (
     <PlacesAutocomplete
@@ -40,7 +39,7 @@ export default function SearchForm() {
                 placeholder: ' I want to go to...',
                 className: 'search-term',
                 type: 'text',
-                autoFocus: 'true',
+                autoFocus: true,
               })}
             />
             <div className="suggestions">

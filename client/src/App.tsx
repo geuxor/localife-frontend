@@ -9,13 +9,12 @@ import { get_cookie } from './utils/cookieHandler'
 import apiAuth from './apiServices/auth'
 import { useAppSelector, useAppDispatch } from '../src/redux/hooks'
 import { setUser, setLogIn } from './redux/actions/actions'
-import { RootState } from './redux/reducers/reducers'
 import Footer from './components/Footer/Footer'
 
 function App() {
   const [loading, setLoading] = useState(true)
   const dispatch = useAppDispatch()
-  const store = useAppSelector(state => state)
+  const store = useAppSelector((state) => state)
 
   useEffect(() => {
     if (!store.isLoggedIn) {

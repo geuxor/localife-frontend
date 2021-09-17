@@ -1,19 +1,19 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useAppSelector } from '../../redux/hooks'
 import * as S from './styles'
 import { NavLink } from 'react-router-dom'
 import LogIn from '../LogIn/LogIn'
 import Registration from '../registration/registration'
 
-type Props = {
-  open: boolean
+interface Props {
+  open?: any | boolean
 }
 
-function RightNav(props: Props) {
-  const [showLogIn, setShowLogIn] = useState(false)
-  const [showRegister, setShowRegister] = useState(false)
-  const [showProviderLinks, setShowProviderLinks] = useState(false)
-  const store = useAppSelector(state => state)
+const RightNav = ({ open }: Props) => {
+  const [showLogIn, setShowLogIn] = useState<boolean>(false)
+  const [showRegister, setShowRegister] = useState<boolean>(false)
+  const [showProviderLinks, setShowProviderLinks] = useState<boolean>(false)
+  const store = useAppSelector((state) => state)
 
   useEffect(() => {
     if (store.isLoggedIn) {
@@ -47,7 +47,7 @@ function RightNav(props: Props) {
 
   return (
     <>
-      <S.Ul open={props.open}>
+      <S.Ul open={open}>
         <NavLink
           onClick={() => resetClickHandler()}
           to="/"

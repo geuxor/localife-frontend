@@ -11,9 +11,11 @@ function ExperienceResults() {
   const [experiences, setExperiences] = useState<ExpState['experience']>([])
   const [loading, setLoading] = useState<boolean>(true)
 
+  console.log(experiences)
+
   let search = useLocation().search
-  let searchCity = new URLSearchParams(search).get('city')
-  let searchCountry = new URLSearchParams(search).get('country')
+  let searchCity: string | null = new URLSearchParams(search).get('city')
+  let searchCountry: string | null= new URLSearchParams(search).get('country')
 
   let location = {
     city: searchCity,
@@ -21,7 +23,6 @@ function ExperienceResults() {
   }
 
   useEffect(() => {
-    console.log('searchLocation:', searchCity)
     ;(async () => {
       try {
         const searchResults = await ExperiencesApi.searchExperiencesApi(
@@ -42,8 +43,6 @@ function ExperienceResults() {
     })()
   }, [window.location.search])
 
-  console.log('EXPERIENCES!', experiences)
-
   return (
     <>
       <div className="exp-container">
@@ -56,7 +55,6 @@ function ExperienceResults() {
         ) : experiences.length ? (
           <>
             <div className="exp-list">
-              {console.log(experiences)}
               {experiences.map((xp, i) => (
                 <Experience key={i} experience={xp} />
               ))}

@@ -4,13 +4,18 @@ import { useParams } from 'react-router-dom'
 import BookingsApi from '../../apiServices/bookingsApi'
 import Heart from '../../components/Spinner/Heart.Spinner'
 import { toast } from 'react-toastify'
+import {Booking} from '../../types/types'
 import './BookingDetails.css'
 import moment from 'moment'
 
+type QuizParams = {
+  id: string;
+};
+
 export default function BookingDetails() {
-  const { id } = useParams()
-  const [loading, setLoading] = useState(true)
-  const [booking, setBooking] = useState()
+  const { id } = useParams<QuizParams>()
+  const [loading, setLoading] = useState<boolean>(true)
+  const [booking, setBooking] = useState<Booking>([] as any)
   const store = useAppSelector((state) => state)
   useEffect(() => {
     ;(async () => {
@@ -27,6 +32,8 @@ export default function BookingDetails() {
       }
     })()
   }, [])
+
+  console.log(booking)
 
   return (
     <div className="details-container">

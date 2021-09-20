@@ -4,6 +4,8 @@ export interface ExperienceInterface {
   description: string
   image?: string
   location: string
+  city: string
+  country: string
   price: number
   from?: Date
   to?: Date
@@ -47,4 +49,17 @@ export interface ExpState {
     to: string
     updatedAt: string
   }[]
+}
+
+export interface Booking {
+  id: number
+  status: string,
+  providerId: string,
+  start_date: string,
+  end_date: string,
+  price: number,
+  quantity: number,
+  total: number,
+  createdAt: string,
+  Experience: ExperienceInterface
 }

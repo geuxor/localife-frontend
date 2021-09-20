@@ -13,13 +13,13 @@ import moment from 'moment'
 import bookingsApi from '../../apiServices/bookingsApi'
 import Heart from '../../components/Spinner/Heart.Spinner'
 
-function ExperienceDetails(props) {
+function ExperienceDetails() {
   const [experience, setExperience] = useState<ExperienceInterface>()
   const [startDate, setStartDate] = useState(null)
   const [loading, setLoading] = useState<boolean>(true)
   const { id }: { id: string } = useParams()
   const authed = useAppSelector((state) => state.isLoggedIn)
-  const [showLogIn, setShowLogIn] = useState(false)
+  const [showLogIn, setShowLogIn] = useState<boolean>(false)
 
   useEffect(() => {
     ;(async () => {

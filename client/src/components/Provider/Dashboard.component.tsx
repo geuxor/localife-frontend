@@ -2,13 +2,12 @@ import { useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks'
 import apiStripe from '../../apiServices/stripeApi'
 import { toast } from 'react-toastify'
-import { RootState } from '../../redux/reducers/reducers'
 import Heart from '../Spinner/Heart.Spinner'
 import DashboardBanner from './DashboardBanner.component'
 import { setStripe } from '../../redux/actions/actions'
 import './Dashboard.style.css'
 
-function Dashbaord(props) {
+function Dashboard(props) {
   const dispatch = useAppDispatch()
   const [loading, setLoading] = useState(false)
   const store = useAppSelector((state) => state)
@@ -69,4 +68,4 @@ function Dashbaord(props) {
   )
 }
 
-export default Dashbaord
+export default Dashboard

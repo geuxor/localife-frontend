@@ -5,6 +5,7 @@ import bookingsApi from '../../apiServices/bookingsApi'
 import Heart from '../../components/Spinner/Heart.Spinner'
 import { SingleBooking } from '../../components/SingleBooking/SingleBooking'
 import moment from 'moment'
+import { Booking } from '../../types/types'
 
 export default function MyBookings() {
   const [myBookings, setMyBookings] = useState([])
@@ -24,18 +25,19 @@ export default function MyBookings() {
     })()
   }, [])
 
+
   const currentDate = new Date()
   const sortedExperiencesDistant = myBookings.sort(
-    (a: any, b: any) => a.end_date.getTime() - b.end_date.getTime(),
+    (a: Booking, b: Booking) => new Date(a.end_date).getTime() - new Date(b.end_date).getTime(),
   )
   const pastExperiences = myBookings.filter(
-    (exp: any) => new Date(exp.end_date) < currentDate,
+    (exp: Booking) => new Date(exp.end_date) < currentDate,
   )
   const sortedExperiencesRecent = pastExperiences.sort(
-    (a: any, b: any) => b.end_date.getTime() - a.end_date.getTime(),
+    (a: Booking, b: Booking) => new Date(b.end_date).getTime() - new Date(a.end_date).getTime(),
   )
   const futureExperiences = sortedExperiencesDistant.filter(
-    (exp: any) => new Date(exp.start_date) > currentDate,
+    (exp: Booking) => new Date(exp.start_date) > currentDate,
   )
 
   return (

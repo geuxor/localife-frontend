@@ -45,7 +45,6 @@ export default function SearchForm() {
             <div className="suggestions">
               {loading ? <div>...loading</div> : null}
               {suggestions.map((suggestion) => {
-                console.log('SUGGESTION', suggestion)
                 const style = {
                   backgroundColor: suggestion.active ? '#41B6E6' : '#fff',
                 }

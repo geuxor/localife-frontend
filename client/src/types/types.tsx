@@ -53,13 +53,19 @@ export interface ExpState {
 
 export interface Booking {
   id: number
-  status: string,
-  providerId: string,
-  start_date: string,
-  end_date: string,
-  price: number,
-  quantity: number,
-  total: number,
-  createdAt: string,
+  status: string
+  providerId: string
+  start_date: string
+  end_date: string
+  price: number
+  quantity: number
+  total: number
+  createdAt: string
   Experience: ExperienceInterface
+}
+
+export interface BookingsApi {
+  createBooking(experience: any): Promise<any>
+  bookingSuccessRequest(bookingSuccessRequest: any): Promise<any>
+  getUserBookings()
 }

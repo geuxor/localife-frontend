@@ -7,7 +7,6 @@ import ExperiencesApi from '../../apiServices/experiencesApi'
 import apiStripe from '../../apiServices/stripeApi'
 import moment from 'moment'
 import { Button, Card, Avatar, Image, Badge } from 'antd'
-import { SizeType } from 'antd/lib/config-provider/SizeContext'
 import {
   PlusCircleOutlined,
   DollarCircleOutlined,
@@ -18,11 +17,8 @@ const { Meta } = Card
 const { Ribbon } = Badge
 
 const DashboardBanner = () => {
-
-  type CustomSizeType = SizeType | number
-
   const [myExperiences, setmyExperiences] = useState([])
-  const store = useAppSelector(state => state)
+  const store = useAppSelector((state) => state)
   const [, setLoading] = useState(false)
   const [, setBalance] = useState({})
   const dispatch = useAppDispatch()
@@ -41,7 +37,7 @@ const DashboardBanner = () => {
       try {
         let res = await ExperiencesApi.getMyExperiences()
         setmyExperiences(res.data)
-      } catch (err) {
+      } catch (err: any) {
         setLoading(false)
         if (err.response && err.response.status >= 400) {
           toast.error(err.response.data)
@@ -155,7 +151,7 @@ const DashboardBanner = () => {
                   type="primary"
                   shape="round"
                   icon={<SettingOutlined />}
-                  size='small'
+                  size="small"
                 >
                   Configure Account
                 </Button>
@@ -166,7 +162,7 @@ const DashboardBanner = () => {
                   type="primary"
                   shape="round"
                   icon={<DollarCircleOutlined />}
-                  size='small'
+                  size="small"
                 >
                   Update Balance
                 </Button>

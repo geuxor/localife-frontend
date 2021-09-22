@@ -8,7 +8,7 @@ import { useHistory } from 'react-router'
 
 function BecomeProvider(props) {
   const dispatch = useAppDispatch()
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState<boolean>(true)
   const store = useAppSelector((state: RootState) => state)
   const [missingStripeRequirements, setMissingStripeRequirements] = useState([])
   const history = useHistory()

@@ -3,7 +3,6 @@ import './experience.css'
 import { useHistory } from 'react-router'
 
 function Experience(props: Props): any {
-  console.log('PROPS', props)
   const history = useHistory()
 
   const handleClick = () =>

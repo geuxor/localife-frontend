@@ -1,17 +1,8 @@
 import { Carousel } from 'antd'
 import './carousel.css'
-import { Image, Transformation } from '@cloudinary/react'
-import { CloudinaryImage } from '@cloudinary/base/assets/CloudinaryImage'
 import { Cloudinary } from 'cloudinary-core'
 
 function ImgCarousel() {
-  const contentStyle = {
-    height: '160px',
-    color: '#fff',
-    lineHeight: '100px',
-    textAlign: 'center',
-    background: '#234f6d',
-  }
   const cloudinaryCore = new Cloudinary({
     cloud_name: process.env.REACT_APP_CLOUD_NAME,
     secure: true,
@@ -27,7 +18,17 @@ function ImgCarousel() {
 
   return (
     <div>
-      <Carousel className="banner" style={contentStyle} autoplay>
+      <Carousel
+        className="banner"
+        style={{
+          height: '160px',
+          color: '#fff',
+          lineHeight: '100px',
+          textAlign: 'center',
+          background: '#234f6d',
+        }}
+        autoplay
+      >
         {SampleImg()}
       </Carousel>
     </div>

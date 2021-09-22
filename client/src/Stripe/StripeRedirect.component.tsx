@@ -21,15 +21,15 @@ const StripeRedirect = () => {
           )
           history.push('/dashboard')
         }
-      } catch (err) {
+      } catch (err: any) {
         if (err.response && err.response.status >= 400) {
           if (err.response.data === 'No Stripe account found') {
-            toast.err('No Stripe account found')
+            toast.error('No Stripe account found')
           }
           let missingRequirements = err.response.data.split(',')
           if (missingRequirements) {
             toast.error('Still Missing Onboarding Requirements')
-            let stripeReqs = []
+            let stripeReqs = [] as any[]
             missingRequirements.forEach((el) => {
               stripeReqs.push(
                 el.replace(/[._\s]/g, ' ').replace(/\b\w/g, function (c) {

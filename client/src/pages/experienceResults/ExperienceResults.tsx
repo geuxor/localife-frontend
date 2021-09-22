@@ -11,11 +11,9 @@ function ExperienceResults() {
   const [experiences, setExperiences] = useState<ExpState['experience']>([])
   const [loading, setLoading] = useState<boolean>(true)
 
-  console.log(experiences)
-
   let search = useLocation().search
   let searchCity: string | null = new URLSearchParams(search).get('city')
-  let searchCountry: string | null= new URLSearchParams(search).get('country')
+  let searchCountry: string | null = new URLSearchParams(search).get('country')
 
   let location = {
     city: searchCity,

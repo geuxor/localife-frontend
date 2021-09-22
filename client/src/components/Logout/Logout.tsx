@@ -16,9 +16,8 @@ export default function LogOut() {
         type: 'SET_LOGOUT',
       })
       toast.info('You have been logged out...')
-      const res = await apiAuth.logout()
       history.push('/')
-    } catch (err) {
+    } catch (err: any) {
       history.push('/')
       if (err.response && err.response.status >= 400)
         toast.error(err.response.data)

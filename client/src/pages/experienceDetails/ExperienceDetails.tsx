@@ -58,10 +58,8 @@ function ExperienceDetails() {
       }
 
       const res = await bookingsApi.createBooking(bookingData)
-      console.log('ViewExperience: Create Booking SessionID res:', res)
       if (!res.data) throw new Error('Unable to create booking')
       sessionId = res.data.sessionId
-      console.log('ViewExperience: ready handle booking:', sessionId)
       const stripe: any = await loadStripe(
         process.env.REACT_APP_STRIPE_PUBLISH_KEY!,
       )

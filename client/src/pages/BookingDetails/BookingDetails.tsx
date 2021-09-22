@@ -4,13 +4,13 @@ import { useParams } from 'react-router-dom'
 import BookingsApi from '../../apiServices/bookingsApi'
 import Heart from '../../components/Spinner/Heart.Spinner'
 import { toast } from 'react-toastify'
-import {Booking} from '../../types/types'
+import { Booking } from '../../types/types'
 import './BookingDetails.css'
 import moment from 'moment'
 
 type QuizParams = {
-  id: string;
-};
+  id: string
+}
 
 export default function BookingDetails() {
   const { id } = useParams<QuizParams>()
@@ -23,7 +23,7 @@ export default function BookingDetails() {
         const detailedBooking = await BookingsApi.getOneBooking(id)
         setBooking(detailedBooking.data)
         setLoading(false)
-      } catch (err) {
+      } catch (err: any) {
         if (err.response && err.response.status >= 400) {
           toast.error(err.response.data.message)
         } else {
@@ -32,8 +32,6 @@ export default function BookingDetails() {
       }
     })()
   }, [])
-
-  console.log(booking)
 
   return (
     <div className="details-container">

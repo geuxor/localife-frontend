@@ -9,7 +9,7 @@ import './Dashboard.style.css'
 
 function Dashboard(props) {
   const dispatch = useAppDispatch()
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState<boolean>(false)
   const store = useAppSelector((state) => state)
 
   useEffect(() => {
@@ -25,7 +25,6 @@ function Dashboard(props) {
         setLoading(false)
       } catch (err: any) {
         if (err.response && err.response.data.length < 100) {
-          let fields_req = err.response.data.split(',')
           toast.error(err.response.data)
         } else {
           if (err.response) {

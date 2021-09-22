@@ -1,27 +1,28 @@
 import { toast } from 'react-toastify'
-import { useRef } from 'react'
+import { useRef, useLayoutEffect } from 'react'
 import apiAuth from '../../apiServices/auth'
 import './registration.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
 export default function Registration({ setShowRegister, setShowLogIn }) {
-  const firstNameRef = useRef()
-  const lastNameRef = useRef()
-  const emailRef = useRef()
-  const passwordRef = useRef()
+  const firstNameRef = useRef<HTMLInputElement>(null)
+  const lastNameRef = useRef<HTMLInputElement>(null)
+  const emailRef = useRef<HTMLInputElement>(null)
+  const passwordRef = useRef<HTMLInputElement>(null)
 
-  const handleSubmit = async (e) => {
+  useLayoutEffect(() => {}, [])
+
+  const handleSubmit = async (e: any) => {
     e.preventDefault()
     const newUser = {
-      firstname: firstNameRef.current.value,
-      lastname: lastNameRef.current.value,
-      email: emailRef.current.value,
-      password: passwordRef.current.value,
+      firstname: firstNameRef.current!.value,
+      lastname: lastNameRef.current!.value,
+      email: emailRef.current!.value,
+      password: passwordRef.current!.value,
     }
     try {
       const res = await apiAuth.registerUser(newUser)
-      console.log('Response from backend:', res.data)
       if (res.data === 'ok') {
         setShowRegister(false)
         setShowLogIn(true)
@@ -29,7 +30,7 @@ export default function Registration({ setShowRegister, setShowLogIn }) {
       } else {
         toast.error(res.data)
       }
-    } catch (err) {
+    } catch (err: any) {
       if (err.response && err.response.status >= 400)
         toast.error('Something went wrong!', err.response.data)
     }

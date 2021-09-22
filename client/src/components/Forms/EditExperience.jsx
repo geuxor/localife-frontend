@@ -1,7 +1,5 @@
-import { DatePicker, Select } from 'antd'
+import { DatePicker } from 'antd'
 import moment from 'moment'
-
-const { Option } = Select
 
 const ExperienceEditForm = ({
   values,

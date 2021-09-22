@@ -43,7 +43,7 @@ export const Map: React.FC = () => {
     } catch (e) {}
   }
 
-  const handlePopupClick = (id, lat, long) => {
+  const handlePopupClick = (id: number, lat: number, long: number) => {
     setCurrentPinId(id)
     setViewport({ ...viewport, latitude: lat, longitude: long })
   }
@@ -84,7 +84,7 @@ export const Map: React.FC = () => {
       },
       (error) => {},
     )
-  }, [])
+  }, [searchCity, searchCountry])
 
   return (
     <div className="map">
@@ -96,7 +96,7 @@ export const Map: React.FC = () => {
           mapStyle="mapbox://styles/sebastiangreen/ckslt5mlr24ir17mwb1f33uog"
         >
           {filteredPins.map((pin) => (
-            <>
+            <div key={pin.id}>
               <Marker
                 latitude={pin.lat}
                 longitude={pin.lon}
@@ -131,7 +131,7 @@ export const Map: React.FC = () => {
                   </div>
                 </Popup>
               )}
-            </>
+            </div>
           ))}
         </ReactMapGL>
       ) : null}

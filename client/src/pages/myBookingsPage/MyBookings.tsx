@@ -9,7 +9,7 @@ import { Booking } from '../../types/types'
 
 export default function MyBookings() {
   const [myBookings, setMyBookings] = useState([])
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState<boolean>(true)
 
   const store = useAppSelector((state) => state)
 
@@ -25,16 +25,17 @@ export default function MyBookings() {
     })()
   }, [])
 
-
   const currentDate = new Date()
   const sortedExperiencesDistant = myBookings.sort(
-    (a: Booking, b: Booking) => new Date(a.end_date).getTime() - new Date(b.end_date).getTime(),
+    (a: Booking, b: Booking) =>
+      new Date(a.end_date).getTime() - new Date(b.end_date).getTime(),
   )
   const pastExperiences = myBookings.filter(
     (exp: Booking) => new Date(exp.end_date) < currentDate,
   )
   const sortedExperiencesRecent = pastExperiences.sort(
-    (a: Booking, b: Booking) => new Date(b.end_date).getTime() - new Date(a.end_date).getTime(),
+    (a: Booking, b: Booking) =>
+      new Date(b.end_date).getTime() - new Date(a.end_date).getTime(),
   )
   const futureExperiences = sortedExperiencesDistant.filter(
     (exp: Booking) => new Date(exp.start_date) > currentDate,

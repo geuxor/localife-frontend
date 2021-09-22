@@ -43,7 +43,7 @@ function App() {
         }
       })()
     }
-  }, [])
+  }, [dispatch, store.isLoggedIn])
 
   return (
     <>
